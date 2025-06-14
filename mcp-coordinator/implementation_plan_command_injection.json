@@ -1,0 +1,179 @@
+{
+  "plan_id": "plan-fix-command-injection-001",
+  "task_id": "task-plan-1749924324",
+  "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+  "title": "Fix Command Injection Vulnerability in check_dependencies()",
+  "description": "Comprehensive security fix for command injection vulnerability in autonomous-system.py",
+  "risk_assessment": {
+    "severity": "critical",
+    "impact": "High - Arbitrary command execution with full privileges",
+    "likelihood": "Medium - Requires config file or environment access",
+    "priority": "P0 - Must fix immediately"
+  },
+  "implementation_steps": [
+    {
+      "step": 1,
+      "title": "Create Command Whitelist",
+      "description": "Define allowed commands and validate against whitelist",
+      "details": [
+        "Create ALLOWED_COMMANDS constant with only 'tmux', 'claude', 'git'",
+        "Implement validate_command() function to check against whitelist",
+        "Use absolute paths for commands (/usr/bin/git, etc.)",
+        "Reject any command not in whitelist"
+      ],
+      "estimated_time": "15 minutes"
+    },
+    {
+      "step": 2,
+      "title": "Implement Input Validation",
+      "description": "Add comprehensive input validation for all command parameters",
+      "details": [
+        "Validate command names contain only alphanumeric characters",
+        "Ensure version flags are exactly '--version' or '-V'",
+        "Strip and validate all input parameters",
+        "Use shlex.quote() for any dynamic parameters"
+      ],
+      "estimated_time": "20 minutes"
+    },
+    {
+      "step": 3,
+      "title": "Refactor check_dependencies()",
+      "description": "Rewrite function with security-first approach",
+      "details": [
+        "Use hardcoded command paths instead of dynamic lookup",
+        "Implement try-except blocks with specific error handling",
+        "Add security logging for all command executions",
+        "Use subprocess with shell=False and explicit arguments"
+      ],
+      "code_snippet": "\ndef check_dependencies(self) -> bool:\n    '''Enhanced dependency checking with security validation'''\n    logger.info('Checking system dependencies...')\n    \n    # Whitelist of allowed commands with absolute paths\n    ALLOWED_COMMANDS = {\n        'tmux': '/usr/bin/tmux',\n        'claude': '/usr/local/bin/claude',\n        'git': '/usr/bin/git'\n    }\n    \n    dependencies = {\n        'tmux': ['--version'],\n        'claude': ['--version'],\n        'git': ['--version']\n    }\n    \n    missing = []\n    for cmd, args in dependencies.items():\n        if cmd not in ALLOWED_COMMANDS:\n            logger.error(f'Command {cmd} not in whitelist')\n            missing.append(cmd)\n            continue\n            \n        try:\n            # Use absolute path from whitelist\n            cmd_path = ALLOWED_COMMANDS[cmd]\n            \n            # Validate arguments\n            if not all(arg in ['--version', '-V'] for arg in args):\n                logger.error(f'Invalid arguments for {cmd}: {args}')\n                missing.append(cmd)\n                continue\n            \n            # Execute with security constraints\n            result = subprocess.run(\n                [cmd_path] + args,\n                capture_output=True,\n                text=True,\n                timeout=5,\n                shell=False  # Explicitly disable shell\n            )\n            \n            if result.returncode != 0:\n                missing.append(cmd)\n                logger.warning(f'{cmd} check failed: {result.stderr}')\n            else:\n                logger.debug(f'{cmd} version: {result.stdout.strip()}')\n                \n        except subprocess.TimeoutExpired:\n            logger.error(f'{cmd} version check timed out')\n            missing.append(cmd)\n        except FileNotFoundError:\n            logger.error(f'{cmd} not found at {cmd_path}')\n            missing.append(cmd)\n        except Exception as e:\n            logger.error(f'Unexpected error checking {cmd}', exc_info=True)\n            missing.append(cmd)\n    \n    if missing:\n        logger.error(f'Missing dependencies: {missing}')\n        return False\n        \n    logger.info('\u2705 All dependencies satisfied')\n    return True\n",
+      "estimated_time": "25 minutes"
+    },
+    {
+      "step": 4,
+      "title": "Add Security Logging",
+      "description": "Implement comprehensive security event logging",
+      "details": [
+        "Log all command execution attempts with timestamps",
+        "Create security audit trail for command validation failures",
+        "Add alerts for suspicious command patterns",
+        "Implement rate limiting for dependency checks"
+      ],
+      "estimated_time": "15 minutes"
+    },
+    {
+      "step": 5,
+      "title": "Write Security Tests",
+      "description": "Create comprehensive test suite for security validation",
+      "test_cases": [
+        "Test command whitelist validation",
+        "Test rejection of non-whitelisted commands",
+        "Test handling of malformed arguments",
+        "Test command injection attempts",
+        "Test path traversal attempts",
+        "Test timeout handling",
+        "Test error scenarios"
+      ],
+      "estimated_time": "30 minutes"
+    },
+    {
+      "step": 6,
+      "title": "Integration Testing",
+      "description": "Verify fix doesn't break existing functionality",
+      "details": [
+        "Test normal dependency checking flow",
+        "Verify all agents can still launch",
+        "Test with missing dependencies",
+        "Verify error messages are informative",
+        "Check performance impact"
+      ],
+      "estimated_time": "20 minutes"
+    },
+    {
+      "step": 7,
+      "title": "Security Review",
+      "description": "Final security validation and documentation",
+      "details": [
+        "Review code for any remaining vulnerabilities",
+        "Update security documentation",
+        "Add inline security comments",
+        "Create security test checklist"
+      ],
+      "estimated_time": "15 minutes"
+    }
+  ],
+  "testing_requirements": {
+    "unit_tests": [
+      "test_validate_command_whitelist",
+      "test_reject_non_whitelisted_commands",
+      "test_validate_command_arguments",
+      "test_command_injection_attempts",
+      "test_timeout_handling",
+      "test_missing_dependencies",
+      "test_security_logging"
+    ],
+    "integration_tests": [
+      "test_full_dependency_check_flow",
+      "test_agent_launch_with_validated_deps",
+      "test_system_startup_security"
+    ],
+    "security_tests": [
+      "test_command_injection_prevention",
+      "test_path_traversal_prevention",
+      "test_argument_injection_prevention"
+    ],
+    "coverage_target": "95%"
+  },
+  "code_review_checklist": [
+    "All commands validated against whitelist",
+    "No dynamic command construction",
+    "Absolute paths used for all commands",
+    "Shell=False enforced in all subprocess calls",
+    "Comprehensive error handling",
+    "Security logging implemented",
+    "No user input in command construction",
+    "Timeout protection on all external calls"
+  ],
+  "rollback_plan": {
+    "trigger_conditions": [
+      "Dependency checks failing in production",
+      "Agent launch failures",
+      "Performance degradation > 10%"
+    ],
+    "steps": [
+      "Revert to previous version via git",
+      "Clear any cached dependency states",
+      "Restart autonomous system",
+      "Monitor for successful agent launches"
+    ],
+    "estimated_time": "5 minutes"
+  },
+  "performance_impact": {
+    "expected_impact": "Minimal - adds ~50ms to startup",
+    "mitigation": "Cache validated command paths after first check"
+  },
+  "delivery_timeline": {
+    "total_estimated_time": "140 minutes",
+    "phases": [
+      {
+        "phase": "Implementation",
+        "time": "75 minutes"
+      },
+      {
+        "phase": "Testing",
+        "time": "50 minutes"
+      },
+      {
+        "phase": "Review & Documentation",
+        "time": "15 minutes"
+      }
+    ]
+  },
+  "success_criteria": [
+    "Command injection vulnerability eliminated",
+    "All existing functionality preserved",
+    "95% test coverage achieved",
+    "Security logging operational",
+    "No performance regression",
+    "Code review approved"
+  ]
+}

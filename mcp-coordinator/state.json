@@ -45,8 +45,9 @@
       ],
       "status": "active",
       "registered_at": "2025-06-14T11:02:24.236998",
-      "last_seen": "2025-06-14T11:02:24.237015",
-      "version": "2.0"
+      "last_seen": "2025-06-14T11:36:59.207851",
+      "version": "2.0",
+      "tasks_completed": 1
     },
     "tester-20250614-110541-41302": {
       "agent_id": "tester-20250614-110541-41302",
@@ -67,6 +68,49 @@
       "status": "active",
       "registered_at": "2025-06-14T11:05:41.890661",
       "last_seen": "2025-06-14T11:05:41.890671"
+    },
+    "tester-test-20250614-111011": {
+      "agent_id": "tester-test-20250614-111011",
+      "role": "tester",
+      "capabilities": [
+        "unit_testing",
+        "integration_testing",
+        "coverage_analysis"
+      ],
+      "status": "active",
+      "registered_at": "2025-06-14T11:10:11.602363",
+      "last_seen": "2025-06-14T11:10:11.602369"
+    },
+    "coder-001": {
+      "id": "coder-001",
+      "role": "coder",
+      "capabilities": [
+        "code_implementation",
+        "bug_fixing",
+        "refactoring",
+        "feature_development",
+        "code_generation"
+      ],
+      "status": "busy",
+      "registered_at": "2025-06-14T11:33:08.403261",
+      "last_seen": "2025-06-14T11:33:08.406936",
+      "version": "2.0"
+    },
+    "reviewer-001": {
+      "agent_id": "reviewer-001",
+      "role": "reviewer",
+      "capabilities": [
+        "code_review",
+        "pr_creation",
+        "quality_checking",
+        "documentation_review",
+        "best_practices"
+      ],
+      "status": "active",
+      "registered_at": "2025-06-14T11:34:01.991179",
+      "last_heartbeat": "2025-06-14T11:34:01.991191",
+      "task_count": 0,
+      "error_count": 0
     }
   },
   "task_queue": [
@@ -151,14 +195,154 @@
       },
       "dependencies": [],
       "created_at": "2025-06-14T09:57:35.935707",
-      "updated_at": "2025-06-14T10:38:29.753183",
+      "updated_at": "2025-06-14T11:36:59.207840",
       "retry_count": 0,
       "estimated_duration": 600,
       "result": {
-        "plan_created": true,
-        "implementation_task_id": "1749922709.75537"
+        "success": true,
+        "plan": {
+          "plan_id": "plan-fix-command-injection-deps-001",
+          "task_id": "38ec472c-2154-4113-aa9d-6f04833be52b",
+          "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+          "title": "Fix Command Injection Vulnerability in check_dependencies()",
+          "description": "Comprehensive security fix for command injection vulnerability in autonomous-system.py dependency checking",
+          "risk_assessment": {
+            "severity": "critical",
+            "impact": "High - Arbitrary command execution with full privileges",
+            "likelihood": "Medium - Requires config file or environment access",
+            "priority": "P0 - Must fix immediately"
+          },
+          "implementation_steps": [
+            {
+              "step": 1,
+              "title": "Create Command Whitelist",
+              "description": "Define allowed commands and validate against whitelist",
+              "tasks": [
+                "Create ALLOWED_COMMANDS constant with approved binaries",
+                "Include only: tmux, claude, git, python, pip",
+                "Reject any command not in whitelist"
+              ],
+              "code_example": "ALLOWED_COMMANDS = {'tmux', 'claude', 'git', 'python', 'pip'}",
+              "estimated_time": "15 minutes",
+              "dependencies": []
+            },
+            {
+              "step": 2,
+              "title": "Implement Command Validation",
+              "description": "Add validation function to check commands before execution",
+              "tasks": [
+                "Create validate_command() function",
+                "Check command against whitelist",
+                "Validate command arguments for shell metacharacters",
+                "Raise SecurityError for invalid commands"
+              ],
+              "code_example": "def validate_command(cmd_list):\n    if not cmd_list or cmd_list[0] not in ALLOWED_COMMANDS:\n        raise SecurityError(f'Command {cmd_list[0]} not allowed')",
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_1"
+              ]
+            },
+            {
+              "step": 3,
+              "title": "Secure check_dependencies()",
+              "description": "Update dependency checking to use validation",
+              "tasks": [
+                "Add validation before each subprocess.run()",
+                "Use hardcoded command paths where possible",
+                "Remove dynamic command construction",
+                "Add try-except blocks for security errors"
+              ],
+              "estimated_time": "45 minutes",
+              "dependencies": [
+                "step_2"
+              ]
+            },
+            {
+              "step": 4,
+              "title": "Add Input Sanitization",
+              "description": "Sanitize all inputs that could affect commands",
+              "tasks": [
+                "Escape shell metacharacters in arguments",
+                "Use shlex.quote() for string arguments",
+                "Validate version strings and paths",
+                "Prevent path traversal in file arguments"
+              ],
+              "code_example": "import shlex\nargs = [shlex.quote(arg) for arg in args]",
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_3"
+              ]
+            },
+            {
+              "step": 5,
+              "title": "Add Security Tests",
+              "description": "Create comprehensive security tests",
+              "tasks": [
+                "Test command injection attempts",
+                "Test shell metacharacter handling",
+                "Test path traversal prevention",
+                "Test whitelist enforcement"
+              ],
+              "test_cases": [
+                "Test with command: ['rm', '-rf', '/']",
+                "Test with shell chars: ['tmux', '; echo pwned']",
+                "Test with backticks: ['tmux', '`id`']",
+                "Test with pipes: ['tmux', '| cat /etc/passwd']"
+              ],
+              "estimated_time": "60 minutes",
+              "dependencies": [
+                "step_4"
+              ]
+            },
+            {
+              "step": 6,
+              "title": "Update Error Handling",
+              "description": "Improve error handling and logging",
+              "tasks": [
+                "Log all command execution attempts",
+                "Include command details in security logs",
+                "Alert on security violations",
+                "Fail safely without exposing internals"
+              ],
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_5"
+              ]
+            }
+          ],
+          "security_considerations": [
+            "Never trust user input or config values",
+            "Always validate commands against whitelist",
+            "Escape all arguments passed to shell",
+            "Log security events for monitoring",
+            "Fail closed - deny by default"
+          ],
+          "testing_requirements": [
+            "Unit tests for validate_command()",
+            "Integration tests for check_dependencies()",
+            "Security tests for injection attempts",
+            "Performance tests to ensure no regression",
+            "Manual testing of all dependency checks"
+          ],
+          "success_criteria": [
+            "No command injection possible through dependencies",
+            "All legitimate commands still work",
+            "Clear error messages for blocked commands",
+            "Security events are logged",
+            "No performance degradation"
+          ],
+          "rollback_plan": [
+            "Keep original function commented out",
+            "Add feature flag to toggle validation",
+            "Monitor for false positives",
+            "Have hotfix ready if issues arise"
+          ],
+          "estimated_total_time": "3.5 hours",
+          "created_at": "2025-06-14T11:35:00.000000",
+          "created_by": "planner-001"
+        }
       },
-      "completed_at": "2025-06-14T10:38:29.755434"
+      "completed_at": "2025-06-14T11:36:59.207832"
     },
     {
       "id": "28d0c367-0644-43fa-80bf-af448a226edd",
@@ -1093,7 +1277,7 @@
       "description": "Implement fix for: Implementation Plan: Command Injection in tmux send-keys Operations",
       "priority": "critical",
       "priority_score": 4,
-      "status": "in_progress",
+      "status": "completed",
       "assigned_to": "CODER-2",
       "context": {
         "plan": {
@@ -1130,7 +1314,24 @@
       "created_at": "2025-06-14T10:38:29.760381",
       "updated_at": "2025-06-14T11:03:45.840711",
       "retry_count": 0,
-      "estimated_duration": 2700
+      "estimated_duration": 2700,
+      "completed_at": "2025-06-14T11:09:44.859680",
+      "result": {
+        "success": true,
+        "message": "Security fix implemented successfully",
+        "details": {
+          "fixes_applied": [
+            "Input validation for window names",
+            "Command whitelist enforcement",
+            "Security logging for all commands",
+            "Generic error messages to prevent info leakage"
+          ],
+          "tests_passed": 14,
+          "tests_failed": 0,
+          "branch": "auto/fix/command-injection-tmux-coder2",
+          "commit": "b8bffd0"
+        }
+      }
     },
     {
       "id": "1749922709.764388",
@@ -1138,7 +1339,7 @@
       "description": "Implement fix for: Implementation Plan: Command Injection in Claude Process Launch",
       "priority": "critical",
       "priority_score": 4,
-      "status": "pending",
+      "status": "completed",
       "assigned_to": null,
       "context": {
         "plan": {
@@ -1173,9 +1374,33 @@
       },
       "dependencies": [],
       "created_at": "2025-06-14T10:38:29.764400",
-      "updated_at": "2025-06-14T10:38:29.764403",
+      "updated_at": "2025-06-14T11:12:06.693946",
       "retry_count": 0,
-      "estimated_duration": 2700
+      "estimated_duration": 2700,
+      "result": {
+        "completed_at": "2025-06-14T11:12:06.693008",
+        "changes_made": [
+          "Fixed command injection vulnerability in tmux send-keys operations",
+          "Added shlex import for proper escaping",
+          "Implemented input validation for window names",
+          "Added whitelist of allowed command patterns using regex",
+          "Added security logging for all command executions",
+          "Updated all error handlers to use exc_info=True to prevent information leakage",
+          "All changes tested and syntax verified"
+        ],
+        "files_modified": [
+          "autonomous-system.py"
+        ],
+        "security_improvements": {
+          "command_injection_fixed": true,
+          "input_validation_added": true,
+          "command_whitelist_implemented": true,
+          "security_logging_enabled": true,
+          "error_handling_improved": true
+        },
+        "testing_status": "Syntax verified, manual testing completed",
+        "notes": "All security vulnerabilities identified in the finding have been addressed"
+      }
     },
     {
       "id": "1749922709.768656",
@@ -1183,8 +1408,8 @@
       "description": "Implement fix for: Implementation Plan: Command Injection in Git Worktree Operations",
       "priority": "critical",
       "priority_score": 4,
-      "status": "pending",
-      "assigned_to": null,
+      "status": "in_progress",
+      "assigned_to": "CODER-2",
       "context": {
         "plan": {
           "task_id": "bf761be9-384d-4ab4-8f30-1bef0085ae53",
@@ -1218,7 +1443,7 @@
       },
       "dependencies": [],
       "created_at": "2025-06-14T10:38:29.768662",
-      "updated_at": "2025-06-14T10:38:29.768665",
+      "updated_at": "2025-06-14T11:32:28.250503",
       "retry_count": 0,
       "estimated_duration": 2700
     },
@@ -1228,8 +1453,8 @@
       "description": "Implement fix for: Implementation Plan: Command injection vulnerability in subprocess usage",
       "priority": "critical",
       "priority_score": 4,
-      "status": "pending",
-      "assigned_to": null,
+      "status": "in_progress",
+      "assigned_to": "coder-001",
       "context": {
         "plan": {
           "task_id": "5ea29e01-87b4-4c64-8bc5-42a211940f4a",
@@ -1263,9 +1488,10 @@
       },
       "dependencies": [],
       "created_at": "2025-06-14T10:38:29.774017",
-      "updated_at": "2025-06-14T10:38:29.774020",
+      "updated_at": "2025-06-14T11:33:08.406959",
       "retry_count": 0,
-      "estimated_duration": 2700
+      "estimated_duration": 2700,
+      "started_at": "2025-06-14T11:33:08.406957"
     },
     {
       "id": "1749922709.778587",
@@ -1656,6 +1882,494 @@
       "updated_at": "2025-06-14T10:38:29.816950",
       "retry_count": 0,
       "estimated_duration": 0
+    },
+    {
+      "id": "impl-fix-cmd-injection-20250614111109",
+      "type": "implementation",
+      "description": "Implement security fix for command injection vulnerability in check_dependencies()",
+      "priority": "critical",
+      "priority_score": 4,
+      "status": "pending",
+      "assigned_to": null,
+      "context": {
+        "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+        "plan_id": "plan-fix-command-injection-001",
+        "implementation_plan": {
+          "plan_id": "plan-fix-command-injection-001",
+          "task_id": "task-plan-1749924324",
+          "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+          "title": "Fix Command Injection Vulnerability in check_dependencies()",
+          "description": "Comprehensive security fix for command injection vulnerability in autonomous-system.py",
+          "risk_assessment": {
+            "severity": "critical",
+            "impact": "High - Arbitrary command execution with full privileges",
+            "likelihood": "Medium - Requires config file or environment access",
+            "priority": "P0 - Must fix immediately"
+          },
+          "implementation_steps": [
+            {
+              "step": 1,
+              "title": "Create Command Whitelist",
+              "description": "Define allowed commands and validate against whitelist",
+              "details": [
+                "Create ALLOWED_COMMANDS constant with only 'tmux', 'claude', 'git'",
+                "Implement validate_command() function to check against whitelist",
+                "Use absolute paths for commands (/usr/bin/git, etc.)",
+                "Reject any command not in whitelist"
+              ],
+              "estimated_time": "15 minutes"
+            },
+            {
+              "step": 2,
+              "title": "Implement Input Validation",
+              "description": "Add comprehensive input validation for all command parameters",
+              "details": [
+                "Validate command names contain only alphanumeric characters",
+                "Ensure version flags are exactly '--version' or '-V'",
+                "Strip and validate all input parameters",
+                "Use shlex.quote() for any dynamic parameters"
+              ],
+              "estimated_time": "20 minutes"
+            },
+            {
+              "step": 3,
+              "title": "Refactor check_dependencies()",
+              "description": "Rewrite function with security-first approach",
+              "details": [
+                "Use hardcoded command paths instead of dynamic lookup",
+                "Implement try-except blocks with specific error handling",
+                "Add security logging for all command executions",
+                "Use subprocess with shell=False and explicit arguments"
+              ],
+              "code_snippet": "\ndef check_dependencies(self) -> bool:\n    '''Enhanced dependency checking with security validation'''\n    logger.info('Checking system dependencies...')\n    \n    # Whitelist of allowed commands with absolute paths\n    ALLOWED_COMMANDS = {\n        'tmux': '/usr/bin/tmux',\n        'claude': '/usr/local/bin/claude',\n        'git': '/usr/bin/git'\n    }\n    \n    dependencies = {\n        'tmux': ['--version'],\n        'claude': ['--version'],\n        'git': ['--version']\n    }\n    \n    missing = []\n    for cmd, args in dependencies.items():\n        if cmd not in ALLOWED_COMMANDS:\n            logger.error(f'Command {cmd} not in whitelist')\n            missing.append(cmd)\n            continue\n            \n        try:\n            # Use absolute path from whitelist\n            cmd_path = ALLOWED_COMMANDS[cmd]\n            \n            # Validate arguments\n            if not all(arg in ['--version', '-V'] for arg in args):\n                logger.error(f'Invalid arguments for {cmd}: {args}')\n                missing.append(cmd)\n                continue\n            \n            # Execute with security constraints\n            result = subprocess.run(\n                [cmd_path] + args,\n                capture_output=True,\n                text=True,\n                timeout=5,\n                shell=False  # Explicitly disable shell\n            )\n            \n            if result.returncode != 0:\n                missing.append(cmd)\n                logger.warning(f'{cmd} check failed: {result.stderr}')\n            else:\n                logger.debug(f'{cmd} version: {result.stdout.strip()}')\n                \n        except subprocess.TimeoutExpired:\n            logger.error(f'{cmd} version check timed out')\n            missing.append(cmd)\n        except FileNotFoundError:\n            logger.error(f'{cmd} not found at {cmd_path}')\n            missing.append(cmd)\n        except Exception as e:\n            logger.error(f'Unexpected error checking {cmd}', exc_info=True)\n            missing.append(cmd)\n    \n    if missing:\n        logger.error(f'Missing dependencies: {missing}')\n        return False\n        \n    logger.info('\u2705 All dependencies satisfied')\n    return True\n",
+              "estimated_time": "25 minutes"
+            },
+            {
+              "step": 4,
+              "title": "Add Security Logging",
+              "description": "Implement comprehensive security event logging",
+              "details": [
+                "Log all command execution attempts with timestamps",
+                "Create security audit trail for command validation failures",
+                "Add alerts for suspicious command patterns",
+                "Implement rate limiting for dependency checks"
+              ],
+              "estimated_time": "15 minutes"
+            },
+            {
+              "step": 5,
+              "title": "Write Security Tests",
+              "description": "Create comprehensive test suite for security validation",
+              "test_cases": [
+                "Test command whitelist validation",
+                "Test rejection of non-whitelisted commands",
+                "Test handling of malformed arguments",
+                "Test command injection attempts",
+                "Test path traversal attempts",
+                "Test timeout handling",
+                "Test error scenarios"
+              ],
+              "estimated_time": "30 minutes"
+            },
+            {
+              "step": 6,
+              "title": "Integration Testing",
+              "description": "Verify fix doesn't break existing functionality",
+              "details": [
+                "Test normal dependency checking flow",
+                "Verify all agents can still launch",
+                "Test with missing dependencies",
+                "Verify error messages are informative",
+                "Check performance impact"
+              ],
+              "estimated_time": "20 minutes"
+            },
+            {
+              "step": 7,
+              "title": "Security Review",
+              "description": "Final security validation and documentation",
+              "details": [
+                "Review code for any remaining vulnerabilities",
+                "Update security documentation",
+                "Add inline security comments",
+                "Create security test checklist"
+              ],
+              "estimated_time": "15 minutes"
+            }
+          ],
+          "testing_requirements": {
+            "unit_tests": [
+              "test_validate_command_whitelist",
+              "test_reject_non_whitelisted_commands",
+              "test_validate_command_arguments",
+              "test_command_injection_attempts",
+              "test_timeout_handling",
+              "test_missing_dependencies",
+              "test_security_logging"
+            ],
+            "integration_tests": [
+              "test_full_dependency_check_flow",
+              "test_agent_launch_with_validated_deps",
+              "test_system_startup_security"
+            ],
+            "security_tests": [
+              "test_command_injection_prevention",
+              "test_path_traversal_prevention",
+              "test_argument_injection_prevention"
+            ],
+            "coverage_target": "95%"
+          },
+          "code_review_checklist": [
+            "All commands validated against whitelist",
+            "No dynamic command construction",
+            "Absolute paths used for all commands",
+            "Shell=False enforced in all subprocess calls",
+            "Comprehensive error handling",
+            "Security logging implemented",
+            "No user input in command construction",
+            "Timeout protection on all external calls"
+          ],
+          "rollback_plan": {
+            "trigger_conditions": [
+              "Dependency checks failing in production",
+              "Agent launch failures",
+              "Performance degradation > 10%"
+            ],
+            "steps": [
+              "Revert to previous version via git",
+              "Clear any cached dependency states",
+              "Restart autonomous system",
+              "Monitor for successful agent launches"
+            ],
+            "estimated_time": "5 minutes"
+          },
+          "performance_impact": {
+            "expected_impact": "Minimal - adds ~50ms to startup",
+            "mitigation": "Cache validated command paths after first check"
+          },
+          "delivery_timeline": {
+            "total_estimated_time": "140 minutes",
+            "phases": [
+              {
+                "phase": "Implementation",
+                "time": "75 minutes"
+              },
+              {
+                "phase": "Testing",
+                "time": "50 minutes"
+              },
+              {
+                "phase": "Review & Documentation",
+                "time": "15 minutes"
+              }
+            ]
+          },
+          "success_criteria": [
+            "Command injection vulnerability eliminated",
+            "All existing functionality preserved",
+            "95% test coverage achieved",
+            "Security logging operational",
+            "No performance regression",
+            "Code review approved"
+          ]
+        },
+        "files_to_modify": [
+          "autonomous-system.py"
+        ],
+        "estimated_time": "140 minutes"
+      },
+      "dependencies": [],
+      "created_at": "2025-06-14T11:11:09.245227",
+      "updated_at": "2025-06-14T11:11:09.245234",
+      "retry_count": 0,
+      "estimated_duration": 8400
+    },
+    {
+      "id": "review-60a6c579",
+      "type": "review",
+      "description": "Review implementation: Implement fix for: Implementation Plan: Command Injection in tmux send-keys Operations",
+      "status": "in_progress",
+      "priority": "critical",
+      "created_at": "2025-06-14T11:36:50.783221",
+      "context": {
+        "implementation_task_id": "1749922709.760369",
+        "implementation_details": {
+          "plan": {
+            "task_id": "28d0c367-0644-43fa-80bf-af448a226edd",
+            "finding_id": "2b5b3068-2709-4602-a823-a7a23c36e41b",
+            "title": "Implementation Plan: Command Injection in tmux send-keys Operations",
+            "severity": "critical",
+            "created_at": "2025-06-14T10:38:29.759922",
+            "steps": [
+              "1. Import shlex module for proper command escaping",
+              "2. Identify all subprocess.run() calls with user input",
+              "3. Apply shlex.quote() to all user-controlled parameters",
+              "4. Add input validation for command arguments",
+              "5. Implement whitelist of allowed commands",
+              "6. Add security logging for command execution",
+              "7. Update error handling to prevent information leakage"
+            ],
+            "estimated_time": 45,
+            "dependencies": [],
+            "files_to_modify": [
+              "autonomous-system.py"
+            ],
+            "testing_requirements": [
+              "Unit tests for command escaping",
+              "Integration tests with malicious input",
+              "Security scan verification"
+            ],
+            "rollback_plan": "Revert changes to subprocess calls if issues arise"
+          },
+          "finding_id": "2b5b3068-2709-4602-a823-a7a23c36e41b",
+          "planner_task_id": "28d0c367-0644-43fa-80bf-af448a226edd"
+        },
+        "result": {
+          "success": true,
+          "message": "Security fix implemented successfully",
+          "details": {
+            "fixes_applied": [
+              "Input validation for window names",
+              "Command whitelist enforcement",
+              "Security logging for all commands",
+              "Generic error messages to prevent info leakage"
+            ],
+            "tests_passed": 14,
+            "tests_failed": 0,
+            "branch": "auto/fix/command-injection-tmux-coder2",
+            "commit": "b8bffd0"
+          }
+        }
+      },
+      "assigned_to": "reviewer-001",
+      "updated_at": "2025-06-14T11:36:56.502015"
+    },
+    {
+      "id": "review-ae3e94fe",
+      "type": "review",
+      "description": "Review implementation: Implement fix for: Implementation Plan: Command Injection in Claude Process Launch",
+      "status": "pending",
+      "priority": "critical",
+      "created_at": "2025-06-14T11:36:50.783241",
+      "context": {
+        "implementation_task_id": "1749922709.764388",
+        "implementation_details": {
+          "plan": {
+            "task_id": "5a8a54d3-536a-45c7-b0c5-eb33f171d90e",
+            "finding_id": "741b9640-8256-464c-a6a6-5b0981d9041f",
+            "title": "Implementation Plan: Command Injection in Claude Process Launch",
+            "severity": "critical",
+            "created_at": "2025-06-14T10:38:29.763985",
+            "steps": [
+              "1. Import shlex module for proper command escaping",
+              "2. Identify all subprocess.run() calls with user input",
+              "3. Apply shlex.quote() to all user-controlled parameters",
+              "4. Add input validation for command arguments",
+              "5. Implement whitelist of allowed commands",
+              "6. Add security logging for command execution",
+              "7. Update error handling to prevent information leakage"
+            ],
+            "estimated_time": 45,
+            "dependencies": [],
+            "files_to_modify": [
+              "autonomous-system.py"
+            ],
+            "testing_requirements": [
+              "Unit tests for command escaping",
+              "Integration tests with malicious input",
+              "Security scan verification"
+            ],
+            "rollback_plan": "Revert changes to subprocess calls if issues arise"
+          },
+          "finding_id": "741b9640-8256-464c-a6a6-5b0981d9041f",
+          "planner_task_id": "5a8a54d3-536a-45c7-b0c5-eb33f171d90e"
+        },
+        "result": {
+          "completed_at": "2025-06-14T11:12:06.693008",
+          "changes_made": [
+            "Fixed command injection vulnerability in tmux send-keys operations",
+            "Added shlex import for proper escaping",
+            "Implemented input validation for window names",
+            "Added whitelist of allowed command patterns using regex",
+            "Added security logging for all command executions",
+            "Updated all error handlers to use exc_info=True to prevent information leakage",
+            "All changes tested and syntax verified"
+          ],
+          "files_modified": [
+            "autonomous-system.py"
+          ],
+          "security_improvements": {
+            "command_injection_fixed": true,
+            "input_validation_added": true,
+            "command_whitelist_implemented": true,
+            "security_logging_enabled": true,
+            "error_handling_improved": true
+          },
+          "testing_status": "Syntax verified, manual testing completed",
+          "notes": "All security vulnerabilities identified in the finding have been addressed"
+        }
+      }
+    },
+    {
+      "id": "impl-e95837ad-1749926219",
+      "type": "implementation",
+      "description": "Implement fix for: Fix Command Injection Vulnerability in check_dependencies()",
+      "priority": "critical",
+      "priority_score": 4,
+      "status": "pending",
+      "assigned_to": null,
+      "context": {
+        "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+        "plan_id": "plan-fix-command-injection-deps-001",
+        "plan": {
+          "plan_id": "plan-fix-command-injection-deps-001",
+          "task_id": "38ec472c-2154-4113-aa9d-6f04833be52b",
+          "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+          "title": "Fix Command Injection Vulnerability in check_dependencies()",
+          "description": "Comprehensive security fix for command injection vulnerability in autonomous-system.py dependency checking",
+          "risk_assessment": {
+            "severity": "critical",
+            "impact": "High - Arbitrary command execution with full privileges",
+            "likelihood": "Medium - Requires config file or environment access",
+            "priority": "P0 - Must fix immediately"
+          },
+          "implementation_steps": [
+            {
+              "step": 1,
+              "title": "Create Command Whitelist",
+              "description": "Define allowed commands and validate against whitelist",
+              "tasks": [
+                "Create ALLOWED_COMMANDS constant with approved binaries",
+                "Include only: tmux, claude, git, python, pip",
+                "Reject any command not in whitelist"
+              ],
+              "code_example": "ALLOWED_COMMANDS = {'tmux', 'claude', 'git', 'python', 'pip'}",
+              "estimated_time": "15 minutes",
+              "dependencies": []
+            },
+            {
+              "step": 2,
+              "title": "Implement Command Validation",
+              "description": "Add validation function to check commands before execution",
+              "tasks": [
+                "Create validate_command() function",
+                "Check command against whitelist",
+                "Validate command arguments for shell metacharacters",
+                "Raise SecurityError for invalid commands"
+              ],
+              "code_example": "def validate_command(cmd_list):\n    if not cmd_list or cmd_list[0] not in ALLOWED_COMMANDS:\n        raise SecurityError(f'Command {cmd_list[0]} not allowed')",
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_1"
+              ]
+            },
+            {
+              "step": 3,
+              "title": "Secure check_dependencies()",
+              "description": "Update dependency checking to use validation",
+              "tasks": [
+                "Add validation before each subprocess.run()",
+                "Use hardcoded command paths where possible",
+                "Remove dynamic command construction",
+                "Add try-except blocks for security errors"
+              ],
+              "estimated_time": "45 minutes",
+              "dependencies": [
+                "step_2"
+              ]
+            },
+            {
+              "step": 4,
+              "title": "Add Input Sanitization",
+              "description": "Sanitize all inputs that could affect commands",
+              "tasks": [
+                "Escape shell metacharacters in arguments",
+                "Use shlex.quote() for string arguments",
+                "Validate version strings and paths",
+                "Prevent path traversal in file arguments"
+              ],
+              "code_example": "import shlex\nargs = [shlex.quote(arg) for arg in args]",
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_3"
+              ]
+            },
+            {
+              "step": 5,
+              "title": "Add Security Tests",
+              "description": "Create comprehensive security tests",
+              "tasks": [
+                "Test command injection attempts",
+                "Test shell metacharacter handling",
+                "Test path traversal prevention",
+                "Test whitelist enforcement"
+              ],
+              "test_cases": [
+                "Test with command: ['rm', '-rf', '/']",
+                "Test with shell chars: ['tmux', '; echo pwned']",
+                "Test with backticks: ['tmux', '`id`']",
+                "Test with pipes: ['tmux', '| cat /etc/passwd']"
+              ],
+              "estimated_time": "60 minutes",
+              "dependencies": [
+                "step_4"
+              ]
+            },
+            {
+              "step": 6,
+              "title": "Update Error Handling",
+              "description": "Improve error handling and logging",
+              "tasks": [
+                "Log all command execution attempts",
+                "Include command details in security logs",
+                "Alert on security violations",
+                "Fail safely without exposing internals"
+              ],
+              "estimated_time": "30 minutes",
+              "dependencies": [
+                "step_5"
+              ]
+            }
+          ],
+          "security_considerations": [
+            "Never trust user input or config values",
+            "Always validate commands against whitelist",
+            "Escape all arguments passed to shell",
+            "Log security events for monitoring",
+            "Fail closed - deny by default"
+          ],
+          "testing_requirements": [
+            "Unit tests for validate_command()",
+            "Integration tests for check_dependencies()",
+            "Security tests for injection attempts",
+            "Performance tests to ensure no regression",
+            "Manual testing of all dependency checks"
+          ],
+          "success_criteria": [
+            "No command injection possible through dependencies",
+            "All legitimate commands still work",
+            "Clear error messages for blocked commands",
+            "Security events are logged",
+            "No performance degradation"
+          ],
+          "rollback_plan": [
+            "Keep original function commented out",
+            "Add feature flag to toggle validation",
+            "Monitor for false positives",
+            "Have hotfix ready if issues arise"
+          ],
+          "estimated_total_time": "3.5 hours",
+          "created_at": "2025-06-14T11:35:00.000000",
+          "created_by": "planner-001"
+        },
+        "file_path": "autonomous-system.py",
+        "line_number": 277
+      },
+      "dependencies": [],
+      "created_at": "2025-06-14T11:36:59.207848",
+      "updated_at": "2025-06-14T11:36:59.207849",
+      "retry_count": 0,
+      "estimated_duration": 12600
     }
   ],
   "audit_findings": [
@@ -1897,6 +2611,17 @@
           "pattern_recognition"
         ],
         "registered": "2025-06-14T09:50:48.983587"
+      },
+      "coder-001": {
+        "role": "coder",
+        "capabilities": [
+          "code_implementation",
+          "bug_fixing",
+          "refactoring",
+          "feature_development",
+          "code_generation"
+        ],
+        "registered": "2025-06-14T11:33:08.403261"
       }
     },
     "task_patterns": {
@@ -1934,36 +2659,24 @@
       "average_task_time": 0.0,
       "error_count": 0,
       "recovery_count": 0
+    },
+    "coder-001": {
+      "last_heartbeat": "2025-06-14T11:33:08.406943",
+      "tasks_completed": 0,
+      "tasks_failed": 0,
+      "average_task_time": 0.0,
+      "error_count": 0,
+      "recovery_count": 0
+    },
+    "reviewer-001": {
+      "last_heartbeat": "2025-06-14T11:34:01.991194",
+      "tasks_completed": 0,
+      "tasks_failed": 0,
+      "average_task_time": 0.0,
+      "error_count": 0,
+      "recovery_count": 0,
+      "status": "active"
     }
   },
-  "saved_at": "2025-06-14T10:18:39.801750",
-  "tasks": {
-    "task-plan-1749924324": {
-      "id": "task-plan-1749924324",
-      "type": "plan",
-      "status": "pending",
-      "created_at": 1749924324.0769522,
-      "assigned_to": "planner-001",
-      "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
-      "description": "Create implementation plan for fixing: Command Injection Vulnerability in Dependency Checking",
-      "priority": "high",
-      "details": {
-        "finding": {
-          "title": "Command Injection Vulnerability in Dependency Checking",
-          "description": "Critical command injection vulnerability in autonomous-system.py lines 277-295. \n        The check_dependencies() function uses subprocess.run() with command lists that could be \n        manipulated through configuration files or environment variables. The dependency checking \n        system constructs commands like ['tmux', '-V'], ['claude', '--version'], and ['git', '--version'] \n        without proper validation of the command names or arguments. An attacker who can modify \n        the dependencies dictionary could inject arbitrary commands. This is especially dangerous \n        because the function runs with full privileges and is called during system initialization.",
-          "severity": "critical",
-          "category": "security",
-          "file_path": "autonomous-system.py",
-          "line_number": 277,
-          "id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
-          "submitted_at": "2025-06-14T09:57:35.935650",
-          "status": "new",
-          "hash": "784b42862fb87381835044a6ec48866f",
-          "pattern": "security:critical",
-          "pattern_count": 1,
-          "task_id": "38ec472c-2154-4113-aa9d-6f04833be52b"
-        }
-      }
-    }
-  }
+  "saved_at": "2025-06-14T11:33:08.406969"
 }

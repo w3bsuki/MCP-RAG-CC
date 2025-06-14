@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Unrestricted CORS Policy - Security Risk",
+    "description": "The dashboard server allows requests from any origin with CORS(app, origins=['*']). This could allow malicious websites to access internal system data.",
+    "severity": "critical",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard-public.py",
+    "line_number": 14,
+    "recommendation": "Restrict CORS to specific trusted origins or use authentication"
+  },
+  {
+    "title": "Server Binds to All Network Interfaces",
+    "description": "The dashboard server binds to 0.0.0.0, making it accessible from any network interface. Combined with unrestricted CORS, this creates significant security exposure.",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard-public.py",
+    "line_number": 161,
+    "recommendation": "Bind to localhost (127.0.0.1) unless external access is specifically required"
+  },
+  {
+    "title": "Bare Except Clause - Poor Error Handling",
+    "description": "Using bare 'except:' catches all exceptions including SystemExit and KeyboardInterrupt, which can mask critical errors and make debugging difficult.",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard-public.py",
+    "line_number": 158,
+    "recommendation": "Use specific exception types or at least 'except Exception:'"
+  },
+  {
+    "title": "Command Injection Protection Verified",
+    "description": "The autonomous-system.py properly validates tmux commands against a whitelist before execution, preventing command injection attacks.",
+    "severity": "info",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 474,
+    "recommendation": "Good security practice already in place"
+  },
+  {
+    "title": "Git Worktree Validation Implemented",
+    "description": "The coordinator server properly validates branch names to prevent command injection in git worktree operations.",
+    "severity": "info",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 959,
+    "recommendation": "Good security practice already in place"
+  },
+  {
+    "title": "Missing Rate Limiting on Public API",
+    "description": "The dashboard-public.py exposes APIs without rate limiting, which could lead to DoS attacks or resource exhaustion.",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard-public.py",
+    "line_number": 120,
+    "recommendation": "Implement rate limiting using Flask-Limiter or similar"
+  },
+  {
+    "title": "No Authentication on Dashboard API",
+    "description": "The dashboard API endpoints are publicly accessible without any authentication mechanism.",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard-public.py",
+    "line_number": 120,
+    "recommendation": "Add API key or JWT authentication for dashboard access"
+  },
+  {
+    "title": "Deprecated datetime.utcnow() Usage",
+    "description": "Using datetime.utcnow() which is deprecated. Should use timezone-aware datetime objects.",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor-001-start.py",
+    "line_number": 33,
+    "recommendation": "Use datetime.now(datetime.UTC) instead"
+  },
+  {
+    "title": "Multiple Agent Registration Files Found",
+    "description": "There are multiple agent registration JSON files in mcp-coordinator directory which could lead to confusion about active agents.",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/",
+    "line_number": 0,
+    "recommendation": "Clean up old registration files and maintain single source of truth"
+  },
+  {
+    "title": "Inconsistent Error Logging",
+    "description": "Some exceptions are logged with exc_info=True while others are not, making debugging inconsistent.",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 515,
+    "recommendation": "Standardize error logging with exc_info=True for all exceptions"
+  }
+]

@@ -16,9 +16,9 @@ try:
         "capabilities": [
             "code_review",
             "pr_creation",
-            "quality_assurance",
-            "merge_management",
-            "feedback_provision"
+            "quality_checking",
+            "documentation_review",
+            "best_practices"
         ]
     }
     

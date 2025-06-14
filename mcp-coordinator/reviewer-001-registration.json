@@ -1,0 +1,16 @@
+{
+  "agent_id": "reviewer-001",
+  "role": "reviewer",
+  "capabilities": [
+    "code_review",
+    "pr_creation",
+    "quality_checking",
+    "documentation_review",
+    "best_practices"
+  ],
+  "status": "active",
+  "registered_at": "2025-06-14T11:34:01.991179",
+  "last_heartbeat": "2025-06-14T11:34:01.991191",
+  "task_count": 0,
+  "error_count": 0
+}

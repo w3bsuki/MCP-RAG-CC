@@ -114,6 +114,10 @@ class EnhancedAutonomousLauncher:
         self.state_dir = self.base_dir / "mcp-coordinator" / "launcher"
         self.state_dir.mkdir(parents=True, exist_ok=True)
         
+        # Validate session name for security
+        if not self._validate_session_name(self.session_name):
+            raise ValueError("Invalid session name")
+        
         # Register cleanup handlers
         atexit.register(self.cleanup)
         signal.signal(signal.SIGINT, self.signal_handler)
@@ -181,6 +185,57 @@ class EnhancedAutonomousLauncher:
             json.dump(default_config, f, indent=2)
         
         logger.info(f"Created default config at {self.config_file}")
+    
+    def _validate_session_name(self, name: str) -> bool:
+        """Validate session name to prevent injection"""
+        if not name:
+            return False
+        # Allow only alphanumeric, dash, and underscore
+        return bool(re.match(r'^[a-zA-Z0-9_-]+$', name))
+    
+    def _validate_window_name(self, name: str) -> bool:
+        """Validate window name to prevent injection"""
+        if not name:
+            return False
+        # Allow only alphanumeric, dash, and underscore
+        return bool(re.match(r'^[a-zA-Z0-9_-]+$', name))
+    
+    def _execute_subprocess(self, cmd: List[str], **kwargs) -> subprocess.CompletedProcess:
+        """Execute subprocess with security logging and validation"""
+        # Log command for security auditing
+        safe_cmd = ' '.join(shlex.quote(str(arg)) for arg in cmd)
+        logger.info(f"Executing command: {safe_cmd}")
+        
+        # Set default timeout if not specified
+        if 'timeout' not in kwargs:
+            kwargs['timeout'] = 30
+        
+        try:
+            result = subprocess.run(cmd, **kwargs)
+            return result
+        except subprocess.TimeoutExpired:
+            logger.error(f"Command timed out: {safe_cmd}")
+            raise
+        except Exception as e:
+            # Sanitize error message to prevent information leakage
+            logger.error(f"Command execution failed: {type(e).__name__}")
+            raise
+    
+    def _sanitize_error_output(self, error_msg: str) -> str:
+        """Sanitize error messages to prevent information leakage"""
+        if not error_msg:
+            return "Unknown error"
+        
+        # Remove sensitive paths
+        error_msg = re.sub(r'/[a-zA-Z0-9/_.-]+/', '<path>/', error_msg)
+        error_msg = re.sub(r'/home/[^/]+/', '/home/<user>/', error_msg)
+        error_msg = re.sub(r'/Users/[^/]+/', '/Users/<user>/', error_msg)
+        
+        # Truncate if too long
+        if len(error_msg) > 200:
+            error_msg = error_msg[:200] + '...'
+        
+        return error_msg
     
     def signal_handler(self, signum, frame):
         """Enhanced signal handling"""
@@ -301,7 +356,7 @@ class EnhancedAutonomousLauncher:
         
         for dep_name, dep_info in dependencies.items():
             try:
-                result = subprocess.run(
+                result = self._execute_subprocess(
                     dep_info['command'], 
                     capture_output=True, 
                     text=True, 
@@ -318,13 +373,15 @@ class EnhancedAutonomousLauncher:
                 all_ok = False
             except subprocess.CalledProcessError as e:
                 logger.error(f"❌ {dep_name} not found or failed. Install with: {dep_info['install']}")
-                logger.debug(f"Command failed with return code {e.returncode}: {e.stderr}")
+                # Sanitize error output
+                safe_error = self._sanitize_error_output(e.stderr if e.stderr else str(e))
+                logger.debug(f"Command failed with return code {e.returncode}: {safe_error}")
                 all_ok = False
             except FileNotFoundError:
                 logger.error(f"❌ {dep_name} command not found. Install with: {dep_info['install']}")
                 all_ok = False
             except Exception as e:
-                logger.error(f"❌ Error checking {dep_name}: {e}", exc_info=True)
+                logger.error(f"❌ Error checking {dep_name}: {type(e).__name__}", exc_info=True)
                 all_ok = False
         
         # Check Python packages
@@ -340,7 +397,7 @@ class EnhancedAutonomousLauncher:
                 logger.info(f"✅ {package} installed: {version}")
             except ImportError as e:
                 logger.error(f"❌ {package} not found. Install with: pip install {package}>={min_version}")
-                logger.debug(f"Import error details: {e}")
+                logger.debug("Import error details", exc_info=True)
                 all_ok = False
             except Exception as e:
                 logger.error(f"❌ Error checking {package}: {e}", exc_info=True)
@@ -380,7 +437,7 @@ class EnhancedAutonomousLauncher:
             return True
             
         except Exception as e:
-            logger.error(f"Failed to check system resources: {e}")
+            logger.error("Failed to check system resources", exc_info=True)
             return True  # Continue anyway
     
     def setup_tmux_session(self) -> bool:
@@ -388,8 +445,13 @@ class EnhancedAutonomousLauncher:
         logger.info(f"Setting up tmux session: {self.session_name}")
         
         try:
+            # Validate session name
+            if not self._validate_session_name(self.session_name):
+                logger.error(f"Invalid session name: {self.session_name}")
+                return False
+            
             # Check for existing session
-            result = subprocess.run(
+            result = self._execute_subprocess(
                 ['tmux', 'has-session', '-t', self.session_name],
                 capture_output=True,
                 timeout=10
@@ -398,15 +460,16 @@ class EnhancedAutonomousLauncher:
             if result.returncode == 0:
                 logger.warning("Existing session found, killing it...")
                 try:
-                    subprocess.run(['tmux', 'kill-session', '-t', self.session_name], 
+                    self._execute_subprocess(['tmux', 'kill-session', '-t', self.session_name], 
                                  check=True, timeout=10)
                     time.sleep(1)
                 except subprocess.CalledProcessError as e:
-                    logger.error("Failed to kill existing session", exc_info=True)
+                    safe_error = self._sanitize_error_output(str(e))
+                    logger.error(f"Failed to kill existing session: {safe_error}")
                     return False
             
             # Create new session with specific settings
-            subprocess.run([
+            self._execute_subprocess([
                 'tmux', 'new-session', '-d', '-s', self.session_name,
                 '-x', '120', '-y', '40'  # Set initial size
             ], check=True, timeout=10)
@@ -420,10 +483,11 @@ class EnhancedAutonomousLauncher:
             
             for option in tmux_options:
                 try:
-                    subprocess.run(['tmux'] + list(option) + ['-t', self.session_name], 
+                    self._execute_subprocess(['tmux'] + list(option) + ['-t', self.session_name], 
                                  check=True, timeout=5)
                 except subprocess.CalledProcessError as e:
-                    logger.warning(f"Failed to set tmux option {option}", exc_info=True)
+                    safe_error = self._sanitize_error_output(str(e))
+                    logger.warning(f"Failed to set tmux option {option}: {safe_error}")
             
             logger.info("✅ Tmux session created successfully")
             return True
@@ -432,7 +496,7 @@ class EnhancedAutonomousLauncher:
             logger.error("Tmux session setup timed out")
             return False
         except subprocess.CalledProcessError as e:
-            logger.error(f"Failed to create tmux session: {e}")
+            logger.error("Failed to create tmux session", exc_info=True)
             logger.debug(f"Command failed with return code {e.returncode}")
             return False
         except Exception as e:
@@ -443,15 +507,20 @@ class EnhancedAutonomousLauncher:
         """Create tmux window with error handling"""
         window_name = f"{role}-{index}" if index > 0 else role
         
+        # Validate window name
+        if not self._validate_window_name(window_name):
+            logger.error(f"Invalid window name: {window_name}")
+            return None
+        
         try:
             # Create window
-            subprocess.run([
+            self._execute_subprocess([
                 'tmux', 'new-window', '-t', f'{self.session_name}:', 
                 '-n', window_name, '-d'
             ], check=True)
             
             # Set window options
-            subprocess.run([
+            self._execute_subprocess([
                 'tmux', 'set-window-option', '-t', 
                 f'{self.session_name}:{window_name}',
                 'remain-on-exit', 'on'
@@ -461,7 +530,8 @@ class EnhancedAutonomousLauncher:
             return window_name
             
         except subprocess.CalledProcessError as e:
-            logger.error(f"Failed to create window {window_name}: {e}")
+            safe_error = self._sanitize_error_output(str(e))
+            logger.error(f"Failed to create window {window_name}: {safe_error}")
             return None
     
     def send_to_agent(self, window: str, command: str):
@@ -488,7 +558,7 @@ class EnhancedAutonomousLauncher:
         for attempt in range(self.max_retries):
             try:
                 # Clear any existing input
-                subprocess.run([
+                self._execute_subprocess([
                     'tmux', 'send-keys', '-t', f'{self.session_name}:{window}',
                     'C-c'  # Cancel any ongoing input
                 ], capture_output=True, timeout=5)
@@ -498,7 +568,7 @@ class EnhancedAutonomousLauncher:
                 # Send the command with proper escaping
                 # Note: tmux send-keys takes the command as literal text, not shell commands
                 # So we don't need shlex.quote() here, but we validate the input
-                subprocess.run([
+                self._execute_subprocess([
                     'tmux', 'send-keys', '-t', f'{self.session_name}:{window}',
                     command, 'Enter'
                 ], check=True, timeout=10)
@@ -512,10 +582,10 @@ class EnhancedAutonomousLauncher:
                     jitter = random.uniform(0.1, 0.3) * delay
                     total_delay = delay + jitter
                     
-                    logger.warning(f"Retry {attempt + 1}/{self.max_retries} sending to {window} after {total_delay:.1f}s: {e}")
+                    logger.warning(f"Retry {attempt + 1}/{self.max_retries} sending to {window} after {total_delay:.1f}s", exc_info=True)
                     time.sleep(total_delay)
                 else:
-                    logger.error(f"Failed to send command to {window} after {self.max_retries} attempts: {e}")
+                    logger.error(f"Failed to send command to {window} after {self.max_retries} attempts", exc_info=True)
                     raise
     
     def launch_agent(self, role: str, index: int = 0) -> Optional[str]:
@@ -556,7 +626,7 @@ class EnhancedAutonomousLauncher:
                     self.send_to_agent(window, cmd)
                     time.sleep(0.2)
             except Exception as e:
-                logger.error(f"Failed to set up environment for {agent_id}: {e}")
+                logger.error(f"Failed to set up environment for {agent_id}", exc_info=True)
                 raise
             
             # Prepare initialization prompt
@@ -580,7 +650,7 @@ Starting initialization..."""
                 # Wait for Claude to start
                 time.sleep(3)
             except Exception as e:
-                logger.error(f"Failed to launch Claude for {agent_id}: {e}")
+                logger.error(f"Failed to launch Claude for {agent_id}", exc_info=True)
                 raise
             
             # Send detailed startup instructions
@@ -613,7 +683,7 @@ Let me begin by reading my instructions now."""
                 if not agent.pid:
                     logger.warning(f"Could not get PID for {agent_id}, will retry later")
             except Exception as e:
-                logger.warning(f"Error getting PID for {agent_id}: {e}")
+                logger.warning(f"Error getting PID for {agent_id}", exc_info=True)
             
             # Update state
             agent.state = AgentState.RUNNING
@@ -623,8 +693,8 @@ Let me begin by reading my instructions now."""
             return agent_id
             
         except subprocess.CalledProcessError as e:
-            logger.error(f"Command failed while launching agent {agent_id}: {e}")
-            logger.error(f"Command output: {e.output if hasattr(e, 'output') else 'N/A'}")
+            logger.error(f"Command failed while launching agent {agent_id}", exc_info=True)
+            logger.debug("Command output available in debug logs")
             if agent_id in self.agents:
                 self.agents[agent_id].state = AgentState.ERROR
                 self.agents[agent_id].error_count += 1
@@ -638,8 +708,13 @@ Let me begin by reading my instructions now."""
     
     def get_agent_pid(self, window: str) -> Optional[int]:
         """Get PID of agent process"""
+        # Validate window name
+        if not self._validate_window_name(window):
+            logger.error(f"Invalid window name for PID lookup: {window}")
+            return None
+            
         try:
-            result = subprocess.run([
+            result = self._execute_subprocess([
                 'tmux', 'list-panes', '-t', f'{self.session_name}:{window}',
                 '-F', '#{pane_pid}'
             ], capture_output=True, text=True, check=True)
@@ -648,7 +723,7 @@ Let me begin by reading my instructions now."""
             return pid
             
         except Exception as e:
-            logger.error(f"Failed to get PID for {window}: {e}")
+            logger.error(f"Failed to get PID for {window}: {type(e).__name__}")
             return None
     
     def stop_agent_gracefully(self, agent: AgentInfo):
@@ -661,7 +736,7 @@ Let me begin by reading my instructions now."""
             time.sleep(2)
             
             # Send Ctrl+D to close Claude
-            subprocess.run([
+            self._execute_subprocess([
                 'tmux', 'send-keys', '-t', 
                 f'{self.session_name}:{agent.window}', 'C-d'
             ])
@@ -747,7 +822,7 @@ Let me begin by reading my instructions now."""
             
             # Check window responsiveness
             try:
-                result = subprocess.run([
+                result = self._execute_subprocess([
                     'tmux', 'capture-pane', '-t', 
                     f'{self.session_name}:{agent.window}', '-p'
                 ], capture_output=True, text=True)
@@ -766,7 +841,7 @@ Let me begin by reading my instructions now."""
                         agent.error_count += 1
                 
             except Exception as e:
-                logger.error(f"Failed to capture pane for {agent_id}: {e}")
+                logger.error(f"Failed to capture pane for {agent_id}", exc_info=True)
             
             # Check last activity
             if agent.last_activity:
@@ -785,7 +860,7 @@ Let me begin by reading my instructions now."""
                 agent.state = AgentState.RUNNING
                 
         except Exception as e:
-            logger.error(f"Health check failed for {agent_id}: {e}")
+            logger.error(f"Health check failed for {agent_id}", exc_info=True)
             health['healthy'] = False
             health['issues'].append(f'Health check error: {str(e)}')
         
@@ -888,13 +963,13 @@ Let me begin by reading my instructions now."""
                     try:
                         self.save_system_state()
                     except Exception as e:
-                        logger.error(f"Failed to save system state: {e}")
+                        logger.error("Failed to save system state", exc_info=True)
                 
                 # Check system resources
                 try:
                     self.check_system_health()
                 except Exception as e:
-                    logger.error(f"System health check failed: {e}")
+                    logger.error("System health check failed", exc_info=True)
                 
                 # Reset consecutive error counter on successful iteration
                 consecutive_errors = 0
@@ -936,7 +1011,7 @@ Let me begin by reading my instructions now."""
                 agent.error_count = max(0, agent.error_count - 1)
                 
         except Exception as e:
-            logger.error(f"Failed to refresh agent {agent_id}: {e}")
+            logger.error(f"Failed to refresh agent {agent_id}", exc_info=True)
             agent.error_count += 1
     
     def emergency_memory_recovery(self):
@@ -976,7 +1051,7 @@ Let me begin by reading my instructions now."""
                     # Send a command to reduce activity
                     self.send_to_agent(agent.window, "# Reducing activity due to high CPU")
                 except Exception as e:
-                    logger.error(f"Failed to reduce activity for {agent_id}: {e}")
+                    logger.error(f"Failed to reduce activity for {agent_id}", exc_info=True)
     
     def emergency_shutdown(self):
         """Emergency shutdown procedure"""
@@ -989,7 +1064,7 @@ Let me begin by reading my instructions now."""
         try:
             self.save_system_state()
         except Exception as e:
-            logger.error(f"Failed to save state during emergency shutdown: {e}")
+            logger.error("Failed to save state during emergency shutdown", exc_info=True)
         
         # Stop all agents immediately
         for agent_id in list(self.agents.keys()):
@@ -998,7 +1073,7 @@ Let me begin by reading my instructions now."""
                 agent.state = AgentState.ERROR
                 logger.warning(f"Emergency stop for agent {agent_id}")
             except Exception as e:
-                logger.error(f"Error during emergency stop of {agent_id}: {e}")
+                logger.error(f"Error during emergency stop of {agent_id}", exc_info=True)
     
     def check_system_health(self):
         """Check overall system health with recovery actions"""
@@ -1076,21 +1151,21 @@ Let me begin by reading my instructions now."""
                 self.monitoring_thread.start()
                 logger.info("Monitoring thread started")
             except Exception as e:
-                logger.error(f"Failed to start monitoring thread: {e}")
+                logger.error("Failed to start monitoring thread", exc_info=True)
                 sys.exit(1)
             
             # Launch agents
             try:
                 self.launch_all_agents()
             except Exception as e:
-                logger.error(f"Failed to launch agents: {e}")
+                logger.error("Failed to launch agents", exc_info=True)
                 # Continue anyway with partial system
             
             # Show dashboard
             try:
                 self.show_dashboard()
             except Exception as e:
-                logger.error(f"Failed to show dashboard: {e}")
+                logger.error("Failed to show dashboard", exc_info=True)
             
             # Main loop
             logger.info("System running. Press Ctrl+C to stop.")
@@ -1104,7 +1179,7 @@ Let me begin by reading my instructions now."""
                             os.system('clear' if os.name == 'posix' else 'cls')
                             self.show_dashboard()
                     except Exception as e:
-                        logger.error(f"Error in main loop: {e}")
+                        logger.error("Error in main loop", exc_info=True)
                         time.sleep(5)  # Brief pause before retry
                         
             except KeyboardInterrupt:

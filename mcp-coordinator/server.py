@@ -21,6 +21,7 @@ from dataclasses import dataclass, asdict
 from enum import Enum
 import time
 import hashlib
+import shlex
 
 # MCP SDK imports
 import mcp.types as types
@@ -71,6 +72,12 @@ class EnhancedAgentCoordinator:
         self.base_dir = Path.cwd()
         self.data_dir = self.base_dir / "mcp-coordinator"
         self.data_dir.mkdir(exist_ok=True)
+        
+        # Security: Whitelist of allowed commands
+        self.allowed_commands = {
+            'git': ['init', 'add', 'commit', 'worktree', 'rev-parse'],
+            # Add other commands as needed
+        }
         
         # Enhanced features
         self.task_history: deque = deque(maxlen=1000)
@@ -813,6 +820,10 @@ class EnhancedAgentCoordinator:
     
     def create_worktree(self, branch_name: str) -> str:
         """Create a git worktree with enhanced error handling"""
+        # Validate branch name to prevent command injection
+        if not self._validate_branch_name(branch_name):
+            raise ValueError(f"Invalid branch name: {branch_name}")
+        
         worktree_path = self.base_dir / "agent-workspaces" / branch_name
         
         if worktree_path.exists():
@@ -826,36 +837,43 @@ class EnhancedAgentCoordinator:
                 worktree_path.parent.mkdir(exist_ok=True)
                 
                 # Check if we're in a git repository
-                result = subprocess.run(
+                result = self._execute_command(
                     ['git', 'rev-parse', '--git-dir'],
-                    capture_output=True,
-                    text=True,
                     cwd=self.base_dir
                 )
                 
                 if result.returncode != 0:
                     # Initialize git if not present
-                    subprocess.run(['git', 'init'], cwd=self.base_dir, check=True)
-                    subprocess.run(['git', 'add', '.'], cwd=self.base_dir, check=True)
-                    subprocess.run(['git', 'commit', '-m', 'Initial commit'], cwd=self.base_dir, check=True)
+                    self._execute_command(['git', 'init'], cwd=self.base_dir, check=True)
+                    self._execute_command(['git', 'add', '.'], cwd=self.base_dir, check=True)
+                    self._execute_command(['git', 'commit', '-m', 'Initial commit'], cwd=self.base_dir, check=True)
                 
-                # Create worktree
-                result = subprocess.run([
+                # Create worktree with proper escaping
+                # Use shlex.quote for shell-safe parameters
+                safe_path = shlex.quote(str(worktree_path))
+                safe_branch = shlex.quote(branch_name)
+                
+                # Log the command for security auditing
+                logger.info(f"Executing git worktree command: path={safe_path}, branch={safe_branch}")
+                
+                result = self._execute_command([
                     'git', 'worktree', 'add', 
                     str(worktree_path), 
                     '-b', branch_name
-                ], capture_output=True, text=True, cwd=self.base_dir)
+                ], cwd=self.base_dir)
                 
                 if result.returncode == 0:
                     self.worktrees[branch_name] = str(worktree_path)
                     logger.info(f"Created worktree: {branch_name} at {worktree_path}")
                     return str(worktree_path)
                 else:
-                    logger.error(f"Failed to create worktree: {result.stderr}")
+                    # Sanitize error message to prevent information leakage
+                    sanitized_error = self._sanitize_error_message(result.stderr)
+                    logger.error(f"Failed to create worktree: {sanitized_error}")
                     
                     # Try to clean up and retry
                     if attempt < max_retries - 1:
-                        subprocess.run(['git', 'worktree', 'prune'], cwd=self.base_dir)
+                        self._execute_command(['git', 'worktree', 'prune'], cwd=self.base_dir)
                         time.sleep(1)
                     
             except Exception as e:
@@ -955,6 +973,116 @@ class EnhancedAgentCoordinator:
             insights.append(f"Most common issue pattern: {top_pattern['pattern']} ({top_pattern['count']} occurrences)")
         
         return insights
+    
+    def _validate_branch_name(self, branch_name: str) -> bool:
+        """Validate branch name to prevent command injection"""
+        # Allow only alphanumeric, hyphens, underscores, and forward slashes
+        import re
+        
+        if not branch_name:
+            return False
+        
+        # Check length
+        if len(branch_name) > 100:
+            return False
+        
+        # Check for dangerous patterns
+        dangerous_patterns = [
+            '..',  # Directory traversal
+            '~',   # Home directory
+            '$',   # Variable expansion
+            '`',   # Command substitution
+            ';',   # Command separator
+            '&',   # Background execution
+            '|',   # Pipe
+            '>',   # Redirect
+            '<',   # Redirect
+            '\n',  # Newline
+            '\r',  # Carriage return
+            '\x00' # Null byte
+        ]
+        
+        for pattern in dangerous_patterns:
+            if pattern in branch_name:
+                logger.warning(f"Rejected branch name containing dangerous pattern: {pattern}")
+                return False
+        
+        # Allow only safe characters
+        if not re.match(r'^[a-zA-Z0-9/_-]+$', branch_name):
+            logger.warning(f"Rejected branch name with invalid characters: {branch_name}")
+            return False
+        
+        return True
+    
+    def _execute_command(self, cmd: List[str], cwd: Optional[Path] = None, check: bool = False) -> subprocess.CompletedProcess:
+        """Execute command with security checks and logging"""
+        if not cmd:
+            raise ValueError("Empty command")
+        
+        # Validate command against whitelist
+        command_name = cmd[0]
+        if command_name not in self.allowed_commands:
+            raise SecurityError(f"Command not allowed: {command_name}")
+        
+        # Check if specific subcommand is allowed
+        if len(cmd) > 1:
+            subcommand = cmd[1]
+            allowed_subcommands = self.allowed_commands[command_name]
+            if allowed_subcommands and subcommand not in allowed_subcommands:
+                raise SecurityError(f"Subcommand not allowed: {command_name} {subcommand}")
+        
+        # Log command execution for security auditing
+        safe_cmd = ' '.join(shlex.quote(arg) for arg in cmd)
+        logger.info(f"Executing command: {safe_cmd} in {cwd or 'current directory'}")
+        
+        try:
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                cwd=cwd,
+                check=check,
+                timeout=30  # 30 second timeout for safety
+            )
+            
+            # Log result for auditing
+            if result.returncode != 0:
+                logger.warning(f"Command failed with code {result.returncode}")
+            
+            return result
+            
+        except subprocess.TimeoutExpired:
+            logger.error(f"Command timed out: {safe_cmd}")
+            raise
+        except Exception as e:
+            logger.error(f"Command execution error: {type(e).__name__}")
+            raise
+    
+    def _sanitize_error_message(self, error_msg: str) -> str:
+        """Sanitize error messages to prevent information leakage"""
+        if not error_msg:
+            return "Unknown error"
+        
+        # Remove sensitive paths
+        import re
+        
+        # Replace absolute paths with relative ones
+        error_msg = re.sub(r'/[a-zA-Z0-9/_.-]+/', '<path>/', error_msg)
+        
+        # Remove user-specific information
+        error_msg = re.sub(r'/home/[^/]+/', '/home/<user>/', error_msg)
+        error_msg = re.sub(r'/Users/[^/]+/', '/Users/<user>/', error_msg)
+        
+        # Truncate if too long
+        if len(error_msg) > 200:
+            error_msg = error_msg[:200] + '...'
+        
+        return error_msg
+
+
+class SecurityError(Exception):
+    """Raised when a security policy is violated"""
+    pass
 
 
 # Create enhanced coordinator instance

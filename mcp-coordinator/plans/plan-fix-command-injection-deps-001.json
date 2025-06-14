@@ -1,0 +1,141 @@
+{
+  "plan_id": "plan-fix-command-injection-deps-001",
+  "task_id": "38ec472c-2154-4113-aa9d-6f04833be52b",
+  "finding_id": "e95837ad-ae10-4790-8756-a44334aa0c4f",
+  "title": "Fix Command Injection Vulnerability in check_dependencies()",
+  "description": "Comprehensive security fix for command injection vulnerability in autonomous-system.py dependency checking",
+  "risk_assessment": {
+    "severity": "critical",
+    "impact": "High - Arbitrary command execution with full privileges",
+    "likelihood": "Medium - Requires config file or environment access",
+    "priority": "P0 - Must fix immediately"
+  },
+  "implementation_steps": [
+    {
+      "step": 1,
+      "title": "Create Command Whitelist",
+      "description": "Define allowed commands and validate against whitelist",
+      "tasks": [
+        "Create ALLOWED_COMMANDS constant with approved binaries",
+        "Include only: tmux, claude, git, python, pip",
+        "Reject any command not in whitelist"
+      ],
+      "code_example": "ALLOWED_COMMANDS = {'tmux', 'claude', 'git', 'python', 'pip'}",
+      "estimated_time": "15 minutes",
+      "dependencies": []
+    },
+    {
+      "step": 2,
+      "title": "Implement Command Validation",
+      "description": "Add validation function to check commands before execution",
+      "tasks": [
+        "Create validate_command() function",
+        "Check command against whitelist",
+        "Validate command arguments for shell metacharacters",
+        "Raise SecurityError for invalid commands"
+      ],
+      "code_example": "def validate_command(cmd_list):\n    if not cmd_list or cmd_list[0] not in ALLOWED_COMMANDS:\n        raise SecurityError(f'Command {cmd_list[0]} not allowed')",
+      "estimated_time": "30 minutes",
+      "dependencies": [
+        "step_1"
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Secure check_dependencies()",
+      "description": "Update dependency checking to use validation",
+      "tasks": [
+        "Add validation before each subprocess.run()",
+        "Use hardcoded command paths where possible",
+        "Remove dynamic command construction",
+        "Add try-except blocks for security errors"
+      ],
+      "estimated_time": "45 minutes",
+      "dependencies": [
+        "step_2"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Add Input Sanitization",
+      "description": "Sanitize all inputs that could affect commands",
+      "tasks": [
+        "Escape shell metacharacters in arguments",
+        "Use shlex.quote() for string arguments",
+        "Validate version strings and paths",
+        "Prevent path traversal in file arguments"
+      ],
+      "code_example": "import shlex\nargs = [shlex.quote(arg) for arg in args]",
+      "estimated_time": "30 minutes",
+      "dependencies": [
+        "step_3"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Add Security Tests",
+      "description": "Create comprehensive security tests",
+      "tasks": [
+        "Test command injection attempts",
+        "Test shell metacharacter handling",
+        "Test path traversal prevention",
+        "Test whitelist enforcement"
+      ],
+      "test_cases": [
+        "Test with command: ['rm', '-rf', '/']",
+        "Test with shell chars: ['tmux', '; echo pwned']",
+        "Test with backticks: ['tmux', '`id`']",
+        "Test with pipes: ['tmux', '| cat /etc/passwd']"
+      ],
+      "estimated_time": "60 minutes",
+      "dependencies": [
+        "step_4"
+      ]
+    },
+    {
+      "step": 6,
+      "title": "Update Error Handling",
+      "description": "Improve error handling and logging",
+      "tasks": [
+        "Log all command execution attempts",
+        "Include command details in security logs",
+        "Alert on security violations",
+        "Fail safely without exposing internals"
+      ],
+      "estimated_time": "30 minutes",
+      "dependencies": [
+        "step_5"
+      ]
+    }
+  ],
+  "security_considerations": [
+    "Never trust user input or config values",
+    "Always validate commands against whitelist",
+    "Escape all arguments passed to shell",
+    "Log security events for monitoring",
+    "Fail closed - deny by default"
+  ],
+  "testing_requirements": [
+    "Unit tests for validate_command()",
+    "Integration tests for check_dependencies()",
+    "Security tests for injection attempts",
+    "Performance tests to ensure no regression",
+    "Manual testing of all dependency checks"
+  ],
+  "success_criteria": [
+    "No command injection possible through dependencies",
+    "All legitimate commands still work",
+    "Clear error messages for blocked commands",
+    "Security events are logged",
+    "No performance degradation"
+  ],
+  "rollback_plan": [
+    "Keep original function commented out",
+    "Add feature flag to toggle validation",
+    "Monitor for false positives",
+    "Have hotfix ready if issues arise"
+  ],
+  "estimated_total_time": "3.5 hours",
+  "created_at": "2025-06-14T11:35:00.000000",
+  "created_by": "planner-001"
+}
