@@ -483,8 +483,11 @@ class EnhancedAutonomousLauncher:
             
             for option in tmux_options:
                 try:
-                    self._execute_subprocess(['tmux'] + list(option) + ['-t', self.session_name], 
-                                 check=True, timeout=5)
+                    # Construct command properly for tmux options
+                    cmd = ['tmux'] + list(option)
+                    if option[0] == 'set-window-option':
+                        cmd.extend(['-t', self.session_name])
+                    self._execute_subprocess(cmd, check=True, timeout=5)
                 except subprocess.CalledProcessError as e:
                     safe_error = self._sanitize_error_output(str(e))
                     logger.warning(f"Failed to set tmux option {option}: {safe_error}")

@@ -34,7 +34,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('mcp-coordinator/coordinator.log'),
+        logging.FileHandler('coordinator.log'),
         logging.StreamHandler()
     ]
 )
@@ -285,10 +285,13 @@ class EnhancedAgentCoordinator:
             self.agents[agent_id]['status'] = AgentStatus.BUSY.value
             self.agent_health[agent_id].last_heartbeat = datetime.now()
         
-        # Find suitable task with smart matching
+        # Find suitable task with smart matching and PRIORITY SORTING
         agent_capabilities = self.agent_capabilities_cache.get(agent_id, set())
         
-        for task in self.task_queue:
+        # CRITICAL FIX: Sort tasks by priority score (highest first)
+        sorted_tasks = sorted(self.task_queue, key=lambda x: x.get('priority_score', 0), reverse=True)
+        
+        for task in sorted_tasks:
             if task['status'] == 'pending':
                 # Check role suitability
                 if not self._is_task_suitable_for_role(task, agent_role):
