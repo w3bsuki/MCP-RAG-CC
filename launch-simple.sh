@@ -1,38 +1,48 @@
 #!/bin/bash
 
-echo "Killing old sessions..."
-tmux kill-session -t agents 2>/dev/null
+echo "🚀 Launching AI Agent Team in separate XTerm windows..."
+echo "Killing old agents..."
 pkill -f "claude --dangerously-skip-permissions" 2>/dev/null
 
-echo "Starting agents in tmux with split panes..."
+# Set environment
+export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json
 
-# Create new tmux session
-tmux new-session -d -s agents -n main
+echo "Starting agents in separate XTerm windows..."
 
-# Set MCP path
-tmux send-keys -t agents:main "export CLAUDE_MCP_SETTINGS_PATH=$(pwd)/claude_mcp_settings.json" Enter
+# Launch each agent in a separate xterm window
+xterm -title "🔍 AUDITOR - Security Scanner" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am AUDITOR agent - I scan for security issues and code quality problems. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
 
-# Split into 6 panes
-tmux split-window -t agents:main -h
-tmux split-window -t agents:main -v
-tmux split-window -t agents:main.0 -v
-tmux split-window -t agents:main.2 -h
-tmux split-window -t agents:main.4 -h
+sleep 2
 
-# Launch agents in each pane
-tmux send-keys -t agents:main.0 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am AUDITOR agent'" Enter
-sleep 1
-tmux send-keys -t agents:main.1 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am PLANNER agent'" Enter
-sleep 1
-tmux send-keys -t agents:main.2 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am CODER-1 agent'" Enter
-sleep 1
-tmux send-keys -t agents:main.3 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am CODER-2 agent'" Enter
-sleep 1
-tmux send-keys -t agents:main.4 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am TESTER agent'" Enter
-sleep 1
-tmux send-keys -t agents:main.5 "source venv/bin/activate && claude --dangerously-skip-permissions 'I am REVIEWER agent'" Enter
+xterm -title "📋 PLANNER - Task Architect" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am PLANNER agent - I create implementation plans from audit findings. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
 
-echo "✅ Done! Attach with: tmux attach -t agents"
+sleep 2
+
+xterm -title "💻 CODER-1 - Implementation" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am CODER-1 agent - I implement solutions and write code. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
+
+sleep 2
+
+xterm -title "⚡ CODER-2 - Optimization" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am CODER-2 agent - I handle refactoring and optimization. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
+
+sleep 2
+
+xterm -title "🧪 TESTER - Quality Guard" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am TESTER agent - I write tests and verify code quality. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
+
+sleep 2
+
+xterm -title "👁️ REVIEWER - Code Critic" -e bash -c "cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC && source venv/bin/activate && export CLAUDE_MCP_SETTINGS_PATH=/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/claude_mcp_settings.json && claude --dangerously-skip-permissions 'I am REVIEWER agent - I review code and create pull requests. I need to register with the MCP coordinator first using: mcp-coordinator.register_agent()'; exec bash" &
+
+echo "✅ All 6 AI agents launched in separate XTerm windows!"
 echo ""
-echo "You'll see all 6 agents in split panes!"
-echo "Navigate with Ctrl+B then arrow keys"
+echo "Each window shows:"
+echo "🔍 AUDITOR - Finds security & quality issues" 
+echo "📋 PLANNER - Creates implementation plans"
+echo "💻 CODER-1 - Implements new features"
+echo "⚡ CODER-2 - Optimizes & refactors code"
+echo "🧪 TESTER - Writes tests & validates"
+echo "👁️ REVIEWER - Reviews & creates PRs"
+echo ""
+echo "🎯 IMPORTANT: Each agent needs to:"
+echo "1. Sign in to Claude when browser opens"
+echo "2. Call: mcp-coordinator.register_agent() to join the team"
+echo "3. Start working autonomously!"

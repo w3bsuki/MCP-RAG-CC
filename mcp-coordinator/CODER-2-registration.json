@@ -1,0 +1,13 @@
+{
+  "agent_id": "CODER-2",
+  "role": "coder",
+  "capabilities": [
+    "code implementation",
+    "bug fixes",
+    "refactoring",
+    "git operations",
+    "code optimization"
+  ],
+  "status": "active",
+  "registered_at": "2025-06-14T17:37:13.288168"
+}

@@ -23,6 +23,8 @@ import queue
 import psutil
 import random
 import math
+import shlex
+import re
 
 # Configure logging
 logging.basicConfig(
@@ -80,6 +82,31 @@ class EnhancedAutonomousLauncher:
         self.max_retry_delay = 60  # seconds
         self.retry_multiplier = 2
         
+        # Security: Whitelist of allowed command patterns
+        self.allowed_command_patterns = [
+            r'^claude\s+--dangerously-skip-permissions\s+"[^"]*"$',  # Claude launch command
+            r'^/exit$',  # Exit command
+            r'^/help$',  # Help command
+            r'^cd\s+[\w/.-]+$',  # Change directory command
+            r'^export\s+\w+=[\w/.-]+$',  # Environment variable exports
+            r'^source\s+[\w/.]+/activate$',  # Virtual environment activation
+            r'^#\s+.*$',  # Comments
+            r'^python3?\s+[\w/.-]+\.py(\s+[\w\s-]+)?$',  # Python script execution with args
+            r'^read\s+[\w/.-]+$',  # Read file command
+            r'^I am agent .* with role .*\.$',  # Agent identification
+            r'^Let me begin by reading my instructions now\.$',  # Startup message
+            r'^# Agent Startup Sequence$',  # Startup sequence header
+            r'^## Step \d+: .*$',  # Startup sequence steps
+            r'^First, I\'ll read my detailed role instructions:$',  # Startup instruction
+            r'^After reading instructions, I\'ll register with the MCP coordinator:$',  # Startup instruction
+            r'^Use mcp-coordinator\.register_agent with my ID and capabilities\.$',  # Startup instruction
+            r'^Set up my working environment and memory\.$',  # Startup instruction
+            r'^Start my continuous work cycle as defined in my instructions\.$',  # Startup instruction
+            r'^IMPORTANT: .*$',  # Important messages
+            r'^\d+\. .*$',  # Numbered lists
+            r'^Starting initialization\.\.\.$'  # Initialization message
+        ]
+        
         # Load configuration
         self.load_config()
         
@@ -107,10 +134,10 @@ class EnhancedAutonomousLauncher:
             logger.info("Configuration loaded successfully")
             
         except json.JSONDecodeError as e:
-            logger.error(f"Invalid JSON in config file: {e}")
+            logger.error("Invalid JSON in config file", exc_info=True)
             sys.exit(1)
         except Exception as e:
-            logger.error(f"Failed to load config: {e}")
+            logger.error("Failed to load config", exc_info=True)
             sys.exit(1)
     
     def validate_config(self):
@@ -177,7 +204,7 @@ class EnhancedAutonomousLauncher:
             try:
                 self.stop_agent_gracefully(agent)
             except Exception as e:
-                logger.error(f"Error stopping agent {agent_id}: {e}")
+                logger.error(f"Error stopping agent {agent_id}", exc_info=True)
         
         # Wait for monitoring thread
         if self.monitoring_thread and self.monitoring_thread.is_alive():
@@ -375,7 +402,7 @@ class EnhancedAutonomousLauncher:
                                  check=True, timeout=10)
                     time.sleep(1)
                 except subprocess.CalledProcessError as e:
-                    logger.error(f"Failed to kill existing session: {e}")
+                    logger.error("Failed to kill existing session", exc_info=True)
                     return False
             
             # Create new session with specific settings
@@ -396,7 +423,7 @@ class EnhancedAutonomousLauncher:
                     subprocess.run(['tmux'] + list(option) + ['-t', self.session_name], 
                                  check=True, timeout=5)
                 except subprocess.CalledProcessError as e:
-                    logger.warning(f"Failed to set tmux option {option}: {e}")
+                    logger.warning(f"Failed to set tmux option {option}", exc_info=True)
             
             logger.info("✅ Tmux session created successfully")
             return True
@@ -439,6 +466,25 @@ class EnhancedAutonomousLauncher:
     
     def send_to_agent(self, window: str, command: str):
         """Send command with exponential backoff retry logic"""
+        # Validate window name to prevent injection
+        if not window or not window.replace("-", "").replace("_", "").isalnum():
+            logger.error(f"Invalid window name: {window}")
+            raise ValueError(f"Invalid window name: {window}")
+        
+        # Check command against whitelist
+        command_allowed = False
+        for pattern in self.allowed_command_patterns:
+            if re.match(pattern, command):
+                command_allowed = True
+                break
+        
+        if not command_allowed:
+            logger.error(f"Command not in whitelist: {command}")
+            raise ValueError(f"Command not allowed: {command}")
+        
+        # Security logging for command execution
+        logger.info(f"Executing command for window {window}: {command[:50]}...")
+        
         for attempt in range(self.max_retries):
             try:
                 # Clear any existing input
@@ -449,7 +495,9 @@ class EnhancedAutonomousLauncher:
                 
                 time.sleep(0.5)
                 
-                # Send the command
+                # Send the command with proper escaping
+                # Note: tmux send-keys takes the command as literal text, not shell commands
+                # So we don't need shlex.quote() here, but we validate the input
                 subprocess.run([
                     'tmux', 'send-keys', '-t', f'{self.session_name}:{window}',
                     command, 'Enter'
@@ -622,7 +670,7 @@ Let me begin by reading my instructions now."""
             agent.state = AgentState.STOPPED
             
         except Exception as e:
-            logger.error(f"Error stopping agent {agent.id}: {e}")
+            logger.error(f"Error stopping agent {agent.id}", exc_info=True)
     
     def launch_all_agents(self):
         """Launch all configured agents with intelligent scheduling"""

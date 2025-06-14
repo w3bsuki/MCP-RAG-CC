@@ -19,11 +19,19 @@ completed_task_ids = set()
 if completed_tasks_file.exists():
     try:
         with open(completed_tasks_file, 'r') as f:
-            completed_tasks = json.load(f)
+            content = f.read().strip()
+            if content.startswith('['):
+                # JSON array format
+                completed_tasks = json.loads(content)
+            else:
+                # Single JSON object format
+                completed_task = json.loads(content)
+                completed_tasks = [completed_task]
+            
             completed_task_ids = {task['task_id'] for task in completed_tasks}
             print(f"Found {len(completed_task_ids)} completed tasks")
-    except:
-        print("Warning: Could not read completed tasks file")
+    except Exception as e:
+        print(f"Warning: Could not read completed tasks file: {e}")
 
 # In a real MCP environment, this would call mcp-coordinator.get_next_task
 # For now, I'll create a sample task based on common code improvements

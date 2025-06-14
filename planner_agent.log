@@ -1,0 +1,109 @@
+2025-06-14 10:38:29,750 - planner-agent - INFO - Starting Planner Agent
+2025-06-14 10:38:29,750 - planner-agent - INFO - Registering agent: planner-001
+2025-06-14 10:38:29,752 - planner-agent - INFO - Successfully registered with coordinator
+2025-06-14 10:38:29,754 - planner-agent - INFO - Got task: 38ec472c-2154-4113-aa9d-6f04833be52b - Create implementation plan for: Command Injection Vulnerability in Dependency Checking
+2025-06-14 10:38:29,754 - planner-agent - INFO - Processing task: Create implementation plan for: Command Injection Vulnerability in Dependency Checking
+2025-06-14 10:38:29,754 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,757 - planner-agent - INFO - Created implementation task: 1749922709.75537
+2025-06-14 10:38:29,757 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,759 - planner-agent - INFO - Got task: 28d0c367-0644-43fa-80bf-af448a226edd - Create implementation plan for: Command Injection in tmux send-keys Operations
+2025-06-14 10:38:29,759 - planner-agent - INFO - Processing task: Create implementation plan for: Command Injection in tmux send-keys Operations
+2025-06-14 10:38:29,759 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,761 - planner-agent - INFO - Created implementation task: 1749922709.760369
+2025-06-14 10:38:29,761 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,763 - planner-agent - INFO - Got task: 5a8a54d3-536a-45c7-b0c5-eb33f171d90e - Create implementation plan for: Command Injection in Claude Process Launch
+2025-06-14 10:38:29,763 - planner-agent - INFO - Processing task: Create implementation plan for: Command Injection in Claude Process Launch
+2025-06-14 10:38:29,764 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,766 - planner-agent - INFO - Created implementation task: 1749922709.764388
+2025-06-14 10:38:29,766 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,768 - planner-agent - INFO - Got task: bf761be9-384d-4ab4-8f30-1bef0085ae53 - Create implementation plan for: Command Injection in Git Worktree Operations
+2025-06-14 10:38:29,768 - planner-agent - INFO - Processing task: Create implementation plan for: Command Injection in Git Worktree Operations
+2025-06-14 10:38:29,768 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,770 - planner-agent - INFO - Created implementation task: 1749922709.768656
+2025-06-14 10:38:29,770 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,773 - planner-agent - INFO - Got task: 5ea29e01-87b4-4c64-8bc5-42a211940f4a - Create implementation plan for: Command injection vulnerability in subprocess usage
+2025-06-14 10:38:29,773 - planner-agent - INFO - Processing task: Create implementation plan for: Command injection vulnerability in subprocess usage
+2025-06-14 10:38:29,773 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,775 - planner-agent - INFO - Created implementation task: 1749922709.774008
+2025-06-14 10:38:29,776 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,778 - planner-agent - INFO - Got task: 30b7fb30-3425-40e3-9697-19fa8f905a98 - Create implementation plan for: Path Traversal Vulnerability in Instructions File Handling
+2025-06-14 10:38:29,778 - planner-agent - INFO - Processing task: Create implementation plan for: Path Traversal Vulnerability in Instructions File Handling
+2025-06-14 10:38:29,778 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,780 - planner-agent - INFO - Created implementation task: 1749922709.778587
+2025-06-14 10:38:29,780 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,783 - planner-agent - INFO - Got task: 22244878-a765-4e78-b356-b156b2413fea - Create implementation plan for: Unsafe Process Management in Exit Command
+2025-06-14 10:38:29,783 - planner-agent - INFO - Processing task: Create implementation plan for: Unsafe Process Management in Exit Command
+2025-06-14 10:38:29,783 - planner-agent - INFO - Created plan with 0 steps
+2025-06-14 10:38:29,784 - planner-agent - INFO - Created implementation task: 1749922709.783565
+2025-06-14 10:38:29,784 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,786 - planner-agent - INFO - Got task: 3fa9507c-80aa-4d8c-a49c-b51918a0e3ed - Create implementation plan for: Resource Exhaustion through Unlimited Agent Spawning
+2025-06-14 10:38:29,786 - planner-agent - INFO - Processing task: Create implementation plan for: Resource Exhaustion through Unlimited Agent Spawning
+2025-06-14 10:38:29,786 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,788 - planner-agent - INFO - Created implementation task: 1749922709.787282
+2025-06-14 10:38:29,789 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,790 - planner-agent - INFO - Got task: 34017b11-5a36-4b34-b996-37cc79490184 - Create implementation plan for: Path Traversal in Git Worktree Path Construction
+2025-06-14 10:38:29,790 - planner-agent - INFO - Processing task: Create implementation plan for: Path Traversal in Git Worktree Path Construction
+2025-06-14 10:38:29,790 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,793 - planner-agent - INFO - Created implementation task: 1749922709.791249
+2025-06-14 10:38:29,793 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,794 - planner-agent - INFO - Got task: ecd5d5a0-4622-4f04-a2df-0461e836c824 - Create implementation plan for: SQL injection risk in task filtering
+2025-06-14 10:38:29,794 - planner-agent - INFO - Processing task: Create implementation plan for: SQL injection risk in task filtering
+2025-06-14 10:38:29,794 - planner-agent - INFO - Created plan with 0 steps
+2025-06-14 10:38:29,796 - planner-agent - INFO - Created implementation task: 1749922709.795158
+2025-06-14 10:38:29,796 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,798 - planner-agent - INFO - Got task: 20919468-00a0-4a7a-b68a-1b86977d1910 - Create implementation plan for: Path traversal vulnerability in file operations
+2025-06-14 10:38:29,798 - planner-agent - INFO - Processing task: Create implementation plan for: Path traversal vulnerability in file operations
+2025-06-14 10:38:29,798 - planner-agent - INFO - Created plan with 0 steps
+2025-06-14 10:38:29,800 - planner-agent - INFO - Created implementation task: 1749922709.799094
+2025-06-14 10:38:29,800 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,803 - planner-agent - INFO - Got task: 6595bd83-222d-4a30-aa8c-2d8e9fcdae65 - Create implementation plan for: Missing error handling in critical git operations
+2025-06-14 10:38:29,803 - planner-agent - INFO - Processing task: Create implementation plan for: Missing error handling in critical git operations
+2025-06-14 10:38:29,803 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,805 - planner-agent - INFO - Created implementation task: 1749922709.803726
+2025-06-14 10:38:29,805 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,807 - planner-agent - INFO - Got task: 9783b063-d0b7-4251-8fe3-7dea24289506 - Create implementation plan for: Thread safety issues with shared state
+2025-06-14 10:38:29,808 - planner-agent - INFO - Processing task: Create implementation plan for: Thread safety issues with shared state
+2025-06-14 10:38:29,808 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,810 - planner-agent - INFO - Created implementation task: 1749922709.808458
+2025-06-14 10:38:29,810 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,812 - planner-agent - INFO - Got task: f2198a02-34bf-485d-aa9a-df0b121ae928 - Create implementation plan for: Potential Infinite Retry Loops in Agent Operations
+2025-06-14 10:38:29,812 - planner-agent - INFO - Processing task: Create implementation plan for: Potential Infinite Retry Loops in Agent Operations
+2025-06-14 10:38:29,812 - planner-agent - INFO - Created plan with 7 steps
+2025-06-14 10:38:29,814 - planner-agent - INFO - Created implementation task: 1749922709.812705
+2025-06-14 10:38:29,814 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,816 - planner-agent - INFO - Got task: 14a58167-9088-475c-b39f-b3d9cd7cd7f2 - Create implementation plan for: Unsafe JSON Deserialization in State Loading
+2025-06-14 10:38:29,816 - planner-agent - INFO - Processing task: Create implementation plan for: Unsafe JSON Deserialization in State Loading
+2025-06-14 10:38:29,816 - planner-agent - INFO - Created plan with 0 steps
+2025-06-14 10:38:29,818 - planner-agent - INFO - Created implementation task: 1749922709.816941
+2025-06-14 10:38:29,818 - planner-agent - INFO - Successfully submitted plan
+2025-06-14 10:38:29,818 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 10:38:29,818 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 10:38:39,819 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 10:38:39,819 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:02:24,235 - planner-agent - INFO - Starting Planner Agent
+2025-06-14 11:02:24,236 - planner-agent - INFO - Registering agent: planner-001
+2025-06-14 11:02:24,238 - planner-agent - INFO - Successfully registered with coordinator
+2025-06-14 11:02:24,240 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:02:24,240 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:02:34,240 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:02:34,240 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:02:44,241 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:02:44,241 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:02:56,907 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:02:56,907 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:03:06,908 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:03:06,908 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:03:16,909 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:03:16,909 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:03:29,531 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:03:29,531 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:03:39,532 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:03:39,532 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:03:49,533 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:03:49,533 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:04:02,184 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:04:02,184 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:04:12,185 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:04:12,185 - planner-agent - INFO - No tasks available, waiting...
+2025-06-14 11:04:22,186 - planner-agent - INFO - No pending planning tasks found
+2025-06-14 11:04:22,186 - planner-agent - INFO - No tasks available, waiting...

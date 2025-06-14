@@ -1,0 +1,20 @@
+{
+  "agent_id": "tester-20250614-110541-41302",
+  "role": "tester",
+  "capabilities": [
+    "unit_testing",
+    "integration_testing",
+    "test_coverage",
+    "edge_case_testing",
+    "performance_testing",
+    "test_automation",
+    "python_testing",
+    "javascript_testing",
+    "typescript_testing",
+    "e2e_testing",
+    "mock_creation"
+  ],
+  "status": "active",
+  "registered_at": "2025-06-14T11:05:41.890661",
+  "last_seen": "2025-06-14T11:05:41.890671"
+}

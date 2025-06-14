@@ -1,0 +1,227 @@
+[
+  {
+    "title": "Command injection vulnerability in subprocess usage",
+    "description": "Multiple instances of subprocess.run() with shell=False but using user-controlled input without proper validation. In autonomous-system.py lines 277, 383, 396, 424, 446, 455, 594-598, 703-706, 829-848, etc.",
+    "severity": "critical",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 277,
+    "recommendation": "Use shlex.quote() for shell arguments or validate inputs against a whitelist"
+  },
+  {
+    "title": "Path traversal vulnerability in file operations",
+    "description": "Multiple file operations use user-controlled paths without validation. In auditor_agent.py line 56, coordinator server.py lines 96-97, 152-167, etc.",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 56,
+    "recommendation": "Use Path.resolve() and check if the resolved path is within expected directory"
+  },
+  {
+    "title": "Hardcoded credentials and sensitive data",
+    "description": "Agent IDs and session names are hardcoded. In auditor_agent.py line 247, autonomous-system.py line 65",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 247,
+    "recommendation": "Use environment variables or configuration files for sensitive data"
+  },
+  {
+    "title": "Missing input validation in MCP coordinator",
+    "description": "The coordinator accepts agent registration and task submissions without validating input data structure or content. server.py lines 174-211, 459-500",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 174,
+    "recommendation": "Add schema validation using jsonschema or pydantic"
+  },
+  {
+    "title": "SQL injection risk in task filtering",
+    "description": "String formatting used in task filtering logic without parameterization. server.py lines 330-346",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 342,
+    "recommendation": "Use parameterized queries or ORM with proper escaping"
+  },
+  {
+    "title": "Unsafe JSON deserialization",
+    "description": "JSON.loads() used without size limits or timeout. Could lead to DoS. Multiple locations in coordinator and agent files",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 102,
+    "recommendation": "Add size limits and use json.JSONDecoder with parse_constant parameter"
+  },
+  {
+    "title": "N+1 query problem in task assignment",
+    "description": "Loop iterates through all tasks and performs multiple lookups for each. server.py lines 284-322",
+    "severity": "high",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 285,
+    "recommendation": "Batch queries and use indexing for task lookups"
+  },
+  {
+    "title": "Memory leak in task history deque",
+    "description": "Task history deque has maxlen=1000 but stores full task objects including results. Can consume significant memory",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 75,
+    "recommendation": "Store only essential task metadata or implement periodic cleanup"
+  },
+  {
+    "title": "Blocking I/O in async context",
+    "description": "File I/O operations (open, json.dump) in async functions without using aiofiles. Multiple locations",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 159,
+    "recommendation": "Use aiofiles for async file operations"
+  },
+  {
+    "title": "Inefficient string concatenation in loops",
+    "description": "String concatenation using + in loops. auditor_agent.py line 109",
+    "severity": "low",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 109,
+    "recommendation": "Use list.append() and ''.join() for better performance"
+  },
+  {
+    "title": "Missing error handling in critical sections",
+    "description": "No try-catch blocks around git operations that could fail. coder_agent_loop.py lines 174-183",
+    "severity": "high",
+    "category": "error_handling",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/coder_agent_loop.py",
+    "line_number": 174,
+    "recommendation": "Wrap git operations in try-except blocks with proper error messages"
+  },
+  {
+    "title": "Poor error messages lack context",
+    "description": "Generic error messages without context. Example: 'Failed to get next task' without details",
+    "severity": "medium",
+    "category": "error_handling",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/coder_agent_loop.py",
+    "line_number": 115,
+    "recommendation": "Include error type, context, and recovery suggestions in error messages"
+  },
+  {
+    "title": "Missing retry logic for network operations",
+    "description": "No retry mechanism for MCP coordinator communication which could fail due to network issues",
+    "severity": "medium",
+    "category": "error_handling",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 44,
+    "recommendation": "Implement exponential backoff retry with jitter"
+  },
+  {
+    "title": "Duplicate code in agent implementations",
+    "description": "Registration, task retrieval, and status update logic duplicated across agent files",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 43,
+    "recommendation": "Create a base Agent class with common functionality"
+  },
+  {
+    "title": "High cyclomatic complexity in monitoring functions",
+    "description": "monitoring_loop() function has complexity > 20 with nested conditions. autonomous-system.py line 793",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 793,
+    "recommendation": "Break down into smaller, focused functions"
+  },
+  {
+    "title": "Missing type hints throughout codebase",
+    "description": "Most functions lack type hints, making code harder to understand and maintain",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 68,
+    "recommendation": "Add type hints to all function signatures"
+  },
+  {
+    "title": "Inconsistent error handling patterns",
+    "description": "Mix of return codes, exceptions, and boolean returns for error handling",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 251,
+    "recommendation": "Standardize on exceptions with custom error types"
+  },
+  {
+    "title": "Missing docstrings for complex functions",
+    "description": "Functions like _generate_insights, _find_similar_tasks lack comprehensive docstrings",
+    "severity": "low",
+    "category": "documentation",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 933,
+    "recommendation": "Add docstrings with parameters, returns, and examples"
+  },
+  {
+    "title": "Outdated comments referencing old implementation",
+    "description": "Comments mention 'v2' but code has evolved beyond initial v2 design",
+    "severity": "low",
+    "category": "documentation",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 3,
+    "recommendation": "Update comments to reflect current implementation"
+  },
+  {
+    "title": "Resource leak - unclosed subprocess pipes",
+    "description": "subprocess.run() with capture_output=True but no explicit cleanup in error cases",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 277,
+    "recommendation": "Use context managers or ensure cleanup in finally blocks"
+  },
+  {
+    "title": "Thread safety issues with shared state",
+    "description": "Multiple threads access agents dict without locks. Could cause race conditions",
+    "severity": "high",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 66,
+    "recommendation": "Use threading.Lock() or concurrent.futures for thread-safe operations"
+  },
+  {
+    "title": "Inefficient file globbing patterns",
+    "description": "Using rglob('*') then filtering instead of specific patterns. auditor_agent.py line 180",
+    "severity": "low",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 180,
+    "recommendation": "Use specific glob patterns like '**/*.py' for better performance"
+  },
+  {
+    "title": "Missing index on frequently queried fields",
+    "description": "Task queue searches by status and type without indexing strategy",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 285,
+    "recommendation": "Implement indexing using dict lookups for common queries"
+  },
+  {
+    "title": "Potential deadlock in async task management",
+    "description": "Circular dependencies possible between task dependencies and agent assignment",
+    "severity": "high",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 348,
+    "recommendation": "Implement deadlock detection and timeout mechanisms"
+  },
+  {
+    "title": "Unhandled asyncio task exceptions",
+    "description": "Background tasks created with asyncio.create_task() but no exception handling",
+    "severity": "high",
+    "category": "error_handling",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 90,
+    "recommendation": "Add task.add_done_callback() to handle exceptions"
+  }
+]
