@@ -1,0 +1,14 @@
+{
+  "agent_id": "auditor-20250614-095401-0",
+  "role": "auditor",
+  "capabilities": [
+    "code_analysis",
+    "security_scanning",
+    "performance_auditing",
+    "quality_assessment",
+    "pattern_recognition",
+    "continuous_monitoring"
+  ],
+  "status": "active",
+  "registered_at": "2025-06-14T16:56:18.460384"
+}

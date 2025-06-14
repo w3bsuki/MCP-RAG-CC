@@ -1,0 +1,236 @@
+[
+  {
+    "title": "Flask Dashboard Exposed on All Network Interfaces",
+    "description": "The Flask dashboard server in dashboard/server.py binds to 0.0.0.0 (all interfaces) without authentication, allowing anyone on the network to access sensitive system information. This could expose agent status, task queues, and system health data to unauthorized users.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "dashboard/server.py",
+    "line_number": 347,
+    "suggested_fix": "Change app.run(host='0.0.0.0', port=5000) to app.run(host='127.0.0.1', port=5000) or implement authentication middleware"
+  },
+  {
+    "title": "Command Injection Risk in Subprocess Calls",
+    "description": "Multiple subprocess.run() calls in autonomous-system.py use unvalidated agent names and window names. If these contain shell metacharacters, command injection is possible. Affected lines: 269, 273, 341, 352, 379, 405, 414, 530, 829.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "autonomous-system.py",
+    "line_number": 269,
+    "suggested_fix": "Implement input validation: def sanitize_name(name): return re.sub(r'[^a-zA-Z0-9_-]', '', name)"
+  },
+  {
+    "title": "Missing Input Validation in MCP Coordinator",
+    "description": "The MCP coordinator server.py accepts agent_id, role, and task parameters without validation in tool handlers (lines 1098-1161). Malicious agents could inject invalid data or cause denial of service.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 1098,
+    "suggested_fix": "Add validation: def validate_agent_id(agent_id: str) -> bool: return bool(re.match(r'^[a-zA-Z0-9_-]+$', agent_id))"
+  },
+  {
+    "title": "Insecure File Path Handling",
+    "description": "Direct path concatenation in tester_agent.py line 111 without validation could allow path traversal if file paths are user-controlled.",
+    "severity": "low",
+    "category": "security",
+    "file_path": "tester_agent.py",
+    "line_number": 111,
+    "suggested_fix": "Use secure path resolution: impl_path = Path(file_path).resolve(); verify path is within base_dir"
+  },
+  {
+    "title": "No Rate Limiting on Dashboard API",
+    "description": "The /api/status endpoint in dashboard/server.py has no rate limiting, allowing resource exhaustion through repeated requests.",
+    "severity": "low",
+    "category": "security",
+    "file_path": "dashboard/server.py",
+    "line_number": 337,
+    "suggested_fix": "Implement rate limiting using Flask-Limiter library"
+  },
+  {
+    "title": "Function Too Long: launch_agent()",
+    "description": "The launch_agent() function in autonomous-system.py is 97 lines long, doing too many things including window creation, environment setup, command sending, and error handling. This violates the single responsibility principle and makes the code hard to maintain.",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 429,
+    "suggested_fix": "Break down into smaller functions: setup_agent_environment(), send_startup_instructions(), initialize_agent_state()"
+  },
+  {
+    "title": "High Cyclomatic Complexity in get_next_task()",
+    "description": "The get_next_task() method in mcp-coordinator/server.py has cyclomatic complexity ~15 with multiple nested if conditions for task matching. This makes the code difficult to understand and test.",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 273,
+    "suggested_fix": "Use strategy pattern or extract validation methods: _is_task_suitable_for_role(), _are_dependencies_met(), etc."
+  },
+  {
+    "title": "Performance Bottleneck: Blocking save_state()",
+    "description": "The save_state() method in mcp-coordinator/server.py performs blocking I/O on every state change, writing the entire state to disk synchronously. This could cause performance issues under heavy load.",
+    "severity": "high",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 131,
+    "suggested_fix": "Implement async file I/O with aiofiles or batch updates with a write-through cache"
+  },
+  {
+    "title": "Memory Leak Risk: Unbounded context_memory",
+    "description": "The context_memory dictionary in mcp-coordinator/server.py grows unbounded per agent with no cleanup mechanism. This could lead to excessive memory usage in long-running systems.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 84,
+    "suggested_fix": "Implement time-based or size-based cleanup: keep only last N entries or entries from last X hours"
+  },
+  {
+    "title": "God Class: EnhancedAutonomousLauncher",
+    "description": "The EnhancedAutonomousLauncher class has 15+ responsibilities including config management, tmux handling, agent lifecycle, health monitoring, and state persistence. This violates single responsibility principle.",
+    "severity": "high",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 58,
+    "suggested_fix": "Split into focused classes: ConfigManager, TmuxSessionManager, AgentManager, HealthMonitor, StateManager"
+  },
+  {
+    "title": "Missing Type Hints Throughout Codebase",
+    "description": "Most functions in autonomous-system.py and all functions in dashboard/server.py lack type hints. This reduces code clarity and prevents static analysis tools from catching type errors.",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 1,
+    "suggested_fix": "Add comprehensive type hints: def function_name(param: Type) -> ReturnType:"
+  },
+  {
+    "title": "Synchronous Subprocess Calls Block Event Loop",
+    "description": "All subprocess calls in autonomous-system.py are synchronous blocking operations. Methods like check_dependencies(), setup_tmux_session(), and send_to_agent() block the entire program while waiting.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "autonomous-system.py",
+    "line_number": 195,
+    "suggested_fix": "Use asyncio.create_subprocess_exec() for non-blocking execution"
+  },
+  {
+    "title": "Inefficient O(n) Similar Task Search",
+    "description": "The _find_similar_tasks() method performs O(n) search through entire task history for every new task. This becomes increasingly slow as history grows.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 551,
+    "suggested_fix": "Implement inverted index or use text similarity library with efficient indexing like Annoy or Faiss"
+  },
+  {
+    "title": "No Formal Test Suite Structure",
+    "description": "Tests are standalone scripts rather than organized test modules. No pytest/unittest configuration, no pytest.ini, setup.cfg, or .coveragerc files. This makes it difficult to run tests consistently and measure coverage.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Set up pytest infrastructure: pip install pytest pytest-cov pytest-asyncio; create pytest.ini; organize tests in tests/ directory structure"
+  },
+  {
+    "title": "Missing Unit Tests for Core Components",
+    "description": "No unit tests found for individual agent implementations (auditor, planner, coder, reviewer), dashboard functionality, utility functions, git worktree operations, or MCP communication layer.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create comprehensive unit tests for each module with at least 80% coverage"
+  },
+  {
+    "title": "No Test Coverage Reporting",
+    "description": "No coverage configuration or reporting setup. Cannot measure what percentage of code is tested or identify untested code paths.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Configure coverage.py with .coveragerc file, generate HTML coverage reports, aim for >90% coverage"
+  },
+  {
+    "title": "Missing Security Test Cases",
+    "description": "No tests for input validation, authentication/authorization, injection attack prevention, or rate limiting. Security-critical code paths are untested.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add security-focused test cases using hypothesis for property-based testing of inputs"
+  },
+  {
+    "title": "No Load/Performance Testing",
+    "description": "Missing tests for system behavior under load: multiple agents, large task queues, memory usage patterns, network failures. Could lead to production failures under stress.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Implement load tests using locust or similar tools, test with 10x expected load"
+  },
+  {
+    "title": "No CI/CD Test Automation",
+    "description": "No continuous integration setup. Tests appear to be run manually with no pre-commit hooks or GitHub Actions. This increases risk of regressions.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Set up GitHub Actions workflow for automated testing on every commit/PR"
+  },
+  {
+    "title": "Missing API Documentation",
+    "description": "No formal API documentation for MCP coordinator server endpoints. Missing request/response schemas, authentication details, and error codes. This makes it difficult for developers to integrate with the system.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create API.md with OpenAPI/Swagger spec, document all endpoints with examples"
+  },
+  {
+    "title": "No Production Deployment Guide",
+    "description": "Missing production deployment instructions including Docker setup, cloud deployment, scaling strategies, and monitoring configuration. This blocks production readiness.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create docs/deployment/ with Docker configs, Kubernetes manifests, and deployment procedures"
+  },
+  {
+    "title": "Missing Contributing Guidelines",
+    "description": "No CONTRIBUTING.md file with code style guide, PR process, code review checklist, or development workflow. This makes it difficult for new contributors.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create CONTRIBUTING.md with style guide, PR template, and development workflow"
+  },
+  {
+    "title": "No Security Documentation",
+    "description": "Missing security best practices guide, threat model, authentication/authorization details, and security audit procedures. Critical for production systems.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create docs/security/ with threat model, security guidelines, and audit procedures"
+  },
+  {
+    "title": "Missing License File",
+    "description": "No LICENSE file found in the repository. This creates legal ambiguity about usage rights and contributions.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add appropriate LICENSE file (MIT, Apache 2.0, etc.)"
+  },
+  {
+    "title": "Incomplete Code Documentation",
+    "description": "Most Python files lack comprehensive docstrings for classes and functions. Complex logic lacks inline comments. This reduces code maintainability.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add docstrings following PEP 257, document all public APIs, add inline comments for complex logic"
+  },
+  {
+    "title": "No .gitignore File",
+    "description": "Missing .gitignore file could lead to committing sensitive data, virtual environments, or generated files to the repository.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create .gitignore with Python template, exclude venv/, *.pyc, __pycache__/, logs/, etc."
+  }
+]

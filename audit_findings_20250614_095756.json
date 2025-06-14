@@ -1,0 +1,266 @@
+[
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (121 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/coder_agent_loop.py",
+    "line_number": 287
+  },
+  {
+    "title": "Technical debt marker",
+    "description": "Code contains technical debt marker: # Check for TODO/FIXME comments",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 139
+  },
+  {
+    "title": "Technical debt marker",
+    "description": "Code contains technical debt marker: if any(marker in line.upper() for marker in ['TODO', 'FIXME', 'XXX', 'HACK']):",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/auditor_agent.py",
+    "line_number": 140
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 467
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (123 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/autonomous-system.py",
+    "line_number": 771
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (163 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/tester_agent.py",
+    "line_number": 56
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (125 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/tester_agent.py",
+    "line_number": 76
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/tester_agent.py",
+    "line_number": 96
+  },
+  {
+    "title": "Technical debt marker",
+    "description": "Code contains technical debt marker: # TODO: Implement based on function signature",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/tester_agent.py",
+    "line_number": 191
+  },
+  {
+    "title": "Technical debt marker",
+    "description": "Code contains technical debt marker: # TODO: Test each public method",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/tester_agent.py",
+    "line_number": 222
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: title=\"Command Injection in tmux send-keys Operations\",",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/submit_security_findings.py",
+    "line_number": 68
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (121 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/submit_security_findings.py",
+    "line_number": 103
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: servers = list(mcp_settings.get('mcpServers', {}).keys())",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/simple-test.py",
+    "line_number": 61
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (122 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard/server.py",
+    "line_number": 211
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: key=lambda x: x.get('created_at', ''),",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard/server.py",
+    "line_number": 301
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: key=lambda x: x.get('submitted_at', ''),",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/dashboard/server.py",
+    "line_number": 312
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (123 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 439
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: similar.sort(key=lambda x: x['similarity'], reverse=True)",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 571
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (142 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 604
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (148 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 605
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (121 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 940
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 951
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 979
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (130 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_v2.py",
+    "line_number": 1055
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server_original.py",
+    "line_number": 214
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (123 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 438
+  },
+  {
+    "title": "Potential hardcoded secret",
+    "description": "Line contains potential hardcoded credential: similar.sort(key=lambda x: x['similarity'], reverse=True)",
+    "severity": "high",
+    "category": "security",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 570
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (142 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 603
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (148 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 604
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (121 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 939
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 950
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (127 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 978
+  },
+  {
+    "title": "Line too long",
+    "description": "Line exceeds 120 characters (130 chars)",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py",
+    "line_number": 1054
+  }
+]

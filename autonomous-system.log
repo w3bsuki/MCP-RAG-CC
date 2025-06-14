@@ -1,0 +1,1150 @@
+2025-06-14 08:08:26,993 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 08:08:26,994 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 08:08:26,996 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 08:08:27,449 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 08:08:27,451 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 08:08:27,691 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 08:08:27,691 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 08:08:27,691 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 08:08:27,691 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 08:08:27,715 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 08:08:27,715 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 08:08:27,715 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 08:08:27,716 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-080827-0
+2025-06-14 08:08:27,722 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 08:08:37,258 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-080827-0 launched successfully (PID: 24195)
+2025-06-14 08:08:42,258 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-080842-0
+2025-06-14 08:08:42,265 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 08:08:53,817 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-080842-0 launched successfully (PID: 24685)
+2025-06-14 08:08:58,817 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-080858-0
+2025-06-14 08:08:58,825 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 08:09:08,360 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-080858-0 launched successfully (PID: 25035)
+2025-06-14 08:09:13,361 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-080913-1
+2025-06-14 08:09:13,369 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 08:09:24,988 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-080913-1 launched successfully (PID: 25372)
+2025-06-14 08:09:29,989 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-080929-2
+2025-06-14 08:09:29,996 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 08:09:39,536 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-080929-2 launched successfully (PID: 25701)
+2025-06-14 08:09:44,536 - autonomous-launcher-v2 - INFO - Launching agent: tester-20250614-080944-0
+2025-06-14 08:09:44,545 - autonomous-launcher-v2 - INFO - Created window: tester
+2025-06-14 08:09:56,003 - autonomous-launcher-v2 - INFO - ✅ Agent tester-20250614-080944-0 launched successfully (PID: 26019)
+2025-06-14 08:10:01,004 - autonomous-launcher-v2 - INFO - Launching agent: reviewer-20250614-081001-0
+2025-06-14 08:10:01,010 - autonomous-launcher-v2 - INFO - Created window: reviewer
+2025-06-14 08:10:10,550 - autonomous-launcher-v2 - INFO - ✅ Agent reviewer-20250614-081001-0 launched successfully (PID: 26811)
+2025-06-14 08:10:15,550 - autonomous-launcher-v2 - INFO - ✅ Launched 7 agents successfully
+2025-06-14 08:10:15,550 - autonomous-launcher-v2 - INFO - System running. Press Ctrl+C to stop.
+2025-06-14 08:20:17,771 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 08:20:17,772 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 08:20:17,774 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 08:20:18,304 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 08:20:18,305 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 08:20:18,509 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 08:20:18,509 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 08:20:18,509 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 08:20:18,509 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 08:20:18,529 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 08:20:18,530 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 08:20:18,530 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 08:20:18,531 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-082018-0
+2025-06-14 08:20:18,539 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 08:20:28,076 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-082018-0 launched successfully (PID: 41392)
+2025-06-14 08:20:33,076 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-082033-0
+2025-06-14 08:20:33,084 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 08:20:44,842 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-082033-0 launched successfully (PID: 41884)
+2025-06-14 08:58:58,008 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 08:58:58,009 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 08:58:58,011 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 08:58:58,541 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 08:58:58,543 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 08:58:58,782 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 08:58:58,782 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 08:58:58,782 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 08:58:58,782 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 08:58:58,801 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 08:58:58,801 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 08:58:58,801 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 08:58:58,802 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-085858-0
+2025-06-14 08:58:58,809 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 08:59:08,348 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-085858-0 launched successfully (PID: 82000)
+2025-06-14 08:59:13,348 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-085913-0
+2025-06-14 08:59:13,355 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 08:59:15,667 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 08:59:15,668 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 08:59:15,669 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 08:59:16,171 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 08:59:16,172 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 08:59:16,415 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 08:59:16,415 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 08:59:16,416 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 08:59:16,416 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 08:59:16,419 - autonomous-launcher-v2 - WARNING - Existing session found, killing it...
+2025-06-14 08:59:16,681 - autonomous-launcher-v2 - WARNING - Retry 1 sending to planner: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:planner', 'export PYTHONUNBUFFERED=1', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:17,439 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 08:59:17,439 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 08:59:17,439 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 08:59:17,440 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-085917-0
+2025-06-14 08:59:17,448 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 08:59:20,472 - autonomous-launcher-v2 - WARNING - Retry 2 sending to planner: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:planner', 'export PYTHONUNBUFFERED=1', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:21,978 - autonomous-launcher-v2 - ERROR - Failed to send command to planner: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:planner', 'export PYTHONUNBUFFERED=1', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:21,978 - autonomous-launcher-v2 - ERROR - Failed to launch agent planner-20250614-085913-0: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:planner', 'export PYTHONUNBUFFERED=1', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:26,978 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-085926-0
+2025-06-14 08:59:26,987 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 08:59:29,272 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-085917-0 launched successfully (PID: 82989)
+2025-06-14 08:59:32,087 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085858-0 unhealthy: ['Process not found']
+2025-06-14 08:59:34,272 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-085934-0
+2025-06-14 08:59:34,281 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 08:59:36,527 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-085926-0 launched successfully (PID: 83539)
+2025-06-14 08:59:41,528 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-085941-1
+2025-06-14 08:59:41,538 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 08:59:43,824 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-085934-0 launched successfully (PID: 83979)
+2025-06-14 08:59:48,825 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-085948-0
+2025-06-14 08:59:48,833 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 08:59:49,339 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:53,199 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:53,456 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-085941-1 launched successfully (PID: 84349)
+2025-06-14 08:59:54,709 - autonomous-launcher-v2 - ERROR - Failed to send command to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:54,709 - autonomous-launcher-v2 - ERROR - Failed to launch agent coder-20250614-085948-0: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 08:59:58,457 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-085958-2
+2025-06-14 08:59:58,467 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 08:59:59,710 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-085959-1
+2025-06-14 08:59:59,718 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 09:00:00,224 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:01,730 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:02,225 - autonomous-launcher-v2 - INFO - Received signal 15, initiating graceful shutdown...
+2025-06-14 09:00:02,225 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:00:02,226 - autonomous-launcher-v2 - INFO - Monitoring loop stopped
+2025-06-14 09:00:03,227 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_090003.json
+2025-06-14 09:00:03,227 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-085858-0...
+2025-06-14 09:00:03,238 - autonomous-launcher-v2 - ERROR - Failed to send command to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:03,238 - autonomous-launcher-v2 - ERROR - Failed to launch agent coder-20250614-085959-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:05,736 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-085913-0...
+2025-06-14 09:00:08,239 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090008-2
+2025-06-14 09:00:08,250 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 09:00:08,252 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085926-0...
+2025-06-14 09:00:08,758 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder-2: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-2', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:08,759 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:10,264 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder-2: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-2', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:10,265 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:11,771 - autonomous-launcher-v2 - ERROR - Failed to send command to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:11,771 - autonomous-launcher-v2 - ERROR - Error stopping agent coder-20250614-085926-0: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:11,771 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085941-1...
+2025-06-14 09:00:11,772 - autonomous-launcher-v2 - ERROR - Failed to send command to coder-2: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-2', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:11,772 - autonomous-launcher-v2 - ERROR - Failed to launch agent coder-20250614-090008-2: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-2', 'cd /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:12,278 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:13,791 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:15,297 - autonomous-launcher-v2 - ERROR - Failed to send command to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:15,298 - autonomous-launcher-v2 - ERROR - Error stopping agent coder-20250614-085941-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:15,298 - autonomous-launcher-v2 - INFO - Cleanup completed
+2025-06-14 09:00:15,298 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:00:16,299 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_090016.json
+2025-06-14 09:00:16,299 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-085858-0...
+2025-06-14 09:00:16,772 - autonomous-launcher-v2 - INFO - Launching agent: tester-20250614-090016-0
+2025-06-14 09:00:16,788 - autonomous-launcher-v2 - INFO - Created window: tester
+2025-06-14 09:00:18,808 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-085913-0...
+2025-06-14 09:00:21,317 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085926-0...
+2025-06-14 09:00:21,824 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:25,686 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:27,195 - autonomous-launcher-v2 - ERROR - Failed to send command to coder: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:27,195 - autonomous-launcher-v2 - ERROR - Error stopping agent coder-20250614-085926-0: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:27,195 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085941-1...
+2025-06-14 09:00:27,701 - autonomous-launcher-v2 - WARNING - Retry 1 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:28,702 - autonomous-launcher-v2 - INFO - ✅ Agent tester-20250614-090016-0 launched successfully (PID: 86443)
+2025-06-14 09:00:29,206 - autonomous-launcher-v2 - WARNING - Retry 2 sending to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:30,713 - autonomous-launcher-v2 - ERROR - Failed to send command to coder-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:30,714 - autonomous-launcher-v2 - ERROR - Error stopping agent coder-20250614-085941-1: Command '['tmux', 'send-keys', '-t', 'autonomous-claude:coder-1', '/exit', 'Enter']' returned non-zero exit status 1.
+2025-06-14 09:00:30,714 - autonomous-launcher-v2 - INFO - Cleanup completed
+2025-06-14 09:00:33,702 - autonomous-launcher-v2 - INFO - Launching agent: reviewer-20250614-090033-0
+2025-06-14 09:00:33,710 - autonomous-launcher-v2 - INFO - Created window: reviewer
+2025-06-14 09:00:43,266 - autonomous-launcher-v2 - INFO - ✅ Agent reviewer-20250614-090033-0 launched successfully (PID: 87298)
+2025-06-14 09:00:48,266 - autonomous-launcher-v2 - INFO - ✅ Launched 4 agents successfully
+2025-06-14 09:02:36,867 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 09:02:36,867 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 09:02:36,869 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 09:02:37,614 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 09:02:37,615 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 09:02:37,919 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 09:02:37,919 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 09:02:37,919 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 09:02:37,920 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 09:02:37,922 - autonomous-launcher-v2 - WARNING - Existing session found, killing it...
+2025-06-14 09:02:38,965 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 09:02:38,965 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 09:02:38,965 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 09:02:38,966 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-090238-0
+2025-06-14 09:02:38,976 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 09:02:48,521 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-090238-0 launched successfully (PID: 92156)
+2025-06-14 09:02:53,521 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-090253-0
+2025-06-14 09:02:53,528 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 09:02:55,925 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:02:55,925 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:02:55,932 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:02:55,932 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:03:03,069 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-090253-0 launched successfully (PID: 92704)
+2025-06-14 09:03:10,450 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090310-0
+2025-06-14 09:03:10,457 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 09:03:19,997 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-090310-0 launched successfully (PID: 93141)
+2025-06-14 09:03:24,997 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090324-1
+2025-06-14 09:03:25,005 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 09:03:29,314 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:03:29,314 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:03:29,320 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:03:29,320 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:03:34,545 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-090324-1 launched successfully (PID: 93648)
+2025-06-14 09:03:41,843 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090341-2
+2025-06-14 09:03:41,850 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 09:03:51,389 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-090341-2 launched successfully (PID: 94108)
+2025-06-14 09:03:56,389 - autonomous-launcher-v2 - INFO - Launching agent: tester-20250614-090356-0
+2025-06-14 09:03:56,397 - autonomous-launcher-v2 - INFO - Created window: tester
+2025-06-14 09:04:02,619 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:04:02,619 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:04:02,625 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:04:02,625 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:04:05,935 - autonomous-launcher-v2 - ERROR - Failed to get PID for tester: Command '['tmux', 'list-panes', '-t', 'autonomous-claude:tester', '-F', '#{pane_pid}']' returned non-zero exit status 1.
+2025-06-14 09:04:05,935 - autonomous-launcher-v2 - INFO - ✅ Agent tester-20250614-090356-0 launched successfully (PID: None)
+2025-06-14 09:04:13,315 - autonomous-launcher-v2 - INFO - Launching agent: reviewer-20250614-090413-0
+2025-06-14 09:04:13,317 - autonomous-launcher-v2 - ERROR - Failed to create window reviewer: Command '['tmux', 'new-window', '-t', 'autonomous-claude:', '-n', 'reviewer', '-d']' returned non-zero exit status 1.
+2025-06-14 09:04:18,317 - autonomous-launcher-v2 - INFO - ✅ Launched 6 agents successfully
+2025-06-14 09:04:25,042 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:04:25,043 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:04:25,043 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:04:25,043 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:04:25,043 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:04:36,005 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:04:36,005 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:04:36,012 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:04:36,012 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:04:58,409 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:04:58,409 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:04:58,409 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:04:58,409 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:04:58,409 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:05:09,376 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:05:09,376 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:05:09,381 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:05:09,381 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:05:31,788 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:05:31,789 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:05:31,789 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:05:31,789 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:05:31,789 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:05:42,759 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:05:42,759 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:05:42,765 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:05:42,765 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:06:05,104 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:06:05,104 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:06:05,104 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:06:05,104 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:06:05,104 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:06:16,078 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:06:16,078 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:06:16,083 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:06:16,084 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:06:38,485 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:06:38,486 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:06:38,486 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:06:38,486 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:06:38,486 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:06:49,463 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:06:49,463 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:06:49,470 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:06:49,470 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:07:11,866 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:07:11,866 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:07:11,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:07:11,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:07:11,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:07:22,847 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:07:22,848 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:07:22,853 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:07:22,853 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:07:40,064 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 09:07:40,065 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 09:07:40,067 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 09:07:40,559 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 09:07:40,560 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 09:07:40,805 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 09:07:40,805 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 09:07:40,805 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 09:07:40,805 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 09:07:40,823 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 09:07:40,824 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 09:07:40,824 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 09:07:40,824 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-090740-0
+2025-06-14 09:07:40,833 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 09:07:45,247 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:07:45,247 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:07:45,247 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:07:45,247 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:07:45,247 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:07:50,371 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-090740-0 launched successfully (PID: 99506)
+2025-06-14 09:07:55,371 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-090755-0
+2025-06-14 09:07:55,378 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 09:07:58,573 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:07:58,574 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:07:58,581 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:07:58,581 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:08:07,255 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-090755-0 launched successfully (PID: 358)
+2025-06-14 09:08:12,255 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090812-0
+2025-06-14 09:08:12,263 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 09:08:18,592 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:08:18,592 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:08:18,592 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:08:18,592 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:08:18,592 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:08:21,800 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-090812-0 launched successfully (PID: 788)
+2025-06-14 09:08:26,800 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090826-1
+2025-06-14 09:08:26,808 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 09:08:31,933 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:08:31,933 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:08:31,943 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:08:31,943 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:08:38,701 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-090826-1 launched successfully (PID: 1192)
+2025-06-14 09:08:43,702 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-090843-2
+2025-06-14 09:08:43,710 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 09:08:51,947 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:08:51,947 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:08:51,947 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:08:51,947 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:08:51,947 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:09:05,326 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:09:05,326 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:09:05,332 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:09:05,333 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:09:25,332 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:09:25,332 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:09:25,332 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:09:25,332 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:09:25,332 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:09:38,707 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:09:38,708 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:09:38,714 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:09:38,714 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:09:58,709 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:09:58,710 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:09:58,710 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:09:58,710 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:09:58,710 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:10:12,063 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:10:12,063 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:10:12,070 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:10:12,070 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:10:32,061 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:10:32,061 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:10:32,061 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:10:32,061 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:10:32,061 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:10:45,421 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:10:45,421 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:10:45,427 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:10:45,428 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:11:05,413 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:11:05,414 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:11:05,414 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:11:05,414 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:11:05,414 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:11:18,808 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:11:18,808 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:11:18,817 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:11:18,817 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:11:38,797 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:11:38,797 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:11:38,797 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:11:38,797 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:11:38,797 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:11:52,209 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:11:52,210 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:11:52,217 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:11:52,217 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:12:12,177 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:12:12,178 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:12:12,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:12:12,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:12:12,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:12:25,570 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:12:25,570 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:12:25,578 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:12:25,579 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:12:45,533 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:12:45,533 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:12:45,533 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:12:45,534 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:12:45,534 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:12:58,923 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:12:58,923 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:12:58,930 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:12:58,930 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:13:18,880 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:13:18,881 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:13:18,881 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:13:18,881 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:13:18,881 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:13:32,320 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:13:32,320 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:13:32,327 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:13:32,327 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:13:54,645 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:13:54,645 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:13:54,645 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:13:54,645 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:13:54,645 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:14:05,699 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:14:05,700 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:14:05,705 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:14:05,705 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:14:28,015 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:14:28,015 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:14:28,015 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:14:28,015 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:14:28,015 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:14:39,072 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:14:39,073 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:14:39,079 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:14:39,079 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:15:01,446 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:15:01,446 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:15:01,446 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:15:01,446 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:15:01,446 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:15:12,507 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:15:12,508 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:15:12,514 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:15:12,514 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:15:34,833 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:15:34,833 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:15:34,833 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:15:34,833 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:15:34,833 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:15:45,899 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:15:45,899 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:15:45,908 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:15:45,908 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:16:08,210 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:16:08,210 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:16:08,210 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:16:08,210 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:16:08,210 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:16:19,283 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:16:19,283 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:16:19,289 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:16:19,290 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:16:41,641 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:16:41,641 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:16:41,642 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:16:41,642 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:16:41,642 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:16:52,718 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:16:52,718 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:16:52,728 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:16:52,729 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:17:15,155 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:17:15,155 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:17:15,155 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:17:15,155 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:17:15,155 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:17:26,239 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:17:26,240 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:17:26,247 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:17:26,247 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:17:48,557 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:17:48,557 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:17:48,557 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:17:48,557 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:17:48,558 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:17:59,646 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:17:59,646 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:17:59,654 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:17:59,654 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:18:21,950 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:18:21,951 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:18:21,951 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:18:21,951 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:18:21,951 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:18:33,045 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:18:33,045 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:18:33,051 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:18:33,051 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:18:55,413 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:18:55,413 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:18:55,413 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:18:55,413 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:18:55,413 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:19:06,511 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:19:06,511 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:19:06,518 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:19:06,518 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:19:29,013 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:19:29,013 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:19:29,013 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:19:29,013 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:19:29,013 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:19:40,115 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:19:40,115 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:19:40,121 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:19:40,122 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:20:02,437 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:20:02,437 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:20:02,437 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:20:02,437 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:20:02,437 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:20:13,543 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:20:13,543 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:20:13,549 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:20:13,549 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:20:35,854 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:20:35,855 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:20:35,855 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:20:35,855 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:20:35,855 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:20:46,964 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:20:46,964 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:20:46,970 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:20:46,970 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:21:09,338 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:21:09,338 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:21:09,338 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:21:09,338 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:21:09,338 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:21:20,451 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:21:20,451 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:21:20,460 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:21:20,460 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:21:42,883 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:21:42,883 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:21:42,883 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:21:42,883 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:21:42,883 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:21:54,002 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:21:54,002 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:21:54,010 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:21:54,010 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:22:16,325 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:22:16,325 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:22:16,325 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:22:16,325 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:22:16,325 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:22:27,449 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:22:27,449 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:22:27,457 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:22:27,457 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:22:49,741 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:22:49,741 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:22:49,741 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:22:49,741 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:22:49,741 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:23:00,870 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:23:00,870 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:23:00,875 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:23:00,875 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:23:23,217 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:23:23,217 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:23:23,217 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:23:23,217 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:23:23,217 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:23:34,349 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:23:34,349 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:23:34,356 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:23:34,356 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:23:56,749 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:23:56,749 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:23:56,749 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:23:56,749 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:23:56,749 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:24:07,885 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:24:07,885 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:24:07,891 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:24:07,891 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:24:30,159 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:24:30,159 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:24:30,159 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:24:30,160 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:24:30,160 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:24:43,716 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:24:43,716 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:24:43,723 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:24:43,723 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:25:03,581 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:25:03,581 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:25:03,581 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:25:03,581 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:25:03,581 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:25:17,198 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:25:17,198 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:25:17,205 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:25:17,205 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:25:37,060 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:25:37,060 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:25:37,060 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:25:37,060 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:25:37,060 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:25:50,697 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:25:50,697 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:25:50,703 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:25:50,703 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:26:10,554 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:26:10,554 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:26:10,554 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:26:10,554 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:26:10,555 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:26:24,154 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:26:24,154 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:26:24,161 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:26:24,161 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:26:44,008 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:26:44,008 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:26:44,008 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:26:44,008 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:26:44,008 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:26:57,581 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:26:57,581 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:26:57,588 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:26:57,588 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:27:17,430 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:27:17,430 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:27:17,430 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:27:17,431 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:27:17,431 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:27:31,059 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:27:31,059 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:27:31,064 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:27:31,064 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:27:50,903 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:27:50,903 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:27:50,903 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:27:50,903 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:27:50,903 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:28:04,556 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:28:04,556 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:28:04,563 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:28:04,563 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:28:24,398 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:28:24,398 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:28:24,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:28:24,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:28:24,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:28:37,998 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:28:37,998 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:28:38,003 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:28:38,003 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:28:57,836 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:28:57,836 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:28:57,836 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:28:57,836 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:28:57,836 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:29:11,425 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:29:11,425 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:29:11,433 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:29:11,433 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:29:31,260 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:29:31,261 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:29:31,261 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:29:31,261 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:29:31,261 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:29:44,889 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:29:44,890 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:29:44,895 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:29:44,896 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:30:04,720 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:30:04,720 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:30:04,720 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:30:04,720 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:30:04,720 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:30:18,378 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:30:18,378 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:30:18,384 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:30:18,384 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:30:40,666 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:30:40,666 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:30:40,666 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:30:40,666 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:30:40,666 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:30:51,845 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:30:51,845 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:30:51,851 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:30:51,852 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:31:14,092 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:31:14,092 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:31:14,092 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:31:14,092 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:31:14,092 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:31:25,275 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:31:25,275 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:31:25,280 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:31:25,280 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:31:47,559 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:31:47,559 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:31:47,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:31:47,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:31:47,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:31:58,744 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:31:58,745 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:31:58,752 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:31:58,752 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:32:21,052 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:32:21,052 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:32:21,052 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:32:21,052 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:32:21,052 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:32:32,240 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:32:32,240 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:32:32,247 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:32:32,247 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:32:54,514 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:32:54,514 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:32:54,514 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:32:54,514 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:32:54,514 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:33:05,706 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:33:05,706 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:33:05,712 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:33:05,712 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:33:27,934 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:33:27,934 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:33:27,934 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:33:27,934 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:33:27,934 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:33:39,129 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:33:39,129 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:33:39,135 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:33:39,135 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:34:01,397 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:34:01,398 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:34:01,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:34:01,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:34:01,398 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:34:12,596 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:34:12,596 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:34:12,602 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:34:12,602 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:34:34,886 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:34:34,886 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:34:34,886 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:34:34,886 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:34:34,886 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:34:46,087 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:34:46,088 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:34:46,094 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:34:46,094 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:35:08,355 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:35:08,356 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:35:08,356 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:35:08,356 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:35:08,356 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:35:19,561 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:35:19,561 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:35:19,568 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:35:19,568 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:35:41,765 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:35:41,766 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:35:41,766 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:35:41,766 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:35:41,766 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:35:52,976 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:35:52,976 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:35:52,983 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:35:52,983 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:36:15,231 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:36:15,231 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:36:15,231 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:36:15,231 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:36:15,231 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:36:26,446 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:36:26,446 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:36:26,451 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:36:26,452 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:36:48,721 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:36:48,721 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:36:48,721 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:36:48,721 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:36:48,721 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:36:59,939 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:36:59,939 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:36:59,944 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:36:59,945 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:37:22,195 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:37:22,195 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:37:22,195 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:37:22,195 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:37:22,195 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:37:33,417 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:37:33,417 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:37:33,424 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:37:33,424 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:37:55,604 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:37:55,604 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:37:55,604 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:37:55,605 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:37:55,605 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:38:06,831 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:38:06,831 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:38:06,840 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:38:06,840 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:38:29,068 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:38:29,068 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:38:29,068 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:38:29,068 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:38:29,068 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:38:40,302 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:38:40,302 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:38:40,310 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:38:40,310 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:39:02,558 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:39:02,558 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:39:02,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:39:02,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:39:02,559 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:39:13,798 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:39:13,798 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:39:13,803 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:39:13,803 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:39:36,017 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:39:36,017 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:39:36,017 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:39:36,017 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:39:36,017 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:39:47,260 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:39:47,260 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:39:47,265 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:39:47,265 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:40:09,429 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:40:09,429 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:40:09,430 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:40:09,430 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:40:09,430 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:40:20,674 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:40:20,675 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:40:20,681 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:40:20,681 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:40:42,887 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:40:42,887 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:40:42,887 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:40:42,887 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:40:42,887 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:40:54,135 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:40:54,136 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:40:54,141 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:40:54,141 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:41:16,371 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:41:16,371 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:41:16,371 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:41:16,371 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:41:16,371 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:41:30,082 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:41:30,082 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:41:30,089 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:41:30,089 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:41:49,834 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:41:49,834 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:41:49,834 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:41:49,834 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:41:49,835 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:42:03,495 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:42:03,495 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:42:03,501 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:42:03,501 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:42:23,243 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:42:23,243 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:42:23,243 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:42:23,243 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:42:23,243 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:42:36,956 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:42:36,956 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:42:36,962 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:42:36,962 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:42:56,701 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:42:56,702 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:42:56,702 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:42:56,702 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:42:56,702 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:43:10,425 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:43:10,425 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:43:10,431 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:43:10,431 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:43:30,167 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:43:30,167 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:43:30,167 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:43:30,167 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:43:30,167 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:43:43,922 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:43:43,922 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:43:43,930 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:43:43,930 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:44:03,661 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:44:03,661 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:44:03,661 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:44:03,661 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:44:03,661 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:44:17,321 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:44:17,321 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:44:17,328 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:44:17,328 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:44:37,054 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:44:37,054 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:44:37,054 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:44:37,054 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:44:37,054 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:44:50,797 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:44:50,798 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:44:50,803 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:44:50,803 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:45:10,527 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:45:10,527 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:45:10,527 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:45:10,527 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:45:10,527 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:45:24,277 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:45:24,277 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:45:24,284 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:45:24,284 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:45:44,004 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:45:44,004 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:45:44,004 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:45:44,004 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:45:44,004 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:45:57,798 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:45:57,798 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:45:57,804 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:45:57,805 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:46:17,521 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:46:17,521 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:46:17,521 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:46:17,521 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:46:17,521 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:46:31,184 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:46:31,184 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:46:31,191 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:46:31,191 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:46:50,903 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:46:50,904 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:46:50,904 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:46:50,904 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:46:50,904 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:47:04,674 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:47:04,674 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:47:04,680 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:47:04,680 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:47:26,866 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:47:26,866 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:47:26,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:47:26,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:47:26,866 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:47:38,157 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:47:38,157 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:47:38,163 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:47:38,163 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:48:00,408 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:48:00,408 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:48:00,408 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:48:00,408 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:48:00,408 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:48:11,702 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:48:11,702 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:48:11,709 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:48:11,709 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:48:33,793 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:48:33,793 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:48:33,793 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:48:33,793 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:48:33,793 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:48:45,092 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:48:45,092 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:48:45,098 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:48:45,098 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:49:07,283 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:49:07,284 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:49:07,284 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:49:07,284 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:49:07,284 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:49:18,586 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:49:18,587 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:49:18,596 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:49:18,596 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:49:40,769 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:49:40,769 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:49:40,769 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:49:40,769 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:49:40,769 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:49:52,077 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:49:52,078 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:49:52,085 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:49:52,085 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:50:14,333 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:50:14,333 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:50:14,333 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:50:14,333 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:50:14,333 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:50:25,645 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:50:25,645 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:50:25,652 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:50:25,652 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:50:47,702 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:50:47,702 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:50:47,702 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:50:47,702 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:50:47,703 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:50:59,018 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:50:59,019 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:50:59,026 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:50:59,026 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:51:21,186 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:51:21,187 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:51:21,187 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:51:21,187 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:51:21,187 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:51:32,503 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:51:32,504 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:51:32,513 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:51:32,513 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:51:54,684 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:51:54,684 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:51:54,684 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:51:54,684 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:51:54,684 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:52:06,007 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:52:06,007 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:52:06,014 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:52:06,015 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:52:28,178 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:52:28,178 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:52:28,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:52:28,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:52:28,178 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:52:39,505 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:52:39,505 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:52:39,511 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:52:39,511 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:53:01,641 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:53:01,641 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:53:01,641 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:53:01,641 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:53:01,641 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:53:12,971 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:53:12,971 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:53:12,977 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:53:12,977 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:53:35,096 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:53:35,097 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:53:35,097 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:53:35,097 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:53:35,097 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:53:46,429 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:53:46,429 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:53:46,435 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:53:46,435 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:54:00,782 - autonomous-launcher-v2 - INFO - Configuration loaded successfully
+2025-06-14 09:54:00,782 - autonomous-launcher-v2 - INFO - Checking system dependencies...
+2025-06-14 09:54:00,783 - autonomous-launcher-v2 - INFO - ✅ tmux installed: tmux 3.4
+2025-06-14 09:54:01,387 - autonomous-launcher-v2 - INFO - ✅ claude installed: 1.0.24 (Claude Code)
+2025-06-14 09:54:01,388 - autonomous-launcher-v2 - INFO - ✅ git installed: git version 2.43.0
+2025-06-14 09:54:01,616 - autonomous-launcher-v2 - INFO - ✅ mcp installed: unknown
+2025-06-14 09:54:01,616 - autonomous-launcher-v2 - INFO - ✅ psutil installed: 7.0.0
+2025-06-14 09:54:01,616 - autonomous-launcher-v2 - INFO - ✅ System resources: 23.3GB RAM, 12 CPU cores
+2025-06-14 09:54:01,616 - autonomous-launcher-v2 - INFO - Setting up tmux session: autonomous-claude
+2025-06-14 09:54:01,629 - autonomous-launcher-v2 - WARNING - Failed to set tmux option ('set-option', '-g', 'history-limit', '10000'): Command '['tmux', 'set-option', '-g', 'history-limit', '10000', '-t', 'autonomous-claude']' returned non-zero exit status 1.
+2025-06-14 09:54:01,633 - autonomous-launcher-v2 - WARNING - Failed to set tmux option ('set-option', '-g', 'mouse', 'on'): Command '['tmux', 'set-option', '-g', 'mouse', 'on', '-t', 'autonomous-claude']' returned non-zero exit status 1.
+2025-06-14 09:54:01,636 - autonomous-launcher-v2 - WARNING - Failed to set tmux option ('set-window-option', '-g', 'monitor-activity', 'on'): Command '['tmux', 'set-window-option', '-g', 'monitor-activity', 'on', '-t', 'autonomous-claude']' returned non-zero exit status 1.
+2025-06-14 09:54:01,637 - autonomous-launcher-v2 - INFO - ✅ Tmux session created successfully
+2025-06-14 09:54:01,637 - autonomous-launcher-v2 - INFO - Starting health monitoring loop
+2025-06-14 09:54:01,637 - autonomous-launcher-v2 - INFO - Monitoring thread started
+2025-06-14 09:54:01,637 - autonomous-launcher-v2 - INFO - Launching all configured agents...
+2025-06-14 09:54:01,637 - autonomous-launcher-v2 - INFO - Launching agent: auditor-20250614-095401-0
+2025-06-14 09:54:01,645 - autonomous-launcher-v2 - INFO - Created window: auditor
+2025-06-14 09:54:08,594 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:54:08,594 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:54:08,594 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:54:08,594 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:54:08,594 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:54:11,192 - autonomous-launcher-v2 - INFO - ✅ Agent auditor-20250614-095401-0 launched successfully (PID: 52568)
+2025-06-14 09:54:16,192 - autonomous-launcher-v2 - INFO - Launching agent: planner-20250614-095416-0
+2025-06-14 09:54:16,203 - autonomous-launcher-v2 - INFO - Created window: planner
+2025-06-14 09:54:19,929 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:54:19,930 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:54:19,937 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:54:19,937 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:54:25,752 - autonomous-launcher-v2 - INFO - ✅ Agent planner-20250614-095416-0 launched successfully (PID: 53167)
+2025-06-14 09:54:33,234 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-095433-0
+2025-06-14 09:54:33,243 - autonomous-launcher-v2 - INFO - Created window: coder
+2025-06-14 09:54:42,078 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:54:42,079 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:54:42,079 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:54:42,079 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:54:42,079 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:54:42,794 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-095433-0 launched successfully (PID: 53571)
+2025-06-14 09:54:47,795 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-095447-1
+2025-06-14 09:54:47,809 - autonomous-launcher-v2 - INFO - Created window: coder-1
+2025-06-14 09:54:53,419 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:54:53,419 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:54:53,425 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:54:53,426 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:54:57,360 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-095447-1 launched successfully (PID: 53988)
+2025-06-14 09:55:04,818 - autonomous-launcher-v2 - INFO - Launching agent: coder-20250614-095504-2
+2025-06-14 09:55:04,826 - autonomous-launcher-v2 - INFO - Created window: coder-2
+2025-06-14 09:55:14,377 - autonomous-launcher-v2 - INFO - ✅ Agent coder-20250614-095504-2 launched successfully (PID: 54601)
+2025-06-14 09:55:15,539 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:55:15,540 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:55:15,540 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:55:15,540 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:55:15,540 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:55:19,377 - autonomous-launcher-v2 - INFO - Launching agent: tester-20250614-095519-0
+2025-06-14 09:55:19,387 - autonomous-launcher-v2 - INFO - Created window: tester
+2025-06-14 09:55:26,883 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:55:26,884 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:55:26,890 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:55:26,891 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:55:28,934 - autonomous-launcher-v2 - INFO - ✅ Agent tester-20250614-095519-0 launched successfully (PID: 55134)
+2025-06-14 09:55:36,436 - autonomous-launcher-v2 - INFO - Launching agent: reviewer-20250614-095536-0
+2025-06-14 09:55:36,448 - autonomous-launcher-v2 - INFO - Created window: reviewer
+2025-06-14 09:55:46,002 - autonomous-launcher-v2 - INFO - ✅ Agent reviewer-20250614-095536-0 launched successfully (PID: 55497)
+2025-06-14 09:55:49,046 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-090238-0 unhealthy: ['Process not found']
+2025-06-14 09:55:49,047 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-090253-0 unhealthy: ['Process not found']
+2025-06-14 09:55:49,047 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090310-0 unhealthy: ['Process not found']
+2025-06-14 09:55:49,047 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090324-1 unhealthy: ['Process not found']
+2025-06-14 09:55:49,047 - autonomous-launcher-v2 - WARNING - Agent coder-20250614-090341-2 unhealthy: ['Process not found']
+2025-06-14 09:55:51,002 - autonomous-launcher-v2 - INFO - ✅ Launched 7 agents successfully
+2025-06-14 09:55:51,002 - autonomous-launcher-v2 - INFO - System running. Press Ctrl+C to stop.
+2025-06-14 09:56:00,394 - autonomous-launcher-v2 - WARNING - Agent auditor-20250614-085917-0 unhealthy: ['Process not found']
+2025-06-14 09:56:00,394 - autonomous-launcher-v2 - WARNING - Agent planner-20250614-085934-0 unhealthy: ['Process not found']
+2025-06-14 09:56:00,401 - autonomous-launcher-v2 - WARNING - Agent tester-20250614-090016-0 unhealthy: ['Process not found']
+2025-06-14 09:56:00,401 - autonomous-launcher-v2 - WARNING - Agent reviewer-20250614-090033-0 unhealthy: ['Process not found']
+2025-06-14 09:56:17,396 - autonomous-launcher-v2 - INFO - Received signal 15, initiating graceful shutdown...
+2025-06-14 09:56:17,397 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:56:17,397 - autonomous-launcher-v2 - INFO - Monitoring loop stopped
+2025-06-14 09:56:17,396 - autonomous-launcher-v2 - INFO - Received signal 15, initiating graceful shutdown...
+2025-06-14 09:56:17,400 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:56:17,400 - autonomous-launcher-v2 - INFO - Monitoring loop stopped
+2025-06-14 09:56:18,402 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_095618.json
+2025-06-14 09:56:18,402 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-090238-0...
+2025-06-14 09:56:18,406 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_095618.json
+2025-06-14 09:56:18,406 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-085917-0...
+2025-06-14 09:56:20,911 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-090253-0...
+2025-06-14 09:56:20,913 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-085934-0...
+2025-06-14 09:56:23,418 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090310-0...
+2025-06-14 09:56:23,422 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085948-0...
+2025-06-14 09:56:25,926 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090324-1...
+2025-06-14 09:56:25,930 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085959-1...
+2025-06-14 09:56:28,433 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090341-2...
+2025-06-14 09:56:28,438 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090008-2...
+2025-06-14 09:56:30,942 - autonomous-launcher-v2 - INFO - Stopping agent tester-20250614-090356-0...
+2025-06-14 09:56:30,945 - autonomous-launcher-v2 - INFO - Stopping agent tester-20250614-090016-0...
+2025-06-14 09:56:33,451 - autonomous-launcher-v2 - INFO - Cleanup completed
+2025-06-14 09:56:33,451 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:56:33,453 - autonomous-launcher-v2 - INFO - Stopping agent reviewer-20250614-090033-0...
+2025-06-14 09:56:34,452 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_095634.json
+2025-06-14 09:56:34,452 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-090238-0...
+2025-06-14 09:56:38,440 - autonomous-launcher-v2 - INFO - Cleanup completed
+2025-06-14 09:56:38,442 - autonomous-launcher-v2 - INFO - Starting cleanup process...
+2025-06-14 09:56:39,441 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-090253-0...
+2025-06-14 09:56:39,445 - autonomous-launcher-v2 - INFO - System state saved to /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/launcher/state_20250614_095639.json
+2025-06-14 09:56:39,445 - autonomous-launcher-v2 - INFO - Stopping agent auditor-20250614-085917-0...
+2025-06-14 09:56:41,950 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090310-0...
+2025-06-14 09:56:41,953 - autonomous-launcher-v2 - INFO - Stopping agent planner-20250614-085934-0...
+2025-06-14 09:56:44,458 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090324-1...
+2025-06-14 09:56:44,461 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085948-0...
+2025-06-14 09:56:46,966 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090341-2...
+2025-06-14 09:56:46,968 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-085959-1...
+2025-06-14 09:56:49,473 - autonomous-launcher-v2 - INFO - Stopping agent tester-20250614-090356-0...
+2025-06-14 09:56:49,475 - autonomous-launcher-v2 - INFO - Stopping agent coder-20250614-090008-2...
+2025-06-14 09:56:51,981 - autonomous-launcher-v2 - INFO - Cleanup completed
+2025-06-14 09:56:51,982 - autonomous-launcher-v2 - INFO - Stopping agent tester-20250614-090016-0...
+2025-06-14 09:56:54,489 - autonomous-launcher-v2 - INFO - Stopping agent reviewer-20250614-090033-0...
+2025-06-14 09:56:56,996 - autonomous-launcher-v2 - INFO - Cleanup completed

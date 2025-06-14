@@ -1,0 +1,83 @@
+{
+  "shutdown_time": "2025-06-14T09:56:33.451888",
+  "system_info": {
+    "uptime": "0:53:54",
+    "total_agents_launched": 6,
+    "successful_runs": 6,
+    "total_restarts": 0
+  },
+  "agents": {
+    "auditor-20250614-090238-0": {
+      "id": "auditor-20250614-090238-0",
+      "role": "auditor",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:02:38.976579",
+      "last_activity": "2025-06-14T09:02:48.521588",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.296875,
+      "final_cpu": 0.0
+    },
+    "planner-20250614-090253-0": {
+      "id": "planner-20250614-090253-0",
+      "role": "planner",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:02:53.528959",
+      "last_activity": "2025-06-14T09:03:03.068957",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.69140625,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-090310-0": {
+      "id": "coder-20250614-090310-0",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:03:10.457891",
+      "last_activity": "2025-06-14T09:03:19.997158",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.51171875,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-090324-1": {
+      "id": "coder-20250614-090324-1",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:03:25.005677",
+      "last_activity": "2025-06-14T09:03:34.545183",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.5703125,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-090341-2": {
+      "id": "coder-20250614-090341-2",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:03:41.851026",
+      "last_activity": "2025-06-14T09:03:51.389176",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "tester-20250614-090356-0": {
+      "id": "tester-20250614-090356-0",
+      "role": "tester",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:03:56.397415",
+      "last_activity": "2025-06-14T09:04:05.935667",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    }
+  },
+  "performance_stats": {
+    "total_memory_usage": 18.0703125,
+    "average_cpu_usage": 0.0,
+    "system_memory_available": 13814.05078125,
+    "system_cpu_percent": 3.4
+  }
+}

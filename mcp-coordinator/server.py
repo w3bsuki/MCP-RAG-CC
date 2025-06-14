@@ -15,6 +15,7 @@ import subprocess
 import os
 import sys
 import traceback
+import time
 from collections import defaultdict, deque
 from dataclasses import dataclass, asdict
 from enum import Enum
@@ -86,10 +87,8 @@ class EnhancedAgentCoordinator:
         # Load persistent data
         self.load_state()
         
-        # Start background tasks
-        asyncio.create_task(self._health_monitor_loop())
-        asyncio.create_task(self._task_optimizer_loop())
-        asyncio.create_task(self._knowledge_sync_loop())
+        # Background tasks will be started when the server runs
+        self._tasks = []
     
     def load_state(self):
         """Load persistent state with error recovery"""
@@ -857,12 +856,12 @@ class EnhancedAgentCoordinator:
                     # Try to clean up and retry
                     if attempt < max_retries - 1:
                         subprocess.run(['git', 'worktree', 'prune'], cwd=self.base_dir)
-                        await asyncio.sleep(1)
+                        time.sleep(1)
                     
             except Exception as e:
                 logger.error(f"Worktree creation error (attempt {attempt + 1}): {e}")
                 if attempt < max_retries - 1:
-                    await asyncio.sleep(2 ** attempt)  # Exponential backoff
+                    time.sleep(2 ** attempt)  # Exponential backoff
         
         raise RuntimeError(f"Failed to create worktree after {max_retries} attempts")
     
@@ -1180,13 +1179,21 @@ async def main():
     logger.info(f"Base directory: {coordinator.base_dir}")
     logger.info(f"Data directory: {coordinator.data_dir}")
     
+    # Start background tasks
+    coordinator._tasks = [
+        asyncio.create_task(coordinator._health_monitor_loop()),
+        asyncio.create_task(coordinator._task_optimizer_loop()),
+        asyncio.create_task(coordinator._knowledge_sync_loop())
+    ]
+    
     async with stdio_server() as (read_stream, write_stream):
         await server.run(
             read_stream,
             write_stream,
             InitializationOptions(
                 server_name="mcp-coordinator-v2",
-                server_version="2.0.0"
+                server_version="2.0.0",
+                capabilities={}
             )
         )
 

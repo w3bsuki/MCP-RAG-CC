@@ -1,0 +1,82 @@
+2025-06-14 08:50:17,688 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 08:50:17,688 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 08:50:17,688 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:01:44,299 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:01:44,299 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:01:44,299 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:02:20,506 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:02:20,506 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:02:20,506 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:02:27,837 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:02:27,838 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:02:27,838 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:49:57,107 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:49:57,107 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:49:57,107 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:50:13,899 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:50:13,899 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:50:13,899 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:50:42,821 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:50:42,821 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:50:42,822 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:50:48,984 - mcp-coordinator-v2 - INFO - Agent registered: auditor-001 (auditor) with capabilities: ['code_analysis', 'security_scanning', 'performance_analysis', 'quality_assessment', 'pattern_recognition']
+2025-06-14 09:50:58,865 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:51:03,402 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:51:03,402 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:51:03,402 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:51:03,402 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:51:07,810 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:51:07,810 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:51:07,810 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:51:07,810 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:51:32,501 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:51:32,502 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:51:32,502 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:51:32,502 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:51:32,517 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-06-14 09:51:32,518 - mcp-coordinator-v2 - INFO - Agent registered: tester-20250614-095132-0 (tester) with capabilities: ['test_writing', 'test_execution', 'coverage_analysis', 'integration_testing', 'unit_testing', 'performance_testing', 'test_automation', 'quality_assurance']
+2025-06-14 09:51:56,432 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:51:56,433 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:51:56,433 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:51:56,433 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:51:56,441 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-06-14 09:52:11,029 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:52:11,029 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:52:11,029 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:52:11,029 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:52:11,036 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-06-14 09:54:20,994 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:54:45,786 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:54:45,786 - mcp-coordinator-v2 - INFO - Task created: 4d054f84-aef2-452e-a011-9fc3f1a8964a - Comprehensive code audit for security and quality issues (priority: high)
+2025-06-14 09:54:50,595 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:54:50,596 - mcp-coordinator-v2 - INFO - Task updated: audit-001 - in_progress
+2025-06-14 09:54:54,971 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:54:55,060 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:54:55,060 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:54:55,061 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:54:55,061 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:55:16,789 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:55:16,790 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:55:16,790 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:55:16,790 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+2025-06-14 09:57:35,935 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 09:57:35,936 - mcp-coordinator-v2 - INFO - Task created: 38ec472c-2154-4113-aa9d-6f04833be52b - Create implementation plan for: Command Injection Vulnerability in Dependency Checking (priority: critical)
+2025-06-14 09:57:35,936 - mcp-coordinator-v2 - INFO - Audit finding submitted: Command Injection Vulnerability in Dependency Checking (status: new)
+2025-06-14 09:57:35,937 - mcp-coordinator-v2 - INFO - Task created: 28d0c367-0644-43fa-80bf-af448a226edd - Create implementation plan for: Command Injection in tmux send-keys Operations (priority: critical)
+2025-06-14 09:57:35,937 - mcp-coordinator-v2 - INFO - Audit finding submitted: Command Injection in tmux send-keys Operations (status: new)
+2025-06-14 09:57:35,938 - mcp-coordinator-v2 - INFO - Task created: 5a8a54d3-536a-45c7-b0c5-eb33f171d90e - Create implementation plan for: Command Injection in Claude Process Launch (priority: critical)
+2025-06-14 09:57:35,938 - mcp-coordinator-v2 - INFO - Audit finding submitted: Command Injection in Claude Process Launch (status: new)
+2025-06-14 09:57:35,939 - mcp-coordinator-v2 - INFO - Task created: 30b7fb30-3425-40e3-9697-19fa8f905a98 - Create implementation plan for: Path Traversal Vulnerability in Instructions File Handling (priority: high)
+2025-06-14 09:57:35,939 - mcp-coordinator-v2 - INFO - Audit finding submitted: Path Traversal Vulnerability in Instructions File Handling (status: new)
+2025-06-14 09:57:35,940 - mcp-coordinator-v2 - INFO - Task created: 22244878-a765-4e78-b356-b156b2413fea - Create implementation plan for: Unsafe Process Management in Exit Command (priority: high)
+2025-06-14 09:57:35,940 - mcp-coordinator-v2 - INFO - Audit finding submitted: Unsafe Process Management in Exit Command (status: new)
+2025-06-14 09:57:35,941 - mcp-coordinator-v2 - INFO - Task created: 3fa9507c-80aa-4d8c-a49c-b51918a0e3ed - Create implementation plan for: Resource Exhaustion through Unlimited Agent Spawning (priority: high)
+2025-06-14 09:57:35,941 - mcp-coordinator-v2 - INFO - Audit finding submitted: Resource Exhaustion through Unlimited Agent Spawning (status: new)
+2025-06-14 09:57:35,942 - mcp-coordinator-v2 - INFO - Task created: f2198a02-34bf-485d-aa9a-df0b121ae928 - Create implementation plan for: Potential Infinite Retry Loops in Agent Operations (priority: medium)
+2025-06-14 09:57:35,943 - mcp-coordinator-v2 - INFO - Audit finding submitted: Potential Infinite Retry Loops in Agent Operations (status: new)
+2025-06-14 09:57:35,944 - mcp-coordinator-v2 - INFO - Task created: bf761be9-384d-4ab4-8f30-1bef0085ae53 - Create implementation plan for: Command Injection in Git Worktree Operations (priority: critical)
+2025-06-14 09:57:35,945 - mcp-coordinator-v2 - INFO - Audit finding submitted: Command Injection in Git Worktree Operations (status: new)
+2025-06-14 09:57:35,945 - mcp-coordinator-v2 - INFO - Task created: 34017b11-5a36-4b34-b996-37cc79490184 - Create implementation plan for: Path Traversal in Git Worktree Path Construction (priority: high)
+2025-06-14 09:57:35,946 - mcp-coordinator-v2 - INFO - Audit finding submitted: Path Traversal in Git Worktree Path Construction (status: new)
+2025-06-14 09:57:35,947 - mcp-coordinator-v2 - INFO - Task created: 14a58167-9088-475c-b39f-b3d9cd7cd7f2 - Create implementation plan for: Unsafe JSON Deserialization in State Loading (priority: medium)
+2025-06-14 09:57:35,948 - mcp-coordinator-v2 - INFO - Audit finding submitted: Unsafe JSON Deserialization in State Loading (status: new)

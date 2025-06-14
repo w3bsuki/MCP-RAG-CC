@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Function Too Long: launch_agent()",
+    "description": "The launch_agent() function in autonomous-system.py is 97 lines long, doing too many things including window creation, environment setup, command sending, and error handling. This violates the single responsibility principle and makes the code hard to maintain.",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 429,
+    "suggested_fix": "Break down into smaller functions: setup_agent_environment(), send_startup_instructions(), initialize_agent_state()"
+  },
+  {
+    "title": "High Cyclomatic Complexity in get_next_task()",
+    "description": "The get_next_task() method in mcp-coordinator/server.py has cyclomatic complexity ~15 with multiple nested if conditions for task matching. This makes the code difficult to understand and test.",
+    "severity": "medium",
+    "category": "quality",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 273,
+    "suggested_fix": "Use strategy pattern or extract validation methods: _is_task_suitable_for_role(), _are_dependencies_met(), etc."
+  },
+  {
+    "title": "Performance Bottleneck: Blocking save_state()",
+    "description": "The save_state() method in mcp-coordinator/server.py performs blocking I/O on every state change, writing the entire state to disk synchronously. This could cause performance issues under heavy load.",
+    "severity": "high",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 131,
+    "suggested_fix": "Implement async file I/O with aiofiles or batch updates with a write-through cache"
+  },
+  {
+    "title": "Memory Leak Risk: Unbounded context_memory",
+    "description": "The context_memory dictionary in mcp-coordinator/server.py grows unbounded per agent with no cleanup mechanism. This could lead to excessive memory usage in long-running systems.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 84,
+    "suggested_fix": "Implement time-based or size-based cleanup: keep only last N entries or entries from last X hours"
+  },
+  {
+    "title": "God Class: EnhancedAutonomousLauncher",
+    "description": "The EnhancedAutonomousLauncher class has 15+ responsibilities including config management, tmux handling, agent lifecycle, health monitoring, and state persistence. This violates single responsibility principle.",
+    "severity": "high",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 58,
+    "suggested_fix": "Split into focused classes: ConfigManager, TmuxSessionManager, AgentManager, HealthMonitor, StateManager"
+  },
+  {
+    "title": "Missing Type Hints Throughout Codebase",
+    "description": "Most functions in autonomous-system.py and all functions in dashboard/server.py lack type hints. This reduces code clarity and prevents static analysis tools from catching type errors.",
+    "severity": "low",
+    "category": "quality",
+    "file_path": "autonomous-system.py",
+    "line_number": 1,
+    "suggested_fix": "Add comprehensive type hints: def function_name(param: Type) -> ReturnType:"
+  },
+  {
+    "title": "Synchronous Subprocess Calls Block Event Loop",
+    "description": "All subprocess calls in autonomous-system.py are synchronous blocking operations. Methods like check_dependencies(), setup_tmux_session(), and send_to_agent() block the entire program while waiting.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "autonomous-system.py",
+    "line_number": 195,
+    "suggested_fix": "Use asyncio.create_subprocess_exec() for non-blocking execution"
+  },
+  {
+    "title": "Inefficient O(n) Similar Task Search",
+    "description": "The _find_similar_tasks() method performs O(n) search through entire task history for every new task. This becomes increasingly slow as history grows.",
+    "severity": "medium",
+    "category": "performance",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 551,
+    "suggested_fix": "Implement inverted index or use text similarity library with efficient indexing like Annoy or Faiss"
+  }
+]

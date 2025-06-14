@@ -1,0 +1,56 @@
+[
+  {
+    "title": "No Formal Test Suite Structure",
+    "description": "Tests are standalone scripts rather than organized test modules. No pytest/unittest configuration, no pytest.ini, setup.cfg, or .coveragerc files. This makes it difficult to run tests consistently and measure coverage.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Set up pytest infrastructure: pip install pytest pytest-cov pytest-asyncio; create pytest.ini; organize tests in tests/ directory structure"
+  },
+  {
+    "title": "Missing Unit Tests for Core Components",
+    "description": "No unit tests found for individual agent implementations (auditor, planner, coder, reviewer), dashboard functionality, utility functions, git worktree operations, or MCP communication layer.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create comprehensive unit tests for each module with at least 80% coverage"
+  },
+  {
+    "title": "No Test Coverage Reporting",
+    "description": "No coverage configuration or reporting setup. Cannot measure what percentage of code is tested or identify untested code paths.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Configure coverage.py with .coveragerc file, generate HTML coverage reports, aim for >90% coverage"
+  },
+  {
+    "title": "Missing Security Test Cases",
+    "description": "No tests for input validation, authentication/authorization, injection attack prevention, or rate limiting. Security-critical code paths are untested.",
+    "severity": "high",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add security-focused test cases using hypothesis for property-based testing of inputs"
+  },
+  {
+    "title": "No Load/Performance Testing",
+    "description": "Missing tests for system behavior under load: multiple agents, large task queues, memory usage patterns, network failures. Could lead to production failures under stress.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Implement load tests using locust or similar tools, test with 10x expected load"
+  },
+  {
+    "title": "No CI/CD Test Automation",
+    "description": "No continuous integration setup. Tests appear to be run manually with no pre-commit hooks or GitHub Actions. This increases risk of regressions.",
+    "severity": "medium",
+    "category": "testing",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Set up GitHub Actions workflow for automated testing on every commit/PR"
+  }
+]

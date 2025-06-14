@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Missing API Documentation",
+    "description": "No formal API documentation for MCP coordinator server endpoints. Missing request/response schemas, authentication details, and error codes. This makes it difficult for developers to integrate with the system.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create API.md with OpenAPI/Swagger spec, document all endpoints with examples"
+  },
+  {
+    "title": "No Production Deployment Guide",
+    "description": "Missing production deployment instructions including Docker setup, cloud deployment, scaling strategies, and monitoring configuration. This blocks production readiness.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create docs/deployment/ with Docker configs, Kubernetes manifests, and deployment procedures"
+  },
+  {
+    "title": "Missing Contributing Guidelines",
+    "description": "No CONTRIBUTING.md file with code style guide, PR process, code review checklist, or development workflow. This makes it difficult for new contributors.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create CONTRIBUTING.md with style guide, PR template, and development workflow"
+  },
+  {
+    "title": "No Security Documentation",
+    "description": "Missing security best practices guide, threat model, authentication/authorization details, and security audit procedures. Critical for production systems.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create docs/security/ with threat model, security guidelines, and audit procedures"
+  },
+  {
+    "title": "Missing License File",
+    "description": "No LICENSE file found in the repository. This creates legal ambiguity about usage rights and contributions.",
+    "severity": "high",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add appropriate LICENSE file (MIT, Apache 2.0, etc.)"
+  },
+  {
+    "title": "Incomplete Code Documentation",
+    "description": "Most Python files lack comprehensive docstrings for classes and functions. Complex logic lacks inline comments. This reduces code maintainability.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Add docstrings following PEP 257, document all public APIs, add inline comments for complex logic"
+  },
+  {
+    "title": "No .gitignore File",
+    "description": "Missing .gitignore file could lead to committing sensitive data, virtual environments, or generated files to the repository.",
+    "severity": "medium",
+    "category": "documentation",
+    "file_path": ".",
+    "line_number": 0,
+    "suggested_fix": "Create .gitignore with Python template, exclude venv/, *.pyc, __pycache__/, logs/, etc."
+  }
+]

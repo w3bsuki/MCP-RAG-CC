@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Flask Dashboard Exposed on All Network Interfaces",
+    "description": "The Flask dashboard server in dashboard/server.py binds to 0.0.0.0 (all interfaces) without authentication, allowing anyone on the network to access sensitive system information. This could expose agent status, task queues, and system health data to unauthorized users.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "dashboard/server.py",
+    "line_number": 347,
+    "suggested_fix": "Change app.run(host='0.0.0.0', port=5000) to app.run(host='127.0.0.1', port=5000) or implement authentication middleware"
+  },
+  {
+    "title": "Command Injection Risk in Subprocess Calls",
+    "description": "Multiple subprocess.run() calls in autonomous-system.py use unvalidated agent names and window names. If these contain shell metacharacters, command injection is possible. Affected lines: 269, 273, 341, 352, 379, 405, 414, 530, 829.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "autonomous-system.py",
+    "line_number": 269,
+    "suggested_fix": "Implement input validation: def sanitize_name(name): return re.sub(r'[^a-zA-Z0-9_-]', '', name)"
+  },
+  {
+    "title": "Missing Input Validation in MCP Coordinator",
+    "description": "The MCP coordinator server.py accepts agent_id, role, and task parameters without validation in tool handlers (lines 1098-1161). Malicious agents could inject invalid data or cause denial of service.",
+    "severity": "medium",
+    "category": "security",
+    "file_path": "mcp-coordinator/server.py",
+    "line_number": 1098,
+    "suggested_fix": "Add validation: def validate_agent_id(agent_id: str) -> bool: return bool(re.match(r'^[a-zA-Z0-9_-]+$', agent_id))"
+  },
+  {
+    "title": "Insecure File Path Handling",
+    "description": "Direct path concatenation in tester_agent.py line 111 without validation could allow path traversal if file paths are user-controlled.",
+    "severity": "low",
+    "category": "security",
+    "file_path": "tester_agent.py",
+    "line_number": 111,
+    "suggested_fix": "Use secure path resolution: impl_path = Path(file_path).resolve(); verify path is within base_dir"
+  },
+  {
+    "title": "No Rate Limiting on Dashboard API",
+    "description": "The /api/status endpoint in dashboard/server.py has no rate limiting, allowing resource exhaustion through repeated requests.",
+    "severity": "low",
+    "category": "security",
+    "file_path": "dashboard/server.py",
+    "line_number": 337,
+    "suggested_fix": "Implement rate limiting using Flask-Limiter library"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "agent_id": "auditor-001",
+  "role": "auditor",
+  "capabilities": [
+    "code_analysis",
+    "security_scanning",
+    "performance_analysis",
+    "quality_assessment",
+    "pattern_recognition"
+  ]
+}

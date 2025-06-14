@@ -1,0 +1,61 @@
+{
+  "shutdown_time": "2025-06-14T09:00:15.298646",
+  "system_info": {
+    "uptime": "0:01:16",
+    "total_agents_launched": 4,
+    "successful_runs": 3,
+    "total_restarts": 0
+  },
+  "agents": {
+    "auditor-20250614-085858-0": {
+      "id": "auditor-20250614-085858-0",
+      "role": "auditor",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:58:58.809958",
+      "last_activity": "2025-06-14T08:59:08.348552",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "planner-20250614-085913-0": {
+      "id": "planner-20250614-085913-0",
+      "role": "planner",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:59:13.356037",
+      "last_activity": "",
+      "error_count": 1,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-085926-0": {
+      "id": "coder-20250614-085926-0",
+      "role": "coder",
+      "state": "running",
+      "started_at": "2025-06-14T08:59:26.987203",
+      "last_activity": "2025-06-14T08:59:36.527781",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-085941-1": {
+      "id": "coder-20250614-085941-1",
+      "role": "coder",
+      "state": "running",
+      "started_at": "2025-06-14T08:59:41.539204",
+      "last_activity": "2025-06-14T08:59:53.456931",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    }
+  },
+  "performance_stats": {
+    "total_memory_usage": 0.0,
+    "average_cpu_usage": 0.0,
+    "system_memory_available": 13740.2578125,
+    "system_cpu_percent": 41.6
+  }
+}

@@ -1,0 +1,38 @@
+2025-06-14 09:02:27,837 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 09:02:27,838 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 09:02:27,838 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py", line 1200, in <module>
+  |     asyncio.run(main())
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py", line 1189, in main
+  |     async with stdio_server() as (read_stream, write_stream):
+  |   File "/usr/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 85, in stdio_server
+  |     async with anyio.create_task_group() as tg:
+  |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 88, in stdio_server
+    |     yield read_stream, write_stream
+    |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py", line 1193, in main
+    |     InitializationOptions(
+    |   File "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    |     validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | pydantic_core._pydantic_core.ValidationError: 1 validation error for InitializationOptions
+capabilities
+  Field required [type=missing, input_value={'server_name': 'mcp-coor...erver_version': '2.0.0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+    +------------------------------------

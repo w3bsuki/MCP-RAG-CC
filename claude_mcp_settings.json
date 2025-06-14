@@ -1,10 +1,11 @@
 {
   "mcpServers": {
     "mcp-coordinator": {
-      "command": "python",
-      "args": ["/home/w3bsuki/MCP+RAG+CC/mcp-coordinator/server.py"],
+      "command": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/venv/bin/python3",
+      "args": ["/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator/server.py"],
       "env": {
-        "PYTHONPATH": "/home/w3bsuki/MCP+RAG+CC"
+        "PYTHONPATH": "/home/w3bsuki/svelte-threadly-1/MCP-RAG-CC",
+        "PYTHONUNBUFFERED": "1"
       },
       "schema": {
         "description": "Autonomous multi-agent coordinator for Claude Code instances",

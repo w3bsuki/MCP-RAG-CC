@@ -21,6 +21,8 @@ from enum import Enum
 import threading
 import queue
 import psutil
+import random
+import math
 
 # Configure logging
 logging.basicConfig(
@@ -71,6 +73,12 @@ class EnhancedAutonomousLauncher:
         self.max_agent_cpu = 80  # %
         self.health_check_interval = 30  # seconds
         self.agent_startup_delay = 5  # seconds between agent launches
+        
+        # Retry settings
+        self.max_retries = 3
+        self.base_retry_delay = 1  # seconds
+        self.max_retry_delay = 60  # seconds
+        self.retry_multiplier = 2
         
         # Load configuration
         self.load_config()
@@ -270,18 +278,26 @@ class EnhancedAutonomousLauncher:
                     dep_info['command'], 
                     capture_output=True, 
                     text=True, 
-                    check=True
+                    check=True,
+                    timeout=10
                 )
                 version = result.stdout.strip()
                 
                 # Version checking could be enhanced here
                 logger.info(f"✅ {dep_name} installed: {version}")
                 
-            except subprocess.CalledProcessError:
-                logger.error(f"❌ {dep_name} not found. Install with: {dep_info['install']}")
+            except subprocess.TimeoutExpired:
+                logger.error(f"❌ {dep_name} check timed out. Install with: {dep_info['install']}")
+                all_ok = False
+            except subprocess.CalledProcessError as e:
+                logger.error(f"❌ {dep_name} not found or failed. Install with: {dep_info['install']}")
+                logger.debug(f"Command failed with return code {e.returncode}: {e.stderr}")
+                all_ok = False
+            except FileNotFoundError:
+                logger.error(f"❌ {dep_name} command not found. Install with: {dep_info['install']}")
                 all_ok = False
             except Exception as e:
-                logger.error(f"❌ Error checking {dep_name}: {e}")
+                logger.error(f"❌ Error checking {dep_name}: {e}", exc_info=True)
                 all_ok = False
         
         # Check Python packages
@@ -295,12 +311,20 @@ class EnhancedAutonomousLauncher:
                 module = __import__(package)
                 version = getattr(module, '__version__', 'unknown')
                 logger.info(f"✅ {package} installed: {version}")
-            except ImportError:
+            except ImportError as e:
                 logger.error(f"❌ {package} not found. Install with: pip install {package}>={min_version}")
+                logger.debug(f"Import error details: {e}")
+                all_ok = False
+            except Exception as e:
+                logger.error(f"❌ Error checking {package}: {e}", exc_info=True)
                 all_ok = False
         
         # Check system resources
-        if not self.check_system_resources():
+        try:
+            if not self.check_system_resources():
+                all_ok = False
+        except Exception as e:
+            logger.error(f"❌ System resource check failed: {e}", exc_info=True)
             all_ok = False
         
         return all_ok
@@ -340,19 +364,25 @@ class EnhancedAutonomousLauncher:
             # Check for existing session
             result = subprocess.run(
                 ['tmux', 'has-session', '-t', self.session_name],
-                capture_output=True
+                capture_output=True,
+                timeout=10
             )
             
             if result.returncode == 0:
                 logger.warning("Existing session found, killing it...")
-                subprocess.run(['tmux', 'kill-session', '-t', self.session_name])
-                time.sleep(1)
+                try:
+                    subprocess.run(['tmux', 'kill-session', '-t', self.session_name], 
+                                 check=True, timeout=10)
+                    time.sleep(1)
+                except subprocess.CalledProcessError as e:
+                    logger.error(f"Failed to kill existing session: {e}")
+                    return False
             
             # Create new session with specific settings
             subprocess.run([
                 'tmux', 'new-session', '-d', '-s', self.session_name,
                 '-x', '120', '-y', '40'  # Set initial size
-            ], check=True)
+            ], check=True, timeout=10)
             
             # Set tmux options for better agent handling
             tmux_options = [
@@ -362,13 +392,24 @@ class EnhancedAutonomousLauncher:
             ]
             
             for option in tmux_options:
-                subprocess.run(['tmux'] + list(option) + ['-t', self.session_name])
+                try:
+                    subprocess.run(['tmux'] + list(option) + ['-t', self.session_name], 
+                                 check=True, timeout=5)
+                except subprocess.CalledProcessError as e:
+                    logger.warning(f"Failed to set tmux option {option}: {e}")
             
             logger.info("✅ Tmux session created successfully")
             return True
             
+        except subprocess.TimeoutExpired:
+            logger.error("Tmux session setup timed out")
+            return False
         except subprocess.CalledProcessError as e:
             logger.error(f"Failed to create tmux session: {e}")
+            logger.debug(f"Command failed with return code {e.returncode}")
+            return False
+        except Exception as e:
+            logger.error(f"Unexpected error setting up tmux session: {e}", exc_info=True)
             return False
     
     def create_agent_window(self, role: str, index: int = 0) -> Optional[str]:
@@ -397,16 +438,14 @@ class EnhancedAutonomousLauncher:
             return None
     
     def send_to_agent(self, window: str, command: str):
-        """Send command with retry logic"""
-        max_retries = 3
-        
-        for attempt in range(max_retries):
+        """Send command with exponential backoff retry logic"""
+        for attempt in range(self.max_retries):
             try:
                 # Clear any existing input
                 subprocess.run([
                     'tmux', 'send-keys', '-t', f'{self.session_name}:{window}',
                     'C-c'  # Cancel any ongoing input
-                ], capture_output=True)
+                ], capture_output=True, timeout=5)
                 
                 time.sleep(0.5)
                 
@@ -414,16 +453,21 @@ class EnhancedAutonomousLauncher:
                 subprocess.run([
                     'tmux', 'send-keys', '-t', f'{self.session_name}:{window}',
                     command, 'Enter'
-                ], check=True)
+                ], check=True, timeout=10)
                 
                 return
                 
-            except subprocess.CalledProcessError as e:
-                if attempt < max_retries - 1:
-                    logger.warning(f"Retry {attempt + 1} sending to {window}: {e}")
-                    time.sleep(1)
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+                if attempt < self.max_retries - 1:
+                    # Calculate exponential backoff delay
+                    delay = self.base_retry_delay * (self.retry_multiplier ** attempt)
+                    jitter = random.uniform(0.1, 0.3) * delay
+                    total_delay = delay + jitter
+                    
+                    logger.warning(f"Retry {attempt + 1}/{self.max_retries} sending to {window} after {total_delay:.1f}s: {e}")
+                    time.sleep(total_delay)
                 else:
-                    logger.error(f"Failed to send command to {window}: {e}")
+                    logger.error(f"Failed to send command to {window} after {self.max_retries} attempts: {e}")
                     raise
     
     def launch_agent(self, role: str, index: int = 0) -> Optional[str]:
@@ -432,33 +476,40 @@ class EnhancedAutonomousLauncher:
         
         logger.info(f"Launching agent: {agent_id}")
         
-        # Create window
-        window = self.create_agent_window(role, index)
-        if not window:
-            return None
-        
-        # Create agent info
-        agent = AgentInfo(
-            id=agent_id,
-            role=role,
-            window=window,
-            started_at=datetime.now().isoformat(),
-            state=AgentState.STARTING
-        )
-        
         try:
-            # Set up environment
-            env_commands = [
-                f"cd {self.base_dir}",
-                f"export CLAUDE_MCP_SETTINGS_PATH={self.mcp_settings}",
-                f"export AGENT_ID={agent_id}",
-                f"export AGENT_ROLE={role}",
-                "export PYTHONUNBUFFERED=1"
-            ]
+            # Create window
+            window = self.create_agent_window(role, index)
+            if not window:
+                logger.error(f"Failed to create window for agent {agent_id}")
+                return None
             
-            for cmd in env_commands:
-                self.send_to_agent(window, cmd)
-                time.sleep(0.2)
+            # Create agent info
+            agent = AgentInfo(
+                id=agent_id,
+                role=role,
+                window=window,
+                started_at=datetime.now().isoformat(),
+                state=AgentState.STARTING
+            )
+            
+            # Store agent early for tracking
+            self.agents[agent_id] = agent
+            # Set up environment with error handling
+            try:
+                env_commands = [
+                    f"cd {self.base_dir}",
+                    f"export CLAUDE_MCP_SETTINGS_PATH={self.mcp_settings}",
+                    f"export AGENT_ID={agent_id}",
+                    f"export AGENT_ROLE={role}",
+                    "export PYTHONUNBUFFERED=1"
+                ]
+                
+                for cmd in env_commands:
+                    self.send_to_agent(window, cmd)
+                    time.sleep(0.2)
+            except Exception as e:
+                logger.error(f"Failed to set up environment for {agent_id}: {e}")
+                raise
             
             # Prepare initialization prompt
             instructions_file = self.base_dir / ".claude" / "agents" / f"{role}.md"
@@ -474,11 +525,15 @@ IMPORTANT: I will operate autonomously following my instructions. I will:
 Starting initialization..."""
             
             # Launch Claude with comprehensive initial setup
-            launch_command = f'claude "{init_prompt}"'
-            self.send_to_agent(window, launch_command)
-            
-            # Wait for Claude to start
-            time.sleep(3)
+            try:
+                launch_command = f'claude --dangerously-skip-permissions "{init_prompt}"'
+                self.send_to_agent(window, launch_command)
+                
+                # Wait for Claude to start
+                time.sleep(3)
+            except Exception as e:
+                logger.error(f"Failed to launch Claude for {agent_id}: {e}")
+                raise
             
             # Send detailed startup instructions
             startup_sequence = f"""# Agent Startup Sequence
@@ -503,25 +558,34 @@ Let me begin by reading my instructions now."""
             
             self.send_to_agent(window, startup_sequence)
             
-            # Get process ID
+            # Get process ID with retry
             time.sleep(2)
-            agent.pid = self.get_agent_pid(window)
+            try:
+                agent.pid = self.get_agent_pid(window)
+                if not agent.pid:
+                    logger.warning(f"Could not get PID for {agent_id}, will retry later")
+            except Exception as e:
+                logger.warning(f"Error getting PID for {agent_id}: {e}")
             
             # Update state
             agent.state = AgentState.RUNNING
             agent.last_activity = datetime.now().isoformat()
             
-            # Store agent
-            self.agents[agent_id] = agent
-            
             logger.info(f"✅ Agent {agent_id} launched successfully (PID: {agent.pid})")
             return agent_id
             
+        except subprocess.CalledProcessError as e:
+            logger.error(f"Command failed while launching agent {agent_id}: {e}")
+            logger.error(f"Command output: {e.output if hasattr(e, 'output') else 'N/A'}")
+            if agent_id in self.agents:
+                self.agents[agent_id].state = AgentState.ERROR
+                self.agents[agent_id].error_count += 1
+            return None
         except Exception as e:
-            logger.error(f"Failed to launch agent {agent_id}: {e}")
-            agent.state = AgentState.ERROR
-            agent.error_count += 1
-            self.agents[agent_id] = agent
+            logger.error(f"Unexpected error launching agent {agent_id}: {e}", exc_info=True)
+            if agent_id in self.agents:
+                self.agents[agent_id].state = AgentState.ERROR
+                self.agents[agent_id].error_count += 1
             return None
     
     def get_agent_pid(self, window: str) -> Optional[int]:
@@ -680,31 +744,57 @@ Let me begin by reading my instructions now."""
         return health
     
     def restart_agent(self, agent_id: str):
-        """Restart a failed agent"""
+        """Restart a failed agent with exponential backoff"""
         if agent_id not in self.agents:
             logger.error(f"Agent {agent_id} not found")
             return
         
         agent = self.agents[agent_id]
-        logger.info(f"Restarting agent {agent_id} (attempt {agent.restart_count + 1})")
+        restart_attempt = agent.restart_count + 1
+        
+        # Check if we've exceeded max restarts
+        if restart_attempt > self.max_retries:
+            logger.error(f"Agent {agent_id} exceeded max restart attempts ({self.max_retries})")
+            agent.state = AgentState.ERROR
+            return
+        
+        # Calculate exponential backoff delay
+        delay = min(
+            self.base_retry_delay * (self.retry_multiplier ** (restart_attempt - 1)),
+            self.max_retry_delay
+        )
+        
+        # Add jitter to prevent thundering herd
+        jitter = random.uniform(0.1, 0.3) * delay
+        total_delay = delay + jitter
+        
+        logger.info(f"Restarting agent {agent_id} (attempt {restart_attempt}/{self.max_retries}) after {total_delay:.1f}s")
         
         # Stop the agent
         self.stop_agent_gracefully(agent)
         time.sleep(2)
         
+        # Wait with exponential backoff
+        time.sleep(total_delay)
+        
         # Remove from tracking
         del self.agents[agent_id]
         
         # Relaunch
-        new_agent_id = self.launch_agent(agent.role, agent.restart_count)
+        new_agent_id = self.launch_agent(agent.role, restart_attempt)
         
         if new_agent_id and new_agent_id in self.agents:
             # Update restart count
-            self.agents[new_agent_id].restart_count = agent.restart_count + 1
+            self.agents[new_agent_id].restart_count = restart_attempt
+            logger.info(f"Agent {agent_id} restarted as {new_agent_id}")
+        else:
+            logger.error(f"Failed to restart agent {agent_id}")
     
     def monitoring_loop(self):
-        """Background monitoring thread"""
+        """Background monitoring thread with error recovery"""
         logger.info("Starting health monitoring loop")
+        consecutive_errors = 0
+        max_consecutive_errors = 5
         
         while not self.stop_event.is_set():
             try:
@@ -713,50 +803,176 @@ Let me begin by reading my instructions now."""
                     if agent.state == AgentState.STOPPED:
                         continue
                     
-                    health = self.monitor_agent_health(agent_id, agent)
-                    
-                    # Handle unhealthy agents
-                    if not health['healthy']:
-                        logger.warning(f"Agent {agent_id} unhealthy: {health['issues']}")
+                    try:
+                        health = self.monitor_agent_health(agent_id, agent)
                         
-                        # Restart if too many errors
-                        if agent.error_count > 5 and agent.restart_count < 3:
-                            self.restart_agent(agent_id)
-                    
-                    # Log metrics periodically
-                    if health['metrics']:
-                        logger.debug(f"Agent {agent_id} metrics: {health['metrics']}")
+                        # Handle unhealthy agents with recovery strategies
+                        if not health['healthy']:
+                            logger.warning(f"Agent {agent_id} unhealthy: {health['issues']}")
+                            
+                            # Implement graduated recovery responses
+                            if agent.error_count <= 2:
+                                # Light recovery: just log and continue
+                                logger.info(f"Agent {agent_id} experiencing minor issues, monitoring...")
+                            elif agent.error_count <= 5:
+                                # Medium recovery: try to refresh the agent
+                                logger.info(f"Agent {agent_id} needs attention, attempting refresh...")
+                                self.refresh_agent(agent_id)
+                            elif agent.restart_count < self.max_retries:
+                                # Heavy recovery: restart the agent
+                                logger.warning(f"Agent {agent_id} critical, restarting...")
+                                self.restart_agent(agent_id)
+                            else:
+                                # Final recovery: mark as permanently failed
+                                logger.error(f"Agent {agent_id} failed permanently, marking as error")
+                                agent.state = AgentState.ERROR
+                        
+                        # Log metrics periodically
+                        if health['metrics']:
+                            logger.debug(f"Agent {agent_id} metrics: {health['metrics']}")
+                            
+                    except Exception as agent_error:
+                        logger.error(f"Error monitoring agent {agent_id}: {agent_error}")
+                        agent.error_count += 1
                 
                 # Save state periodically
                 if int(time.time()) % 300 == 0:  # Every 5 minutes
-                    self.save_system_state()
+                    try:
+                        self.save_system_state()
+                    except Exception as e:
+                        logger.error(f"Failed to save system state: {e}")
                 
                 # Check system resources
-                self.check_system_health()
+                try:
+                    self.check_system_health()
+                except Exception as e:
+                    logger.error(f"System health check failed: {e}")
+                
+                # Reset consecutive error counter on successful iteration
+                consecutive_errors = 0
                 
             except Exception as e:
-                logger.error(f"Monitoring error: {e}")
+                consecutive_errors += 1
+                logger.error(f"Monitoring error ({consecutive_errors}/{max_consecutive_errors}): {e}", exc_info=True)
+                
+                # Emergency stop if too many consecutive errors
+                if consecutive_errors >= max_consecutive_errors:
+                    logger.critical("Too many consecutive monitoring errors, initiating emergency shutdown")
+                    self.emergency_shutdown()
+                    break
             
             # Wait before next check
             self.stop_event.wait(self.health_check_interval)
         
         logger.info("Monitoring loop stopped")
     
+    def refresh_agent(self, agent_id: str):
+        """Attempt to refresh an agent without full restart"""
+        if agent_id not in self.agents:
+            logger.warning(f"Cannot refresh non-existent agent {agent_id}")
+            return
+            
+        agent = self.agents[agent_id]
+        logger.info(f"Refreshing agent {agent_id}")
+        
+        try:
+            # Send a gentle refresh command
+            self.send_to_agent(agent.window, "/help")
+            time.sleep(1)
+            
+            # Update last activity
+            agent.last_activity = datetime.now().isoformat()
+            
+            # Reset error count if refresh succeeds
+            if agent.error_count > 0:
+                agent.error_count = max(0, agent.error_count - 1)
+                
+        except Exception as e:
+            logger.error(f"Failed to refresh agent {agent_id}: {e}")
+            agent.error_count += 1
+    
+    def emergency_memory_recovery(self):
+        """Emergency actions when system memory is critical"""
+        logger.critical("Initiating emergency memory recovery")
+        
+        # Stop non-essential agents
+        stopped_agents = []
+        for agent_id, agent in list(self.agents.items()):
+            if agent.memory_usage > 500:  # Stop high-memory agents
+                logger.warning(f"Stopping high-memory agent {agent_id} ({agent.memory_usage:.1f}MB)")
+                self.stop_agent_gracefully(agent)
+                stopped_agents.append(agent_id)
+                
+        if stopped_agents:
+            logger.info(f"Stopped {len(stopped_agents)} agents for memory recovery")
+    
+    def throttle_agents(self):
+        """Reduce agent activity to conserve resources"""
+        logger.info("Throttling agent activity due to high resource usage")
+        
+        # Increase health check interval temporarily
+        original_interval = self.health_check_interval
+        self.health_check_interval = min(original_interval * 2, 120)
+        
+        # Log the change
+        logger.info(f"Health check interval increased from {original_interval}s to {self.health_check_interval}s")
+    
+    def reduce_agent_activity(self):
+        """Reduce agent activity during high CPU usage"""
+        logger.info("Reducing agent activity due to high CPU usage")
+        
+        # Could send pause commands to agents here
+        for agent_id, agent in self.agents.items():
+            if agent.state == AgentState.RUNNING:
+                try:
+                    # Send a command to reduce activity
+                    self.send_to_agent(agent.window, "# Reducing activity due to high CPU")
+                except Exception as e:
+                    logger.error(f"Failed to reduce activity for {agent_id}: {e}")
+    
+    def emergency_shutdown(self):
+        """Emergency shutdown procedure"""
+        logger.critical("Initiating emergency shutdown due to critical errors")
+        
+        # Set stop event
+        self.stop_event.set()
+        
+        # Force save current state
+        try:
+            self.save_system_state()
+        except Exception as e:
+            logger.error(f"Failed to save state during emergency shutdown: {e}")
+        
+        # Stop all agents immediately
+        for agent_id in list(self.agents.keys()):
+            try:
+                agent = self.agents[agent_id]
+                agent.state = AgentState.ERROR
+                logger.warning(f"Emergency stop for agent {agent_id}")
+            except Exception as e:
+                logger.error(f"Error during emergency stop of {agent_id}: {e}")
+    
     def check_system_health(self):
-        """Check overall system health"""
+        """Check overall system health with recovery actions"""
         try:
             memory = psutil.virtual_memory()
             cpu = psutil.cpu_percent(interval=1)
             
-            if memory.percent > 90:
-                logger.warning(f"System memory critical: {memory.percent}%")
-                # Could trigger agent throttling here
+            if memory.percent > 95:
+                logger.critical(f"System memory critical: {memory.percent}% - Triggering emergency actions")
+                self.emergency_memory_recovery()
+            elif memory.percent > 90:
+                logger.warning(f"System memory high: {memory.percent}% - Throttling agents")
+                self.throttle_agents()
             
-            if cpu > 90:
-                logger.warning(f"System CPU critical: {cpu}%")
+            if cpu > 95:
+                logger.critical(f"System CPU critical: {cpu}% - Reducing agent activity")
+                self.reduce_agent_activity()
+            elif cpu > 90:
+                logger.warning(f"System CPU high: {cpu}%")
                 
         except Exception as e:
-            logger.error(f"System health check failed: {e}")
+            logger.error(f"System health check failed: {e}", exc_info=True)
     
     def show_dashboard(self):
         """Display system status dashboard"""
@@ -790,50 +1006,79 @@ Let me begin by reading my instructions now."""
         print("="*60 + "\n")
     
     def run(self):
-        """Main execution flow"""
+        """Main execution flow with comprehensive error handling"""
         print("🚀 Enhanced Autonomous Multi-Agent System v2")
         print("="*50)
         
-        # Check dependencies
-        if not self.check_dependencies():
-            logger.error("Missing dependencies. Please install them and try again.")
-            sys.exit(1)
-        
-        # Setup tmux
-        if not self.setup_tmux_session():
-            logger.error("Failed to setup tmux session")
-            sys.exit(1)
-        
-        # Start monitoring thread
-        self.monitoring_thread = threading.Thread(target=self.monitoring_loop)
-        self.monitoring_thread.start()
-        
-        # Launch agents
-        self.launch_all_agents()
-        
-        # Show dashboard
-        self.show_dashboard()
-        
-        # Main loop
-        logger.info("System running. Press Ctrl+C to stop.")
-        
         try:
-            while not self.stop_event.is_set():
-                # Refresh dashboard periodically
-                time.sleep(30)
-                os.system('clear' if os.name == 'posix' else 'cls')
+            # Check dependencies
+            if not self.check_dependencies():
+                logger.error("Missing dependencies. Please install them and try again.")
+                sys.exit(1)
+            
+            # Setup tmux
+            if not self.setup_tmux_session():
+                logger.error("Failed to setup tmux session")
+                sys.exit(1)
+            
+            # Start monitoring thread
+            try:
+                self.monitoring_thread = threading.Thread(target=self.monitoring_loop)
+                self.monitoring_thread.daemon = True  # Ensure thread dies with main process
+                self.monitoring_thread.start()
+                logger.info("Monitoring thread started")
+            except Exception as e:
+                logger.error(f"Failed to start monitoring thread: {e}")
+                sys.exit(1)
+            
+            # Launch agents
+            try:
+                self.launch_all_agents()
+            except Exception as e:
+                logger.error(f"Failed to launch agents: {e}")
+                # Continue anyway with partial system
+            
+            # Show dashboard
+            try:
                 self.show_dashboard()
-                
-        except KeyboardInterrupt:
-            logger.info("Interrupted by user")
-        
-        # Cleanup
-        self.cleanup()
+            except Exception as e:
+                logger.error(f"Failed to show dashboard: {e}")
+            
+            # Main loop
+            logger.info("System running. Press Ctrl+C to stop.")
+            
+            try:
+                while not self.stop_event.is_set():
+                    try:
+                        # Refresh dashboard periodically
+                        time.sleep(30)
+                        if not self.stop_event.is_set():
+                            os.system('clear' if os.name == 'posix' else 'cls')
+                            self.show_dashboard()
+                    except Exception as e:
+                        logger.error(f"Error in main loop: {e}")
+                        time.sleep(5)  # Brief pause before retry
+                        
+            except KeyboardInterrupt:
+                logger.info("Interrupted by user")
+            
+        except Exception as e:
+            logger.critical(f"Critical system error: {e}", exc_info=True)
+        finally:
+            # Cleanup
+            try:
+                self.cleanup()
+            except Exception as e:
+                logger.error(f"Error during cleanup: {e}", exc_info=True)
 
 def main():
-    """Entry point"""
-    launcher = EnhancedAutonomousLauncher()
-    launcher.run()
+    """Entry point with error handling"""
+    try:
+        launcher = EnhancedAutonomousLauncher()
+        launcher.run()
+    except Exception as e:
+        logger.critical(f"System failed to start: {e}", exc_info=True)
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

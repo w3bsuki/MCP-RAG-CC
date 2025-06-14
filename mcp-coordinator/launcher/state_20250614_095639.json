@@ -1,0 +1,94 @@
+{
+  "shutdown_time": "2025-06-14T09:56:38.443032",
+  "system_info": {
+    "uptime": "0:57:20",
+    "total_agents_launched": 7,
+    "successful_runs": 4,
+    "total_restarts": 0
+  },
+  "agents": {
+    "auditor-20250614-085917-0": {
+      "id": "auditor-20250614-085917-0",
+      "role": "auditor",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:59:17.448630",
+      "last_activity": "2025-06-14T08:59:29.272425",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.75390625,
+      "final_cpu": 0.0
+    },
+    "planner-20250614-085934-0": {
+      "id": "planner-20250614-085934-0",
+      "role": "planner",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:59:34.281305",
+      "last_activity": "2025-06-14T08:59:43.824704",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.3515625,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-085948-0": {
+      "id": "coder-20250614-085948-0",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:59:48.834132",
+      "last_activity": "",
+      "error_count": 1,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-085959-1": {
+      "id": "coder-20250614-085959-1",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T08:59:59.719081",
+      "last_activity": "",
+      "error_count": 1,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "coder-20250614-090008-2": {
+      "id": "coder-20250614-090008-2",
+      "role": "coder",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:00:08.250649",
+      "last_activity": "",
+      "error_count": 1,
+      "restart_count": 0,
+      "final_memory": 0.0,
+      "final_cpu": 0.0
+    },
+    "tester-20250614-090016-0": {
+      "id": "tester-20250614-090016-0",
+      "role": "tester",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:00:16.788755",
+      "last_activity": "2025-06-14T09:00:28.702178",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.19140625,
+      "final_cpu": 0.0
+    },
+    "reviewer-20250614-090033-0": {
+      "id": "reviewer-20250614-090033-0",
+      "role": "reviewer",
+      "state": "stopped",
+      "started_at": "2025-06-14T09:00:33.711148",
+      "last_activity": "2025-06-14T09:00:43.266384",
+      "error_count": 0,
+      "restart_count": 0,
+      "final_memory": 4.8046875,
+      "final_cpu": 0.0
+    }
+  },
+  "performance_stats": {
+    "total_memory_usage": 18.1015625,
+    "average_cpu_usage": 0.0,
+    "system_memory_available": 13795.265625,
+    "system_cpu_percent": 8.2
+  }
+}
