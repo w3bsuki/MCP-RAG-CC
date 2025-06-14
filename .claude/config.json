@@ -1,0 +1,72 @@
+{
+  "project": {
+    "name": "MCP+RAG+CC Autonomous System",
+    "description": "Multi-agent autonomous development system with MCP coordination",
+    "primary_language": "python",
+    "test_command": "pytest",
+    "lint_command": "ruff check .",
+    "format_command": "ruff format .",
+    "build_command": "python -m build"
+  },
+  "agents": {
+    "roles": {
+      "auditor": {
+        "description": "Continuously audits codebase for issues, improvements, and security",
+        "capabilities": ["code_analysis", "security_scanning", "best_practices", "performance"],
+        "schedule": "continuous",
+        "priority": "high"
+      },
+      "planner": {
+        "description": "Creates detailed implementation plans from audit findings",
+        "capabilities": ["architecture", "design_patterns", "task_breakdown", "estimation"],
+        "schedule": "on_demand",
+        "priority": "high"
+      },
+      "coder": {
+        "description": "Implements solutions based on plans",
+        "capabilities": ["implementation", "refactoring", "optimization", "debugging"],
+        "schedule": "on_demand",
+        "priority": "medium",
+        "max_instances": 3
+      },
+      "tester": {
+        "description": "Writes and updates tests for new code",
+        "capabilities": ["unit_testing", "integration_testing", "test_coverage", "mocking"],
+        "schedule": "on_demand",
+        "priority": "medium"
+      },
+      "reviewer": {
+        "description": "Reviews code changes and approves PRs",
+        "capabilities": ["code_review", "pr_approval", "standards_compliance", "documentation"],
+        "schedule": "on_demand",
+        "priority": "medium"
+      }
+    }
+  },
+  "automation": {
+    "audit_interval": 3600,
+    "auto_create_prs": true,
+    "require_tests": true,
+    "min_test_coverage": 80,
+    "auto_merge_approved": false,
+    "working_hours": {
+      "enabled": false,
+      "start": "09:00",
+      "end": "18:00",
+      "timezone": "UTC"
+    }
+  },
+  "git": {
+    "branch_prefix": "auto/",
+    "commit_prefix": "[AUTO]",
+    "pr_template": ".github/pull_request_template.md",
+    "protected_branches": ["main", "master", "develop"]
+  },
+  "quality": {
+    "max_file_length": 500,
+    "max_function_length": 50,
+    "max_complexity": 10,
+    "enforce_typing": true,
+    "require_docstrings": true
+  }
+}

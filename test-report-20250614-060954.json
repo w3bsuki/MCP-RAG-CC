@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-06-14T06:09:54.620239",
+  "summary": {
+    "total": 23,
+    "passed": 5,
+    "failed": 18,
+    "success_rate": 21.73913043478261
+  },
+  "results": [
+    {
+      "name": "Python Version Check",
+      "passed": true,
+      "message": "Python 3.12.3",
+      "duration": 2.86102294921875e-06,
+      "details": {}
+    },
+    {
+      "name": "MCP SDK (mcp)",
+      "passed": false,
+      "message": "Not installed",
+      "duration": 9.5367431640625e-05,
+      "details": {}
+    },
+    {
+      "name": "System monitoring (psutil)",
+      "passed": false,
+      "message": "Not installed",
+      "duration": 4.2438507080078125e-05,
+      "details": {}
+    },
+    {
+      "name": "Async support (asyncio)",
+      "passed": true,
+      "message": "Version: installed",
+      "duration": 1.6689300537109375e-06,
+      "details": {}
+    },
+    {
+      "name": "Command: tmux",
+      "passed": false,
+      "message": "Not found",
+      "duration": 0.0030808448791503906,
+      "details": {}
+    },
+    {
+      "name": "Command: git",
+      "passed": true,
+      "message": "Available",
+      "duration": 0.005032777786254883,
+      "details": {}
+    },
+    {
+      "name": "Command: claude",
+      "passed": true,
+      "message": "Available",
+      "duration": 0.4347646236419678,
+      "details": {}
+    },
+    {
+      "name": "MCP Server Startup",
+      "passed": false,
+      "message": "Failed: No module named 'mcp'",
+      "duration": 0.00012612342834472656,
+      "details": {}
+    },
+    {
+      "name": "Coordinator Initialization",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 7.367134094238281e-05,
+      "details": {}
+    },
+    {
+      "name": "State Persistence",
+      "passed": true,
+      "message": "State save/load working",
+      "duration": 0.0008287429809570312,
+      "details": {}
+    },
+    {
+      "name": "Invalid Task Handling",
+      "passed": false,
+      "message": "Setup failed: No module named 'mcp_coordinator'",
+      "duration": 9.489059448242188e-05,
+      "details": {}
+    },
+    {
+      "name": "Duplicate Finding Detection",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 5.2928924560546875e-05,
+      "details": {}
+    },
+    {
+      "name": "Task Retry Logic",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.506111145019531e-05,
+      "details": {}
+    },
+    {
+      "name": "Task Creation Performance",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.38690185546875e-05,
+      "details": {}
+    },
+    {
+      "name": "Memory Usage",
+      "passed": false,
+      "message": "Failed: No module named 'psutil'",
+      "duration": 5.054473876953125e-05,
+      "details": {}
+    },
+    {
+      "name": "Concurrent Task Creation",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 5.507469177246094e-05,
+      "details": {}
+    },
+    {
+      "name": "Concurrent Agent Registration",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.029273986816406e-05,
+      "details": {}
+    },
+    {
+      "name": "Agent Recovery",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.7206878662109375e-05,
+      "details": {}
+    },
+    {
+      "name": "State Recovery from Backup",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 0.00019502639770507812,
+      "details": {}
+    },
+    {
+      "name": "Empty Task Queue",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 5.269050598144531e-05,
+      "details": {}
+    },
+    {
+      "name": "Large Description Handling",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.601478576660156e-05,
+      "details": {}
+    },
+    {
+      "name": "Priority Queue Ordering",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.363059997558594e-05,
+      "details": {}
+    },
+    {
+      "name": "End-to-End Workflow",
+      "passed": false,
+      "message": "Failed: No module named 'mcp_coordinator'",
+      "duration": 4.863739013671875e-05,
+      "details": {}
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# MCP SDK for Model Context Protocol
+mcp>=0.1.0
+
+# System monitoring (required)
+psutil>=5.0.0
+
+# Async support
+asyncio
+
+# JSON handling (usually built-in)
+# json
+
+# For better logging
+colorlog>=6.0.0
+
+# Optional: for monitoring dashboard
+# flask>=2.0.0
+# flask-cors>=3.0.0
+# flask-socketio>=5.0.0

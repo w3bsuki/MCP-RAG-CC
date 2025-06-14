@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "mcp-coordinator": {
+      "command": "python",
+      "args": ["/home/w3bsuki/MCP+RAG+CC/mcp-coordinator/server.py"],
+      "env": {
+        "PYTHONPATH": "/home/w3bsuki/MCP+RAG+CC"
+      },
+      "schema": {
+        "description": "Autonomous multi-agent coordinator for Claude Code instances",
+        "tools": {
+          "register_agent": "Register a new agent with role and capabilities",
+          "get_next_task": "Get the next available task for an agent",
+          "update_task": "Update task status and results",
+          "submit_audit_finding": "Submit code audit findings",
+          "create_worktree": "Create isolated git worktree for agent work",
+          "get_project_context": "Get current project context and status",
+          "create_task": "Create a new task for agents"
+        }
+      }
+    }
+  }
+}
