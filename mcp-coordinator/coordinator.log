@@ -80,3 +80,7 @@
 2025-06-14 09:57:35,946 - mcp-coordinator-v2 - INFO - Audit finding submitted: Path Traversal in Git Worktree Path Construction (status: new)
 2025-06-14 09:57:35,947 - mcp-coordinator-v2 - INFO - Task created: 14a58167-9088-475c-b39f-b3d9cd7cd7f2 - Create implementation plan for: Unsafe JSON Deserialization in State Loading (priority: medium)
 2025-06-14 09:57:35,948 - mcp-coordinator-v2 - INFO - Audit finding submitted: Unsafe JSON Deserialization in State Loading (status: new)
+2025-06-14 10:02:19,153 - mcp-coordinator-v2 - INFO - State loaded successfully
+2025-06-14 10:02:19,154 - mcp-coordinator-v2 - INFO - Enhanced MCP Coordinator Server v2 starting...
+2025-06-14 10:02:19,154 - mcp-coordinator-v2 - INFO - Base directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC
+2025-06-14 10:02:19,154 - mcp-coordinator-v2 - INFO - Data directory: /home/w3bsuki/svelte-threadly-1/MCP-RAG-CC/mcp-coordinator
